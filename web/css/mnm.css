@@ -1,0 +1,2947 @@
+@charset "UTF-8";
+/*
+Description: Menéame CSS file
+Site URI: http://meneame.net
+Authors: Ricardo Galli, Benjamí Villoslada, Damián Vila, Aníbal De Castro
+Licence: Affero GPL License (http://meneame.net/COPYING)
+*/
+/* border of menealo box */
+/* line 18, ../../sass/mnm.scss */
+html * {
+  margin: 0;
+  padding: 0;
+}
+
+/* line 23, ../../sass/mnm.scss */
+body {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: small;
+  background-image: url("http://memocracia.com.local/img/common/bkg-01.png");
+  color: #000;
+  background-color: #fff;
+  margin: 0px;
+  padding: 0px;
+}
+
+/* line 33, ../../sass/mnm.scss */
+#ajaxinfo {
+  display: none;
+}
+
+/* line 37, ../../sass/mnm.scss */
+label {
+  color: #000;
+}
+
+/* line 41, ../../sass/mnm.scss */
+:focus {
+  outline: 0;
+}
+
+/* line 45, ../../sass/mnm.scss */
+select {
+  background: #FFF;
+  color: #000;
+}
+
+/* line 50, ../../sass/mnm.scss */
+legend {
+  font-weight: bold;
+  padding: 0 5px;
+}
+
+/* line 55, ../../sass/mnm.scss */
+legend a {
+  text-decoration: underline;
+}
+
+/* line 59, ../../sass/mnm.scss */
+legend, legend a, legend a:visited {
+  background: #000;
+  color: #fff;
+}
+
+/* line 64, ../../sass/mnm.scss */
+legend a:hover {
+  color: #888;
+}
+
+/* line 68, ../../sass/mnm.scss */
+input, textarea {
+  margin: 0 0 10px 0;
+  padding: 2px 2px;
+  background: #fff;
+  border: 1px solid #ddd;
+  color: #303030;
+}
+
+/* line 76, ../../sass/mnm.scss */
+.button, button, input[type="button"], input[type="submit"] {
+  border: none;
+  font-weight: bold;
+  margin: 4px 0 4px 0;
+  padding: 2px 4px 2px 4px;
+  background-color: #000;
+  color: #fff;
+}
+
+/* line 85, ../../sass/mnm.scss */
+.button:hover, button:hover, input[type="button"]:hover, input[type="submit"]:hover {
+  background-color: #FFB300;
+}
+
+/* line 89, ../../sass/mnm.scss */
+.button:disabled, button:disabled, input[type="button"]:disabled, input[type="submit"]:disabled {
+  background: #feefe5;
+}
+
+/* line 93, ../../sass/mnm.scss */
+fieldset {
+  border: none;
+  padding: 10px 10px;
+  margin: 10px 0;
+  background: #FFF1E2;
+}
+
+/* line 101, ../../sass/mnm.scss */
+label {
+  font-weight: bold;
+}
+
+/* line 105, ../../sass/mnm.scss */
+a {
+  text-decoration: none;
+  outline: none;
+  vertical-align: baseline;
+  color: #03a;
+}
+
+/* line 112, ../../sass/mnm.scss */
+a:hover, a:focus {
+  text-decoration: underline;
+  color: #000;
+}
+
+/* line 117, ../../sass/mnm.scss */
+a:active {
+  color: #000;
+}
+
+/* line 121, ../../sass/mnm.scss */
+a:visited {
+  color: #551a8b;
+}
+
+/* line 125, ../../sass/mnm.scss */
+input[disabled], input[readonly], select[disabled], select[readonly], checkbox[disabled], checkbox[readonly], textarea[disabled], textarea[readonly] {
+  color: #aaa;
+}
+
+/* line 130, ../../sass/mnm.scss */
+#map, .commentform.warn, .warn, .box, .searchbox, fieldset, label, .button, button {
+  border-radius: 3px;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+}
+
+/* line 136, ../../sass/mnm.scss */
+#header-top, .news-shakeit, .answers .counter, #notifier_panel {
+  font-family: 'Roboto', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+/* line 140, ../../sass/mnm.scss */
+#variable {
+  width: 100%;
+  min-width: 790px;
+  margin-top: 30px;
+}
+
+/* line 146, ../../sass/mnm.scss */
+#header {
+  width: 100%;
+}
+
+/* line 150, ../../sass/mnm.scss */
+#header-top {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 30px;
+  background-color: #3c3c3c;
+  overflow: hidden;
+  white-space: nowrap;
+  z-index: 10000;
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+}
+
+@media (min-height: 600px) {
+  /* line 166, ../../sass/mnm.scss */
+  #header-top {
+    position: fixed;
+  }
+}
+/* line 172, ../../sass/mnm.scss */
+#header-top .logo-mnm {
+  /* background: url('http://memocracia.com.local/img/mnm/logos-common.png') no-repeat 0 0; */
+  background-size: 110px 50px;
+  height: 16px;
+  width: 100px;
+  margin: 5px 0 0 8px;
+  float: left;
+  /* font: 0/0 serif; */
+  text-shadow: none;
+  /* color: transparent; */
+  color: white;
+  cursor: pointer;
+}
+
+/* line 188, ../../sass/mnm.scss */
+#header-top .logo-ed {
+  background: url("http://memocracia.com.local/img/mnm/h9_logo_ed.png") no-repeat left top;
+  background-size: 9px 16px;
+  height: 16px;
+  width: 9px;
+  margin-left: 20px;
+  margin-top: 7px;
+  margin-right: 15px;
+  float: left;
+}
+
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  /* line 199, ../../sass/mnm.scss */
+  #header-top .logo-ed {
+    background-image: url("http://memocracia.com.local/img/mnm/h9_logo_ed.svg");
+  }
+}
+/* line 202, ../../sass/mnm.scss */
+#header-top ul#edlist {
+  list-style-type: none;
+  margin: 2px 0 0 0;
+  padding: 0;
+  float: left;
+}
+
+/* line 209, ../../sass/mnm.scss */
+#header-top ul li {
+  font-size: 14px;
+  color: #fff;
+  position: relative;
+  float: left;
+  line-height: 140%;
+}
+
+/* line 217, ../../sass/mnm.scss */
+#header-top ul#edlist li a {
+  padding-top: 1px;
+  text-decoration: none;
+  height: 27px;
+  margin-right: 20px;
+  color: #fff;
+  display: inline-block;
+}
+
+/* line 226, ../../sass/mnm.scss */
+#header-top ul#edlist li.selected a {
+  white-space: nowrap;
+}
+
+/* line 230, ../../sass/mnm.scss */
+#header-top ul#edlist li a:hover {
+  color: #fff;
+}
+
+/* line 234, ../../sass/mnm.scss */
+#header-top ul#edlist li.selected a, #header-top ul#edlist li a:hover {
+  background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAADCAIAAADdv/LVAAAAFElEQVQI12P4//8/EwMDAxMDAwMAHgYDArjSWt4AAAAASUVORK5CYII=") bottom left repeat-x;
+}
+
+/* line 238, ../../sass/mnm.scss */
+#header-top ul#userinfo {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  float: right;
+}
+
+/* line 246, ../../sass/mnm.scss */
+#header-top ul#userinfo li {
+  position: relative;
+  float: left;
+}
+
+/* line 251, ../../sass/mnm.scss */
+#header-top ul#userinfo li a {
+  text-decoration: none;
+  color: #fff;
+}
+
+/* line 256, ../../sass/mnm.scss */
+#header-top ul#userinfo li a:hover {
+  color: #ff0000;
+}
+
+/* line 260, ../../sass/mnm.scss */
+#userinfo #avatar {
+  width: 30px;
+  height: 30px;
+}
+
+/* line 265, ../../sass/mnm.scss */
+#header-top .usertext {
+  font-size: 15px;
+  color: #fff;
+  margin-right: 10px;
+  margin-top: 4px;
+}
+
+/* line 272, ../../sass/mnm.scss */
+#header-top .userlogin {
+  background: url(http://memocracia.com.local/img/common/icons-common.png) no-repeat 10px -265px;
+  background-size: 20px 300px;
+  width: 40px;
+  height: 30px;
+  margin: 0;
+  font: 0/0 serif;
+  text-shadow: none;
+  color: transparent;
+  cursor: pointer;
+}
+
+/* line 284, ../../sass/mnm.scss */
+#header-sub {
+  position: relative;
+  height: 24px;
+  background-color: #ccc;
+  overflow: hidden;
+  white-space: nowrap;
+  font-size: 16px;
+  padding: 2px 10px;
+  color: #fff;
+}
+
+/* line 295, ../../sass/mnm.scss */
+#header-sub .favorite {
+  vertical-align: middle;
+}
+
+/* line 299, ../../sass/mnm.scss */
+#header-sub a {
+  color: #fff;
+}
+
+/* line 303, ../../sass/mnm.scss */
+#header-center {
+  height: 45px;
+  background-color: #ccc;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+/* line 310, ../../sass/mnm.scss */
+#header-center .logo-eli {
+  background: url("http://memocracia.com.local/img/mnm/h9_eli.png") no-repeat left top;
+  background-size: 39px 35px;
+  height: 35px;
+  width: 55px;
+  margin: 5px 0 0 20px;
+  float: left;
+  font: 0/0 serif;
+  text-shadow: none;
+  color: transparent;
+  cursor: pointer;
+}
+
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  /* line 324, ../../sass/mnm.scss */
+  #header-center .logo-eli {
+    background-image: url("http://memocracia.com.local/img/mnm/h9_eli.svg");
+  }
+}
+/* line 327, ../../sass/mnm.scss */
+#header-center .edname {
+  margin: 6px 0 0 20px;
+  padding: 0;
+  float: left;
+  font-size: 25px;
+  color: #fff;
+  position: relative;
+  float: left;
+}
+
+/* line 337, ../../sass/mnm.scss */
+.edname a {
+  color: #fff;
+}
+
+/* line 341, ../../sass/mnm.scss */
+.subname, .subname a:visited, .subname a:link {
+  font-family: 'Roboto', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  color: #fff !important;
+  background-color: #ccc;
+  font-variant: small-caps;
+  padding: 0 1px;
+}
+
+/* line 349, ../../sass/mnm.scss */
+.subname.big {
+  font-size: 110%;
+}
+
+/* line 353, ../../sass/mnm.scss */
+.searchform {
+  height: auto;
+  margin: 10px 10px 0 0;
+  position: relative;
+  float: right;
+}
+
+/* line 360, ../../sass/mnm.scss */
+.searchform .searchbox {
+  border: 0px;
+  width: 280px;
+  height: 24px;
+  font-size: 16px;
+  padding-top: 0px;
+  padding-left: 20px;
+  background: #fff url(http://memocracia.com.local/img/common/icons-common.png) no-repeat 0 -200px;
+  background-size: 20px 300px;
+}
+
+/* line 371, ../../sass/mnm.scss */
+.header-menu01 {
+  display: block;
+  height: 30px;
+  background-color: #ececec;
+  white-space: nowrap;
+  overflow: hidden;
+  font-size: 15px;
+  padding: 0 0 0 20px;
+}
+
+/* line 381, ../../sass/mnm.scss */
+.header-menu01 ul.menu01-itemsl {
+  list-style-type: none;
+  margin-top: 3px;
+  padding: 0;
+  float: left;
+}
+
+/* line 388, ../../sass/mnm.scss */
+.menu01-itemsl li {
+  margin-right: 20px;
+}
+
+/* line 392, ../../sass/mnm.scss */
+.header-menu01 ul li {
+  position: relative;
+  float: left;
+  line-height: 145%;
+}
+
+/* line 398, ../../sass/mnm.scss */
+.header-menu01 ul li a {
+  color: #000;
+  text-decoration: none;
+}
+
+/* line 403, ../../sass/mnm.scss */
+.header-menu01 ul.menu01-itemsr {
+  list-style-type: none;
+  margin-top: 3px;
+  padding: 0;
+  float: right;
+  display: block;
+}
+
+/* line 411, ../../sass/mnm.scss */
+.menu01-itemsr li {
+  margin: 0 10px;
+}
+
+/* line 415, ../../sass/mnm.scss */
+.header-menu01 ul li a {
+  display: inline-block;
+  padding-bottom: 5px;
+}
+
+/* line 420, ../../sass/mnm.scss */
+.header-menu01 .selected a {
+  white-space: nowrap;
+}
+
+/* line 424, ../../sass/mnm.scss */
+.header-menu01 ul li a:hover {
+  color: #000;
+}
+
+/* line 428, ../../sass/mnm.scss */
+.header-menu01 .selected a, .header-menu01 ul li a:hover {
+  background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAADCAIAAADdv/LVAAAAFElEQVQI12P4n8LAxMDAwMTAwAAADwEBaFtNWv8AAAAASUVORK5CYII=") repeat-x 100% 100%;
+}
+
+/* line 432, ../../sass/mnm.scss */
+#nav-menu {
+  display: inline;
+  color: #fff;
+  margin: 0 5px 0 5px;
+  padding: 0;
+  float: left;
+  cursor: pointer;
+  width: 10px;
+  height: 30px;
+  background: url(http://memocracia.com.local/img/common/icons-common.png) no-repeat 0px -225px;
+  background-size: 20px 300px;
+}
+
+/* line 445, ../../sass/mnm.scss */
+#nav-panel {
+  position: fixed;
+  display: none;
+  top: 30px;
+  left: 0px;
+  overflow: auto;
+  z-index: 10001;
+  width: auto;
+  height: auto;
+  white-space: normal;
+  margin-bottom: 0px;
+  padding: 0 25px 0 25px;
+  background-color: #3c3c3c;
+  box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.5);
+  -webkit-box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.5);
+}
+
+/* line 463, ../../sass/mnm.scss */
+#nav-panel .header-menu01 {
+  height: auto;
+  padding: 0;
+  margin: 0;
+  font-size: 16px;
+  background-color: #3c3c3c;
+}
+
+/* line 471, ../../sass/mnm.scss */
+#nav-panel ul {
+  margin-bottom: 10px;
+  display: block;
+  float: none;
+}
+
+/* line 477, ../../sass/mnm.scss */
+#nav-panel ul li {
+  float: none;
+  margin: 0;
+}
+
+/* line 482, ../../sass/mnm.scss */
+#nav-panel ul li a {
+  padding: 2px 0;
+  white-space: nowrap;
+  color: #fff;
+}
+
+/* line 488, ../../sass/mnm.scss */
+#nav-panel ul li.selected a, #nav-panel ul li a:hover {
+  background: none;
+  font-weight: bold;
+  display: block;
+}
+
+/* line 494, ../../sass/mnm.scss */
+#nav-panel .searchform {
+  float: none;
+  position: relative;
+  display: block;
+  margin: 10px 0 0 0;
+  height: auto;
+}
+
+/* line 502, ../../sass/mnm.scss */
+#nav-panel .searchform .searchbox {
+  width: 150px;
+}
+
+/* line 507, ../../sass/mnm.scss */
+#wrap {
+  padding-top: 2px;
+  min-width: 805px;
+  max-width: 1300px;
+  width: 99%;
+  text-align: left;
+  background-color: #fff;
+  margin: auto;
+  margin-top: 0;
+}
+
+/* line 518, ../../sass/mnm.scss */
+.banner-right {
+  width: 100%;
+  height: 252px;
+  margin: 5px 0 20px 0;
+}
+
+/* line 524, ../../sass/mnm.scss */
+#container {
+  clear: both;
+}
+
+/* line 528, ../../sass/mnm.scss */
+#sidebar {
+  float: right;
+  width: 300px;
+  margin: 0 2px 25px 10px;
+  overflow: hidden;
+  padding-top: 10px;
+}
+
+/* line 536, ../../sass/mnm.scss */
+#newswrap {
+  margin: 10px 316px 0 4px;
+}
+
+/* line 540, ../../sass/mnm.scss */
+#singlewrap {
+  margin: 0 10px 0 10px;
+}
+
+/* line 544, ../../sass/mnm.scss */
+#map {
+  overflow: hidden;
+}
+
+/* line 549, ../../sass/mnm.scss */
+#toplink {
+  position: relative;
+  background: #f9f9f9;
+  border: #ddd 1px solid;
+  padding: 5px 5px;
+  margin: 10px 0;
+  vertical-align: middle;
+  overflow: hidden;
+}
+
+/* line 559, ../../sass/mnm.scss */
+#toplink h1 {
+  line-height: 100%;
+  font-size: 140%;
+  font-weight: normal;
+  margin: 0;
+}
+
+/* line 566, ../../sass/mnm.scss */
+#toplink .thumbnail {
+  float: left;
+  margin-right: 8px;
+}
+
+/* line 571, ../../sass/mnm.scss */
+#toplink .thumbnail.medium {
+  width: 120px;
+  height: 120px;
+}
+
+/* line 576, ../../sass/mnm.scss */
+#toplink p {
+  color: #666;
+}
+
+/* line 580, ../../sass/mnm.scss */
+#toplink .footer, .topbox .footer {
+  display: block;
+  margin-top: 5px;
+  text-transform: capitalize;
+  font-variant: small-caps;
+  text-align: right;
+  color: #666;
+  text-decoration: underline;
+}
+
+/* line 590, ../../sass/mnm.scss */
+.topbox {
+  position: relative;
+  background: #f9f9f9;
+  border: #ddd 1px solid;
+  padding: 7px 5px 3px 5px;
+  margin: 0 0px 15px 0;
+  min-height: 32px;
+  vertical-align: middle;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+/* line 602, ../../sass/mnm.scss */
+.topbox .title {
+  margin-top: 5px;
+  text-transform: capitalize;
+  font-variant: small-caps;
+  text-align: right;
+  color: #aaa;
+  font-size: 120%;
+}
+
+/* line 611, ../../sass/mnm.scss */
+.topbox .footer {
+  text-decoration: none;
+}
+
+/* line 615, ../../sass/mnm.scss */
+.topbox.opinion {
+  background: #f9f9f9 url(http://memocracia.com.local/img/common/opinion_01.png) 99% 5px no-repeat;
+  padding-right: 40px;
+}
+
+/* line 620, ../../sass/mnm.scss */
+.mini-icon-text {
+  vertical-align: middle;
+}
+
+/* line 624, ../../sass/mnm.scss */
+.subheader {
+  width: auto;
+  height: 30px;
+  padding-left: 25px;
+  list-style-type: none;
+}
+
+/* line 631, ../../sass/mnm.scss */
+.subheader:after {
+  content: ".";
+  display: block;
+  height: 0;
+  clear: left;
+  visibility: hidden;
+}
+
+/* line 639, ../../sass/mnm.scss */
+.subheader li {
+  margin-right: 25px;
+  margin-top: 2px;
+  float: left;
+}
+
+/* line 645, ../../sass/mnm.scss */
+.subheader li a {
+  font-size: 15px;
+  color: #3c3c3c;
+  text-decoration: none;
+}
+
+/* line 651, ../../sass/mnm.scss */
+.subheader li.selected a {
+  padding-bottom: 5px;
+  white-space: nowrap;
+}
+
+/* line 656, ../../sass/mnm.scss */
+.subheader li a:hover {
+  color: #3c3c3c;
+  padding-bottom: 5px;
+}
+
+/* line 661, ../../sass/mnm.scss */
+.subheader li.selected a, .subheader li a:hover {
+  background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAADCAIAAADdv/LVAAAAFElEQVQI12OwsbFhYmBgYGJgYAAABywAuecLb78AAAAASUVORK5CYII=") bottom left repeat-x;
+}
+
+/* line 665, ../../sass/mnm.scss */
+.subheader li.icon {
+  margin-top: 4px;
+}
+
+/* line 669, ../../sass/mnm.scss */
+.subheader li.icon-right {
+  float: right;
+  background-color: #F9F9F9;
+  border-color: #F9F9F9;
+  margin-left: 0px;
+  margin-right: 10px;
+  padding-left: 0px;
+  padding-right: 0px;
+  color: #000;
+  font-weight: bold;
+}
+
+/* line 681, ../../sass/mnm.scss */
+.toggler img {
+  margin: 0px 0px 2px 2px !important;
+  vertical-align: middle;
+}
+
+/* line 686, ../../sass/mnm.scss */
+.sidebox {
+  margin-bottom: 25px;
+  padding: 4px;
+  border: 1px solid #dadada;
+}
+
+/* line 692, ../../sass/mnm.scss */
+.sidebox.message, .sidebox.message a:visited, .sidebox.message a:link {
+  color: #fff !important;
+  background-color: #ccc;
+  margin-bottom: 4px;
+  font-size: 110%;
+}
+
+/* line 699, ../../sass/mnm.scss */
+.sidebox .header {
+  background-color: #aaa;
+  margin: 0 1px;
+  font-size: 14px;
+}
+
+/* line 705, ../../sass/mnm.scss */
+.sidebox.red .header {
+  background-color: #9e0016;
+}
+
+/* line 709, ../../sass/mnm.scss */
+.sidebox.brown .header {
+  background: #A84504;
+}
+
+/* line 713, ../../sass/mnm.scss */
+.sidebox h4 {
+  position: relative;
+  margin: 0 0 10px;
+  padding: 1px;
+  font-weight: normal;
+  text-align: center;
+}
+
+/* line 721, ../../sass/mnm.scss */
+.sidebox h4 a, .sidebox h4 span {
+  display: block;
+  padding: 5px;
+  color: #FFF;
+  text-decoration: none;
+  border: 1px solid #FFF;
+}
+
+/* line 729, ../../sass/mnm.scss */
+.sidebox h5 {
+  padding: 0px;
+  margin: 0 2px 0 50px;
+  font-size: 90%;
+  font-weight: normal;
+  color: #03F;
+}
+
+/* line 737, ../../sass/mnm.scss */
+.sidebox h5 a {
+  text-decoration: none;
+}
+
+/* line 741, ../../sass/mnm.scss */
+.sidebox > div {
+  margin-right: 0px;
+  padding-bottom: 6px;
+}
+
+/* line 746, ../../sass/mnm.scss */
+.sidebox .cell {
+  margin: 5px 0;
+  min-height: 35px;
+  clear: both;
+}
+
+/* line 752, ../../sass/mnm.scss */
+.sidebox .thumbnail {
+  margin: 0px 0px 10px 10px;
+}
+
+/* line 756, ../../sass/mnm.scss */
+.sidebox img.thumbnail {
+  width: 30px;
+  height: 30px;
+}
+
+/* line 763, ../../sass/mnm.scss */
+.sidebox .votes, .sidebox .clics {
+  float: left;
+  width: 40px;
+  text-align: center;
+  border: 1px solid #ffeed6;
+  text-align: center;
+  font-size: 12px;
+  color: #000;
+  background-color: #FFE1B6;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+}
+
+/* line 777, ../../sass/mnm.scss */
+.sidebox .clics {
+  font-size: 10px;
+}
+
+/* line 781, ../../sass/mnm.scss */
+.sidebox .votes span, .sidebox .clics span {
+  display: block;
+  padding: 5px 0;
+  border: 1px solid #FFF;
+  background-clip: padding-box;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+}
+
+/* line 791, ../../sass/mnm.scss */
+.sidebox .votes.queued {
+  background-image: none;
+  border-color: #000;
+}
+
+/* line 796, ../../sass/mnm.scss */
+.sidebox .mainsites ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 6px 0 0 0;
+}
+
+/* line 802, ../../sass/mnm.scss */
+.sidebox .mainsites ul li {
+  font-size: 0.87em;
+  font-weight: bold;
+  color: #333333;
+  display: block;
+  padding: 6px 0 6px 8px;
+}
+
+/* line 810, ../../sass/mnm.scss */
+.sidebox .tagcloud {
+  color: #039;
+  margin: 0px;
+  text-align: center;
+}
+
+/* line 816, ../../sass/mnm.scss */
+.sidebox .comments {
+  margin: 0 2px;
+}
+
+/* line 820, ../../sass/mnm.scss */
+.sidebox img.avatar {
+  width: 20px;
+  height: 20px;
+}
+
+/* line 825, ../../sass/mnm.scss */
+.sidebox .comments ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+/* line 830, ../../sass/mnm.scss */
+.sidebox .comments li {
+  clear: left;
+  display: block;
+  font-size: 90%;
+  color: #039;
+  margin: 0 0 10px 0;
+}
+
+/* line 838, ../../sass/mnm.scss */
+.sidebox .comments li img {
+  float: left;
+  margin: 3px 0 8px 0;
+}
+
+/* line 843, ../../sass/mnm.scss */
+.sidebox .comments li p {
+  margin-left: 28px;
+}
+
+/* line 847, ../../sass/mnm.scss */
+.sidebox .rss {
+  list-style-type: none;
+  padding: 0;
+}
+
+/* line 852, ../../sass/mnm.scss */
+.sidebox .rss li {
+  font-size: 90%;
+  color: #039;
+  display: block;
+  padding-left: 24px;
+  background: url(http://memocracia.com.local/img/common/h9_rss.png) no-repeat 4px 0px;
+  margin: 10px 0 10px 0px;
+}
+
+/* line 861, ../../sass/mnm.scss */
+#footwrap {
+  margin: 5em 40px 0 40px;
+}
+
+/* line 865, ../../sass/mnm.scss */
+#footcol1, #footcol2, #footcol3, #footcol4, #footcol5 {
+  float: left;
+  padding: 0 22px;
+  border-left: solid 1px #CCCCCC;
+  font-size: 85%;
+  margin-bottom: 20px;
+}
+
+/* line 873, ../../sass/mnm.scss */
+#footcol1 ul, #footcol2 ul, #footcol3 ul, #footcol4 ul, #footcol5 ul {
+  padding-bottom: .5em;
+}
+
+/* line 878, ../../sass/mnm.scss */
+#footcol1 li, #footcol2 li, #footcol3 li, #footcol4 li, #footcol5 li {
+  list-style-type: none;
+}
+
+/* line 882, ../../sass/mnm.scss */
+#footcol1 {
+  width: 20%;
+  background: url("http://memocracia.com.local/img/common/rss-bigfoot.png") no-repeat 85% bottom;
+  border-left: none;
+}
+
+/* line 888, ../../sass/mnm.scss */
+#footcol2 {
+  width: 12%;
+}
+
+/* line 892, ../../sass/mnm.scss */
+#footcol3 {
+  width: 13%;
+}
+
+/* line 896, ../../sass/mnm.scss */
+#footcol4 {
+  width: 13%;
+}
+
+/* line 900, ../../sass/mnm.scss */
+#footcol5 {
+  width: 9%;
+}
+
+/* line 904, ../../sass/mnm.scss */
+#footcol1 h5, #footcol2 h5, #footcol3 h5, #footcol4 h5, #footcol5 h5 {
+  font-size: 120%;
+  font-weight: bold;
+  color: #000;
+  margin-bottom: 4px;
+}
+
+/* line 911, ../../sass/mnm.scss */
+#footcol1 a, #footcol2 a, #footcol3 a, #footcol4 a, #footcol5 a {
+  color: #5073c5;
+}
+
+/* line 915, ../../sass/mnm.scss */
+#footthingy {
+  clear: both;
+  margin: 50px 20px 10px 13px;
+  padding: 0 1em 0 0;
+  background-size: 110px 50px;
+  position: relative;
+  overflow: auto;
+}
+
+/* line 925, ../../sass/mnm.scss */
+#footthingy li {
+  display: inline;
+  list-style-type: none;
+  font-size: 85%;
+  color: #999;
+}
+
+/* line 932, ../../sass/mnm.scss */
+#footthingy li a {
+  color: #999;
+}
+
+/* line 936, ../../sass/mnm.scss */
+#footthingy p {
+  border-bottom: 1px solid;
+  padding-bottom: 0px;
+  text-indent: -9999px;
+  border-color: #333;
+  background: none;
+}
+
+/* line 944, ../../sass/mnm.scss */
+#legalese {
+  text-align: center;
+  float: left;
+  display: inline-block;
+  width: 84%;
+  margin-top: 2px;
+}
+
+/* line 952, ../../sass/mnm.scss */
+#legalese li {
+  border-left: none;
+  padding: 0 0 0 0;
+}
+
+/* line 957, ../../sass/mnm.scss */
+#stdcompliance {
+  padding: 4px 0 0 0;
+  text-align: right;
+  float: right;
+  display: inline-block;
+  width: 16%;
+  margin: 0px;
+}
+
+/* line 966, ../../sass/mnm.scss */
+#stdcompliance li {
+  margin: 0px;
+}
+
+/*** LEGACY STYLES ***/
+/* references in comments and posts */
+/* line 973, ../../sass/mnm.scss */
+dl.categorylist {
+  float: left;
+}
+
+/* line 977, ../../sass/mnm.scss */
+dl.categorylist dt label {
+  margin-left: 20px;
+  float: none;
+  width: auto;
+  text-align: left;
+  font-size: 110%;
+  font-weight: bold;
+  color: #000;
+}
+
+/* line 987, ../../sass/mnm.scss */
+dl.categorylist dd label {
+  margin-left: 35px;
+  font-size: 85%;
+  color: #ff9400;
+}
+
+/* line 993, ../../sass/mnm.scss */
+dl.categorylist input {
+  margin-right: 7px;
+  margin-bottom: 5px;
+}
+
+/* line 998, ../../sass/mnm.scss */
+.thumbnail {
+  overflow: hidden;
+  float: right;
+  margin: 3px 3px 3px 5px;
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0.8);
+  -moz-box-shadow: 0 0 1px rgba(0, 0, 0, 0.8);
+  -webkit-box-shadow: 0 0 1px rgba(0, 0, 0, 0.8);
+}
+
+/* line 1007, ../../sass/mnm.scss */
+.news-submitted img {
+  float: left;
+  width: 25px;
+  height: 25px;
+  margin-right: 4px;
+  vertical-align: bottom;
+}
+
+/* line 1015, ../../sass/mnm.scss */
+abbr {
+  cursor: help;
+}
+
+/* line 1017, ../../sass/mnm.scss */
+img {
+  border: none;
+}
+
+/* line 1021, ../../sass/mnm.scss */
+.shadowed, .avatar.big {
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.4);
+  -moz-box-shadow: 0 0 3px rgba(0, 0, 0, 0.4);
+  -webkit-box-shadow: 0 0 3px rgba(0, 0, 0, 0.4);
+}
+
+/* line 1027, ../../sass/mnm.scss */
+.avatar, .news-submitted img {
+  border: 1px solid #ccc;
+  -moz-border-radius: 50%;
+  -webkit-border-radius: 50%;
+  border-radius: 50%;
+}
+
+/* line 1034, ../../sass/mnm.scss */
+.avatar.big {
+  -moz-border-radius: 0px;
+  -webkit-border-radius: 0px;
+  border-radius: 0px;
+}
+
+/* line 1040, ../../sass/mnm.scss */
+.shadow-red {
+  box-shadow: 0 0 6px rgba(255, 0, 0, 0.9);
+  -moz-box-shadow: 0 0 6px rgba(255, 0, 0, 0.9);
+  -webkit-box-shadow: 0 0 6px rgba(255, 0, 0, 0.9);
+}
+
+/* line 1046, ../../sass/mnm.scss */
+.shadow-green {
+  box-shadow: 0 0 4px rgba(0, 255, 0, 0.8);
+  -moz-box-shadow: 0 0 4px rgba(0, 255, 0, 0.8);
+  -webkit-box-shadow: 0 0 4px rgba(0, 163, 131, 0.8);
+}
+
+/* line 1052, ../../sass/mnm.scss */
+.tooltip {
+  cursor: pointer;
+}
+
+/* line 1056, ../../sass/mnm.scss */
+.tt {
+  cursor: pointer;
+  text-decoration: underline;
+  color: #C85000;
+}
+
+/* line 1062, ../../sass/mnm.scss */
+hr {
+  height: 1px;
+  border: none;
+}
+
+/* line 1067, ../../sass/mnm.scss */
+h2 {
+  margin-top: 0;
+  margin-bottom: 8px;
+  font-size: 160%;
+  font-weight: bold;
+  color: #000;
+}
+
+/* line 1075, ../../sass/mnm.scss */
+.topheading h2 {
+  padding: 10px 0 20px 0;
+  margin: 0 0 0 20px;
+  font-size: 160%;
+  font-weight: normal;
+  border: none;
+}
+
+/* line 1083, ../../sass/mnm.scss */
+h3 {
+  margin-top: 0;
+  margin-bottom: 3px;
+  font-size: 140%;
+  font-weight: normal;
+  color: #000;
+}
+
+/* line 1091, ../../sass/mnm.scss */
+h4 {
+  font-size: 100%;
+  font-weight: bold;
+  margin: 5px 0 3px 0;
+}
+
+/* line 1097, ../../sass/mnm.scss */
+table.keyvalue tr {
+  border-bottom: 1px solid;
+  padding: 5px 0 2px 0;
+}
+
+/* line 1102, ../../sass/mnm.scss */
+table.keyvalue th {
+  text-align: right;
+  padding-right: 4px;
+  vertical-align: top;
+  white-space: nowrap;
+}
+
+/* line 1109, ../../sass/mnm.scss */
+table.keyvalue td {
+  padding-left: 4px;
+}
+
+/* line 1113, ../../sass/mnm.scss */
+table.keyvalue td img {
+  vertical-align: text-bottom;
+}
+
+/* line 1117, ../../sass/mnm.scss */
+table.decorated {
+  border-collapse: collapse;
+  width: 100%;
+  margin-bottom: 16px;
+}
+
+/* line 1123, ../../sass/mnm.scss */
+table.decorated th, table.decorated td {
+  text-align: left;
+  font-size: 12px;
+  padding: 6px;
+  border-bottom: 1px solid;
+}
+
+/* line 1130, ../../sass/mnm.scss */
+tr:hover td, table.keyvalue tr:hover th {
+  background: #fafafa;
+}
+
+/* line 1134, ../../sass/mnm.scss */
+th, td, table.decorated th, table.decorated td {
+  border-bottom-color: #ddd;
+}
+
+/* line 1138, ../../sass/mnm.scss */
+th.short, td.short {
+  text-align: center;
+}
+
+/* line 1142, ../../sass/mnm.scss */
+th.short a, td.short a {
+  text-decoration: none;
+  display: block;
+  padding: 3px 0;
+  border: 1px solid;
+  border-color: #FFF;
+}
+
+/* line 1150, ../../sass/mnm.scss */
+th.short a:hover, td.short a:hover {
+  text-decoration: underline;
+  border: 1px solid;
+  background: #FFF;
+  border-color: #000;
+}
+
+/* line 1157, ../../sass/mnm.scss */
+th a.info, th a:hover.info {
+  padding: 0 12px 0 0;
+  display: inline;
+  border: none;
+}
+
+/* line 1163, ../../sass/mnm.scss */
+th img {
+  border: none;
+  margin-right: 1px;
+  vertical-align: middle;
+}
+
+/* line 1169, ../../sass/mnm.scss */
+th span.info_s {
+  padding: 0 12px 0 0;
+  font-size: 120%;
+  text-decoration: none;
+  border: none;
+  color: #a00;
+}
+
+/* line 1177, ../../sass/mnm.scss */
+td.count {
+  font-size: 140%;
+  text-align: right;
+}
+
+/* line 1182, ../../sass/mnm.scss */
+.news-summary .warn {
+  position: relative;
+  padding: 5px 10px 5px 25px;
+  margin: 0px 0 5px 0;
+  font-size: 85%;
+  background: #FEFBEA url(http://memocracia.com.local/img/common/error_s.png) 5px 50% no-repeat;
+  background-size: 16px 16px;
+}
+
+/* line 1191, ../../sass/mnm.scss */
+.sidebox .warn {
+  padding-left: 20px;
+  background: url(http://memocracia.com.local/img/common/error_s.png) no-repeat left center;
+  background-size: 16px 16px;
+}
+
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  /* line 1198, ../../sass/mnm.scss */
+  .news-summary .warn, .sidebox .warn {
+    background-image: url("http://memocracia.com.local/img/common/error_s-2x.png");
+  }
+}
+/* line 1201, ../../sass/mnm.scss */
+.comments-counter .counter {
+  text-decoration: none;
+  padding: 1px 4px;
+  font-weight: bold;
+  text-align: center;
+  -moz-border-radius: 50%;
+  -webkit-border-radius: 50%;
+  border-radius: 50%;
+  color: white;
+}
+
+/* line 1212, ../../sass/mnm.scss */
+.error {
+  font-weight: bold;
+  font-size: 120%;
+  margin: 5px 0 0 0;
+  padding: 25px 0 0 0;
+  color: #000;
+  background: url(http://memocracia.com.local/img/common/error.png) no-repeat;
+  background-size: 24px 24px;
+}
+
+/* line 1222, ../../sass/mnm.scss */
+.error-text {
+  font-size: 100%;
+  color: #FF9400;
+}
+
+/* line 1227, ../../sass/mnm.scss */
+.form-error, .form-error-submit {
+  font-size: 110%;
+  font-weight: bold;
+  margin: 20px 0 10px 20px;
+  padding: 5px 0 10px 30px;
+  color: #FF5900;
+  background: url(http://memocracia.com.local/img/common/error.png) 0 50% no-repeat;
+  background-size: 24px 24px;
+}
+
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  /* line 1238, ../../sass/mnm.scss */
+  .error, .form-error, .form-error-submit {
+    background-image: url("http://memocracia.com.local/img/common/error-2x.png");
+  }
+}
+/* line 1241, ../../sass/mnm.scss */
+.form-error-submit {
+  padding: 10px;
+  margin: 15px 0 0 0;
+  border: 1px solid;
+  background: #ccc;
+  border-color: #000;
+}
+
+/* line 1249, ../../sass/mnm.scss */
+.form-full {
+  width: 100%;
+  font-size: 16px;
+}
+
+/* line 1254, ../../sass/mnm.scss */
+.instruction-list {
+  margin: 0;
+  padding: 0;
+}
+
+/* line 1259, ../../sass/mnm.scss */
+.instruction-list li {
+  list-style: none;
+  margin: 0;
+  padding: 5px 0 5px 25px;
+}
+
+/* line 1265, ../../sass/mnm.scss */
+.news-summary {
+  margin: 0;
+  padding: 10px 0 10px 0;
+  position: relative;
+}
+
+/* line 1271, ../../sass/mnm.scss */
+.news-body {
+  padding-left: 95px;
+  padding-right: 5px;
+  overflow: hidden;
+}
+
+/* line 1277, ../../sass/mnm.scss */
+.news-details {
+  display: block;
+  padding: 0;
+  margin-top: 4px;
+  overflow: hidden;
+  white-space: nowrap;
+  color: #666;
+}
+
+/* line 1286, ../../sass/mnm.scss */
+.news-details.main {
+  line-height: 120%;
+  margin-top: 6px;
+}
+
+/* line 1291, ../../sass/mnm.scss */
+.news-details a:link, .news-details a:visited, .news-tags, .news-tags a:link, .news-tags a:visited {
+  color: #666;
+}
+
+/* line 1295, ../../sass/mnm.scss */
+.news-details form {
+  display: inline;
+  margin-left: 10px;
+  padding: 0;
+  overflow: hidden;
+}
+
+/* line 1302, ../../sass/mnm.scss */
+.news-details select {
+  border: 0;
+  letter-spacing: 0px;
+  vertical-align: top;
+  max-width: 6em;
+}
+
+/* line 1309, ../../sass/mnm.scss */
+.news-details .tool {
+  display: inline;
+  border-left: 1px solid;
+  padding: 0 4px 0 6px;
+  border-left-color: #666;
+}
+
+/* line 1316, ../../sass/mnm.scss */
+.news-details .comments-counter {
+  padding: 0 6px 0 0;
+  border-left: none;
+  font-size: 120%;
+}
+
+/* line 1322, ../../sass/mnm.scss */
+.comments-counter .counter {
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+  background-color: #000;
+  font-size: 9pt;
+}
+
+/* line 1330, ../../sass/mnm.scss */
+.news-details .comments-counter a:link, .news-details .comments-counter a:visited {
+  color: #03a;
+}
+
+/* line 1334, ../../sass/mnm.scss */
+.comments-counter a .counter {
+  display: inline-block;
+  line-height: 120%;
+  margin-right: 0.25em;
+}
+
+/* line 1340, ../../sass/mnm.scss */
+.comments-counter a:hover .counter {
+  text-decoration: none;
+}
+
+/* line 1345, ../../sass/mnm.scss */
+.news-shakeit {
+  position: absolute;
+  top: 10px;
+  left: 8px;
+  width: 67px;
+  height: 85px;
+  border: 1px solid #ffeed6;
+  font-size: 12px;
+  color: #000;
+  text-align: center;
+  background-clip: padding-box;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+}
+
+/* line 1361, ../../sass/mnm.scss */
+.news-shakeit .votes, .news-shakeit .clics {
+  background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAABbCAIAAAA9YnhPAAAAAXNSR0IArs4c6QAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAALEwAACxMBAJqcGAAAAAd0SU1FB9wKHBIbEFJ0KpIAAAA7SURBVBjTtY87CgAhFAOH3P+u1jZvbBbWSkGxCiQhH9QAobeAwQoa+ND6+WP9Imv27fRlTz38t9tMgAGM9ZDiUJW8zgAAAABJRU5ErkJggg==");
+}
+
+/* line 1365, ../../sass/mnm.scss */
+.news-shakeit .votes {
+  padding: 6px 0 6px;
+  border: 1px solid #FFF;
+  border-bottom: 0;
+  line-height: 1.2em;
+  background-repeat: repeat-x;
+  background-position: 0 -2px;
+  background-clip: padding-box;
+  -moz-border-radius: 4px 4px 0 0;
+  border-radius: 4px 4px 0 0;
+}
+
+/* line 1376, ../../sass/mnm.scss */
+.news-shakeit .votes a {
+  display: block;
+  color: #000;
+  font-size: 18px;
+  text-decoration: none;
+}
+
+/* line 1383, ../../sass/mnm.scss */
+.menealo {
+  position: relative;
+  left: -6px;
+  display: inline-block;
+  width: 78px;
+  border: 1px solid #000;
+  background-color: #000;
+}
+
+/* line 1392, ../../sass/mnm.scss */
+.menealo:hover {
+  border: 1px solid #000;
+}
+
+/* line 1396, ../../sass/mnm.scss */
+.menealo a, .menealo span {
+  display: block;
+  padding: 2px 0;
+  height: 18px;
+  color: #FFF;
+  text-decoration: none;
+  border: 1px solid #FFF;
+}
+
+/* line 1405, ../../sass/mnm.scss */
+.menealo span {
+  background-image: none;
+  border: 1px solid #ff6300;
+  border-bottom: 1px solid #ff914a;
+  background: #FFF url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAAaCAIAAAD5ZqGGAAAAAXNSR0IArs4c6QAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAALEwAACxMBAJqcGAAAAAd0SU1FB9wKHBEpOxH+OfoAAAAvSURBVAjXjYixDQAgDMOsHMh1XJu2KkvFwMRgyTa9l8gQZZEW9Xh6ev59IRrBFwej9x6Vx7fq1wAAAABJRU5ErkJggg==") repeat-x bottom left;
+}
+
+/* line 1412, ../../sass/mnm.scss */
+.menealo span.negative {
+  color: #ccc;
+  font-size: 11px;
+}
+
+/* line 1417, ../../sass/mnm.scss */
+.news-shakeit .clics {
+  padding: 1px 0 2px 0;
+  border: 1px solid #FFF;
+  border-top: 0;
+  font-size: 10px;
+  background-repeat: repeat-x;
+  background-position: bottom;
+  background-clip: padding-box;
+  -moz-border-radius: 0 0 4px 4px;
+  border-radius: 0 0 4px 4px;
+}
+
+/* line 1429, ../../sass/mnm.scss */
+.news-shakeit.mnm-queued {
+  border: none;
+}
+
+/* line 1433, ../../sass/mnm.scss */
+.news-shakeit.mnm-subpublished .clics {
+  background-image: none;
+}
+
+/* line 1437, ../../sass/mnm.scss */
+.news-shakeit.mnm-queued .votes, .news-shakeit.mnm-queued .clics {
+  border-color: #000;
+  background-image: none;
+}
+
+/* line 1442, ../../sass/mnm.scss */
+.news-shakeit.mnm-discarded {
+  color: #808080;
+  border-color: #dfdfdf;
+}
+
+/* line 1447, ../../sass/mnm.scss */
+.news-shakeit.mnm-discarded .votes a {
+  color: #808080;
+}
+
+/* line 1451, ../../sass/mnm.scss */
+.news-shakeit.mnm-discarded .votes, .news-shakeit.mnm-discarded .clics {
+  background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAABbCAYAAACyAO8YAAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAA59AAAOfQGd6VlXAAAAB3RJTUUH3AocDzAgFiPXdAAAACVJREFUGNNj+PPnz3+m////M0AIBgYGDNYASAxFkwfKSkZGRgYAWXimCfMnmFcAAAAASUVORK5CYII=");
+}
+
+/* line 1455, ../../sass/mnm.scss */
+.bar .menealo a, .bar .menealo span {
+  font-size: 13px;
+  padding-bottom: 3px;
+  text-align: center;
+}
+
+/* line 1461, ../../sass/mnm.scss */
+.bar .mnm-published, .bar .mnm-queued, .bar .mnm-discarded {
+  padding: 4px 5px;
+  color: #000;
+}
+
+/* line 1466, ../../sass/mnm.scss */
+.bar .mnm-published {
+  background-color: #000;
+}
+
+/* line 1470, ../../sass/mnm.scss */
+.bar .mnm-queued {
+  background-color: #fff;
+}
+
+/* line 1474, ../../sass/mnm.scss */
+.bar .mnm-discarded {
+  background-color: #fff;
+  color: #808080;
+}
+
+/* line 1479, ../../sass/mnm.scss */
+.news-body h1, .news-body h2 {
+  margin: 0;
+  padding: 0 5px 0 0;
+  font-size: 140%;
+  font-weight: normal;
+  background: none;
+  border: none;
+}
+
+/* line 1488, ../../sass/mnm.scss */
+.news-body img.thumbnail {
+  width: 60px;
+  height: 60px;
+}
+
+/* line 1493, ../../sass/mnm.scss */
+.news-submitted {
+  font-size: 85%;
+  margin: 0 0 2px 0;
+  white-space: nowrap;
+  min-height: 25px;
+  color: #666;
+}
+
+/* line 1501, ../../sass/mnm.scss */
+.news-submitted a:link, .news-submitted a:visited {
+  font-weight: bold;
+  color: #3D72C3;
+}
+
+/* line 1506, ../../sass/mnm.scss */
+.news-submitted .showmytitle {
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* line 1511, ../../sass/mnm.scss */
+.tab-trackback-url {
+  font-weight: bold;
+  font-size: 100%;
+  color: #000;
+}
+
+/* line 1517, ../../sass/mnm.scss */
+.tab-trackback {
+  margin: 0 0;
+  padding: 0 0 0 5px;
+  font-weight: normal;
+}
+
+/* line 1523, ../../sass/mnm.scss */
+.tab-trackback li {
+  list-style: none;
+  text-align: left;
+  padding: 0 0 5px 5px;
+  margin: 2px;
+  overflow: hidden;
+}
+
+/* line 1531, ../../sass/mnm.scss */
+.tab-trackback-entry {
+  color: #666;
+}
+
+/* line 1535, ../../sass/mnm.scss */
+.tab-trackback-entry a {
+  padding: 2px 0 0 20px;
+  background: url(http://memocracia.com.local/img/common/mnu-list-image02.png) no-repeat 0px 4px;
+}
+
+/* submit form */
+/* line 1541, ../../sass/mnm.scss */
+#thisform .column-list {
+  margin: -15px 0 20px 0;
+  min-height: 185px;
+}
+
+/* line 1546, ../../sass/mnm.scss */
+#thisform .column-list li {
+  font-size: 100%;
+  font-weight: normal;
+}
+
+/* line 1551, ../../sass/mnm.scss */
+#thisform .column-list ul {
+  padding-left: 15px;
+  margin: 0px;
+}
+
+/* line 1556, ../../sass/mnm.scss */
+.comments {
+  margin: 10px 5px 0 10px;
+}
+
+/* line 1560, ../../sass/mnm.scss */
+.notes {
+  margin: 15px 5px 0 15px;
+}
+
+/* line 1564, ../../sass/mnm.scss */
+.comments h3 {
+  margin: 0;
+}
+
+/* line 1569, ../../sass/mnm.scss */
+.commentform a:link, .commentform a:visited {
+  border-bottom-width: 1px;
+  border-bottom-style: dotted;
+  color: #FFF;
+}
+
+/* line 1575, ../../sass/mnm.scss */
+.commentform .submit {
+  font-weight: bold;
+  border: 1px dotted;
+  background: #000;
+  color: #FFF;
+  border-color: #FFF;
+}
+
+/* line 1583, ../../sass/mnm.scss */
+.commentform a:hover {
+  text-decoration: none;
+}
+
+/* line 1587, ../../sass/mnm.scss */
+.commentform textarea {
+  display: block;
+  width: 99%;
+  margin: 0 0 10px 0;
+}
+
+/* line 1593, ../../sass/mnm.scss */
+.commentform label {
+  font-weight: bold;
+  font-size: 100%;
+}
+
+/* line 1598, ../../sass/mnm.scss */
+.commentform.warn {
+  border: 0;
+  padding: 5px 0px 5px 0px;
+  font-weight: bold;
+  text-align: center;
+  background: #000;
+  color: #FFF;
+}
+
+/* line 1607, ../../sass/mnm.scss */
+.comments-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* line 1613, ../../sass/mnm.scss */
+.comments-list li {
+  margin-bottom: 10px;
+}
+
+/* line 1617, ../../sass/mnm.scss */
+.comment-body {
+  padding: 5px 5px 10px 10px;
+  line-height: 120%;
+  text-align: left;
+  overflow: hidden;
+  min-height: 25px;
+  background: #FFF1E2;
+  color: #202020;
+  border-color: #000;
+  border-radius: 5px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+}
+
+/* line 1631, ../../sass/mnm.scss */
+.comment-body a strong {
+  color: #000;
+}
+
+/* line 1635, ../../sass/mnm.scss */
+.comment-body .tooltip {
+  color: #C85000;
+  text-decoration: underline;
+}
+
+/* line 1640, ../../sass/mnm.scss */
+.comment-body.admin, .comment-body.new {
+  background: #FFD5AD;
+  color: #000;
+}
+
+/* line 1645, ../../sass/mnm.scss */
+.comment-body.high {
+  background: #FFD5AD url(http://memocracia.com.local/img/common/comment-high-01.png) 99% 5px no-repeat;
+}
+
+/* line 1649, ../../sass/mnm.scss */
+.comment-body.user {
+  border: 1px solid #FFA500;
+}
+
+/* line 1653, ../../sass/mnm.scss */
+.comment-body.author {
+  background-color: #EBEDF4;
+  border-color: #3D72C3;
+}
+
+/* line 1658, ../../sass/mnm.scss */
+.comment-body.high.author {
+  background-color: #CAD0E2;
+}
+
+/* line 1662, ../../sass/mnm.scss */
+.comment-body.hidden {
+  border: 1px solid #ccc;
+  padding: 0px 5px 0px 10px;
+  font-size: 90%;
+  overflow: hidden;
+  color: #aaa;
+  background: #fff;
+}
+
+/* line 1671, ../../sass/mnm.scss */
+.comment-body a.fancybox {
+  color: #C85000;
+}
+
+/* line 1675, ../../sass/mnm.scss */
+.comment-body.hidden a, .comment-body.hidden a strong {
+  color: #aaa;
+}
+
+/* line 1679, ../../sass/mnm.scss */
+.comment-body .avatar, #tooltip-text .avatar {
+  float: left;
+  margin: 2px 10px 2px 0;
+}
+
+/* line 1684, ../../sass/mnm.scss */
+.comment-body .thumb, #tooltip-text .thumb {
+  padding: 4px;
+  background: #fff;
+  vertical-align: top;
+}
+
+/* line 1690, ../../sass/mnm.scss */
+.comment-body img.avatar {
+  width: 40px;
+  height: 40px;
+}
+
+/* line 1695, ../../sass/mnm.scss */
+.comment-body img.thumb.ok {
+  width: 80px;
+  height: 80px;
+}
+
+/* line 1701, ../../sass/mnm.scss */
+.comment-meta {
+  font-size: 90%;
+  color: #666;
+  height: 22px;
+  margin: 1px 0 15px 0;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+/* line 1710, ../../sass/mnm.scss */
+.comment-meta img {
+  vertical-align: bottom;
+}
+
+/* line 1714, ../../sass/mnm.scss */
+.comment-meta.hidden, .comment-meta.hidden a {
+  color: #aaa;
+}
+
+/* line 1718, ../../sass/mnm.scss */
+.comment-meta a {
+  font-weight: bold;
+}
+
+/* line 1722, ../../sass/mnm.scss */
+.news-details span, .news-details div, .comment-votes-info span, .comment-votes-info div, .comment-meta span {
+  vertical-align: top;
+}
+
+/* line 1726, ../../sass/mnm.scss */
+.comment-meta .username {
+  display: inline-block;
+  margin-left: 5px;
+  max-width: 14em;
+  text-overflow: clip;
+  vertical-align: top;
+}
+
+/* line 1734, ../../sass/mnm.scss */
+.comment-meta a:hover {
+  text-decoration: none;
+}
+
+/* line 1738, ../../sass/mnm.scss */
+.comment-meta img {
+  border: none;
+  margin: 0 4px 0 4px;
+}
+
+/* line 1743, ../../sass/mnm.scss */
+.comment-meta .vote {
+  display: inline-block;
+  width: 16px;
+  height: 18px;
+  cursor: pointer;
+  margin-right: 10px;
+  background: url(http://memocracia.com.local/img/common/icons-common.png) no-repeat;
+  background-size: 20px 300px;
+}
+
+/* line 1753, ../../sass/mnm.scss */
+.comment-meta .vote.right {
+  margin-left: 10px;
+}
+
+/* line 1757, ../../sass/mnm.scss */
+.comment-meta .vote.up {
+  background-position: 0px 0px;
+}
+
+/* line 1761, ../../sass/mnm.scss */
+.comment-meta .vote.down {
+  background-position: 0px -20px;
+}
+
+/* line 1765, ../../sass/mnm.scss */
+.comment-meta .vote.voted {
+  cursor: default;
+  opacity: 0.5;
+}
+
+/* line 1770, ../../sass/mnm.scss */
+.comment-meta .reply {
+  display: inline-block;
+  margin: 0 2px;
+  cursor: pointer;
+  height: 18px;
+  width: 18px;
+  background: url(http://memocracia.com.local/img/common/icons-common.png) no-repeat;
+  background-position: 0px -60px;
+  background-size: 20px 300px;
+}
+
+/* line 1781, ../../sass/mnm.scss */
+.favorite {
+  display: inline-block;
+  border-radius: 2px;
+  -moz-border-radius: 2px;
+  -webkit-border-radius: 2px;
+  border: 1px solid #fff;
+  margin: 0 4px;
+  cursor: pointer;
+  height: 18px;
+  width: 16px;
+  background: #fff url(http://memocracia.com.local/img/common/icons-common.png) no-repeat;
+  background-size: 20px 300px;
+  background-position: 0px -101px;
+}
+
+/* line 1796, ../../sass/mnm.scss */
+.favorite.on {
+  background-position: 0px -81px;
+}
+
+/* line 1800, ../../sass/mnm.scss */
+.comment-info {
+  float: right;
+  text-align: right;
+  text-overflow: clip;
+}
+
+/* line 1806, ../../sass/mnm.scss */
+.comment-info img {
+  margin: 0 0 0 4px;
+  width: 20px;
+  height: 20px;
+}
+
+/* line 1812, ../../sass/mnm.scss */
+.comment-answers {
+  margin: -5px 15px 0 40px;
+}
+
+/* line 1816, ../../sass/mnm.scss */
+.comment-info a {
+  color: #3D72C3;
+}
+
+/* line 1820, ../../sass/mnm.scss */
+.comment-votes-info a {
+  color: #FF9400;
+}
+
+/* line 1824, ../../sass/mnm.scss */
+.comment-meta .answers {
+  display: inline-block;
+  height: 18px;
+  background: url(http://memocracia.com.local/img/common/icons-common.png) no-repeat 0px -122px;
+  background-size: 20px 300px;
+  padding-left: 14px;
+  cursor: pointer;
+  padding-top: 4px;
+}
+
+/* line 1834, ../../sass/mnm.scss */
+.comment-meta .answers .counter {
+  display: inline-block;
+  font-size: 9px;
+  color: #fff;
+  font-weight: bold;
+  text-align: center;
+  min-height: 12px;
+  min-width: 12px;
+  background-color: #FFB600;
+  -moz-border-radius: 50%;
+  -webkit-border-radius: 50%;
+  border-radius: 50%;
+}
+
+/* line 1848, ../../sass/mnm.scss */
+.comment-meta .votes-counter {
+  font-weight: bold;
+  padding: 0 3px 0 3px;
+}
+
+/* line 1854, ../../sass/mnm.scss */
+.comment-votes-info {
+  display: block;
+  float: left;
+  height: 18px;
+  max-width: 70%;
+  overflow: hidden;
+}
+
+/* line 1862, ../../sass/mnm.scss */
+.comment-votes-info img {
+  margin-top: 2px;
+}
+
+/* line 1866, ../../sass/mnm.scss */
+.comments-list ul li {
+  list-style: none;
+  margin: 0 0 16px 0;
+}
+
+/* line 1871, ../../sass/mnm.scss */
+.comments-list ul {
+  margin: 0;
+  padding: 16px 0 0 48px;
+  background: #FFF;
+}
+
+/* line 1877, ../../sass/mnm.scss */
+.comments .comment-info select {
+  font-size: 85%;
+}
+
+/* line 1881, ../../sass/mnm.scss */
+#tolerance, #tolerance select {
+  font-size: 85%;
+}
+
+/* line 1885, ../../sass/mnm.scss */
+.pages {
+  padding: 10px 0 0 0;
+  margin: 15px 0 50px 0;
+  clear: left;
+  background: #FFFFFF;
+  font-weight: bold;
+}
+
+/* line 1893, ../../sass/mnm.scss */
+.pages:after {
+  content: ".";
+  display: block;
+  height: 0;
+  clear: left;
+  visibility: hidden;
+}
+
+/* line 1901, ../../sass/mnm.scss */
+.pages.margin {
+  margin-left: 90px;
+}
+
+/* line 1905, ../../sass/mnm.scss */
+.pages a, .pages span {
+  display: block;
+  float: left;
+  padding: 4px 10px 4px 10px;
+  margin-right: 3px;
+  color: #333;
+  background: #FFF;
+}
+
+/* line 1914, ../../sass/mnm.scss */
+.pages span.current {
+  color: #FFF;
+  background-color: #333;
+  border: solid 1px #333;
+}
+
+/* line 1923, ../../sass/mnm.scss */
+.pages a {
+  text-decoration: none;
+  border: solid 1px #333;
+}
+
+/* line 1928, ../../sass/mnm.scss */
+.pages a:hover {
+  color: #FFF;
+  background-color: #333;
+  border-color: #333;
+}
+
+/* line 1934, ../../sass/mnm.scss */
+.pages span.nextprev {
+  border: 1px solid #ccc;
+  color: #ccc;
+}
+
+/* line 1940, ../../sass/mnm.scss */
+.faq-title {
+  margin: 0 30px 0 150px;
+}
+
+/* line 1944, ../../sass/mnm.scss */
+.faq {
+  margin: 0;
+}
+
+/* line 1948, ../../sass/mnm.scss */
+.faq ol {
+  font-weight: bold;
+  color: #000;
+}
+
+/* line 1953, ../../sass/mnm.scss */
+.faq ul {
+  font-weight: normal;
+  color: #000;
+}
+
+/* line 1958, ../../sass/mnm.scss */
+.faq h3,
+.faq h4 {
+  font-weight: bold;
+  font-size: 125%;
+  color: #000;
+}
+
+/* line 1965, ../../sass/mnm.scss */
+.faq p {
+  font-weight: normal;
+  color: #303030;
+}
+
+/* line 1970, ../../sass/mnm.scss */
+.genericform h2 {
+  margin: 10px 0 10px 0;
+}
+
+/* line 1974, ../../sass/mnm.scss */
+.genericform {
+  border: 0;
+  margin: 0 60px 10px 60px;
+  padding: 0 0 20px 0;
+  font-weight: bold;
+  background: #FFF;
+  color: #000;
+}
+
+/* line 1983, ../../sass/mnm.scss */
+.genericform .sign {
+  font-weight: bold;
+  font-size: 110%;
+}
+
+/* line 1988, ../../sass/mnm.scss */
+.genericform .genericformtxt {
+  font-size: 100%;
+  font-weight: normal;
+  color: #303030;
+}
+
+/* line 1994, ../../sass/mnm.scss */
+.genericform textarea {
+  width: 100%;
+}
+
+/* line 1998, ../../sass/mnm.scss */
+.geoform {
+  margin: 5px 0 5px 0;
+  font-size: 8.5pt;
+  background: #FFF;
+  color: #000;
+}
+
+/* line 2005, ../../sass/mnm.scss */
+.genericform .recoverpass {
+  font-size: 125%;
+  color: #000;
+}
+
+/* line 2010, ../../sass/mnm.scss */
+.genericform .recoverpass a:link, .recoverpass a:visited {
+  border-bottom-width: 1px;
+  border-bottom-style: dotted;
+  padding-bottom: 1px;
+  text-decoration: none;
+  color: #000;
+}
+
+/* line 2018, ../../sass/mnm.scss */
+.genericform .recoverpass a:hover {
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+  padding-bottom: 1px;
+  text-decoration: none;
+}
+
+/* line 2025, ../../sass/mnm.scss */
+.genericform .formnotice {
+  font-weight: normal;
+  color: #303030;
+}
+
+/* line 2030, ../../sass/mnm.scss */
+.genericform .sign legend {
+  color: #000;
+}
+
+/* line 2034, ../../sass/mnm.scss */
+.sneaker {
+  margin: 0;
+}
+
+/* line 2038, ../../sass/mnm.scss */
+.mini-sneaker-title strong, .sneaker-title strong {
+  font-size: 95%;
+}
+
+/* line 2042, ../../sass/mnm.scss */
+.sneaker-legend {
+  font-size: 9pt;
+  text-align: center;
+  padding: 8px 0 2px 0;
+  margin: 0;
+}
+
+/* line 2049, ../../sass/mnm.scss */
+.sneaker-legend img {
+  margin: 0 25px 0 3px;
+  vertical-align: baseline;
+}
+
+/* line 2054, ../../sass/mnm.scss */
+.sneaker-control {
+  margin: 0;
+}
+
+/* line 2058, ../../sass/mnm.scss */
+.sneaker-item {
+  width: 100%;
+  clear: both;
+  border-bottom: 1px solid;
+  padding: 5px 0 5px 0;
+  text-align: center;
+  overflow: hidden;
+}
+
+/* line 2067, ../../sass/mnm.scss */
+.sneaker-ts, .sneaker-sub, .sneaker-type, .sneaker-votes, .sneaker-story, .sneaker-chat, .sneaker-who, .sneaker-status, .sneaker-chat-friends, .sneaker-chat-admin {
+  float: left;
+  display: block;
+}
+
+/* line 2072, ../../sass/mnm.scss */
+.sneaker-ts {
+  width: 6%;
+  text-align: left;
+}
+
+/* line 2077, ../../sass/mnm.scss */
+.sneaker-sub {
+  width: 9%;
+  font-variant: small-caps;
+}
+
+/* line 2082, ../../sass/mnm.scss */
+.sneaker-type {
+  width: 5%;
+}
+
+/* line 2086, ../../sass/mnm.scss */
+.sneaker-type img {
+  border: none;
+  margin: 0;
+  vertical-align: middle;
+}
+
+/* line 2092, ../../sass/mnm.scss */
+.sneaker-votes {
+  width: 8%;
+}
+
+/* line 2096, ../../sass/mnm.scss */
+.sneaker-story {
+  width: 50%;
+  text-align: left;
+  overflow: hidden;
+}
+
+/* line 2102, ../../sass/mnm.scss */
+.sneaker-chat, .sneaker-chat-friends, .sneaker-chat-admin {
+  width: 50%;
+  text-align: left;
+  overflow: hidden;
+}
+
+/* line 2108, ../../sass/mnm.scss */
+.sneaker-who {
+  width: 15%;
+  text-align: left;
+}
+
+/* line 2113, ../../sass/mnm.scss */
+.sneaker-who img {
+  border: 0px solid;
+  float: right;
+  margin-right: 2px;
+  margin-left: 4px;
+  vertical-align: bottom;
+}
+
+/* line 2121, ../../sass/mnm.scss */
+.sneaker-status {
+  width: 6%;
+  text-align: right;
+}
+
+/* line 2126, ../../sass/mnm.scss */
+.voters, .mini-sneaker {
+  margin: 25px 5px 0 10px;
+}
+
+/* line 2130, ../../sass/mnm.scss */
+.voters h2 {
+  margin: 0 0 10px 0;
+}
+
+/* line 2134, ../../sass/mnm.scss */
+.voters-list {
+  position: relative;
+  padding: 2px 2px 2px 2px;
+  float: left;
+  min-height: 150px;
+  width: 99%;
+  overflow: hidden;
+  border: 1px solid;
+  margin: 0 0 5px 0;
+  color: #000;
+  background: #FFF;
+  border-color: #FF9400;
+}
+
+/* line 2149, ../../sass/mnm.scss */
+.voters-list .item {
+  float: left;
+  overflow: hidden;
+  display: block;
+  width: 24%;
+  height: 20%;
+  font-size: 85%;
+  white-space: nowrap;
+  padding: 5px 0 5px 0;
+}
+
+/* line 2160, ../../sass/mnm.scss */
+.friends-item {
+  float: left;
+  display: block;
+  overflow: hidden;
+  height: 25px;
+  white-space: nowrap;
+  width: 24%;
+  height: 30px;
+  font-size: 85%;
+  white-space: nowrap;
+}
+
+/* line 2172, ../../sass/mnm.scss */
+.friends-item img,
+.voters-list img {
+  border: 0px;
+  margin-right: 5px;
+  margin-left: 4px;
+  vertical-align: bottom;
+}
+
+/* line 2180, ../../sass/mnm.scss */
+.mini-pages {
+  padding: 0;
+  margin: 10px 0 10px 0;
+  font-size: 80%;
+  clear: left;
+}
+
+/* line 2187, ../../sass/mnm.scss */
+.mini-pages a, .mini-pages span {
+  display: block;
+  float: left;
+  padding: 3px 5px 3px 5px;
+  margin-right: 3px;
+  color: #000;
+}
+
+/* line 2195, ../../sass/mnm.scss */
+.mini-pages span.current {
+  border: 1px solid;
+  font-weight: bold;
+  border-color: #000;
+  background: #FFBE94;
+  color: #000;
+}
+
+/* line 2203, ../../sass/mnm.scss */
+.mini-pages span.current a {
+  padding: 0;
+  border: 0px;
+  background: #FFBE94;
+  color: #000;
+}
+
+/* line 2210, ../../sass/mnm.scss */
+.mini-pages a {
+  border: 1px solid;
+  text-decoration: none;
+  border-color: #000;
+  border-color: #FFF;
+  background: #fff url(http://memocracia.com.local/img/common/tabs/tabsub-background.png) bottom left repeat-x;
+  border: 1px solid;
+}
+
+/* line 2219, ../../sass/mnm.scss */
+.mini-pages a:hover {
+  border-color: #FF9400;
+  background: #FFBE94;
+  color: #000;
+}
+
+/* line 2225, ../../sass/mnm.scss */
+#tooltip-text {
+  border-radius: 3px;
+  text-align: left;
+  position: absolute;
+  display: none;
+  margin: 0;
+  z-index: 10002;
+  border: 1px solid;
+  padding: 6px;
+  font-size: 95%;
+  overflow: hidden;
+  width: 40%;
+  max-height: 45ex;
+  background: #fbfbfb;
+  border-color: #aaa;
+  box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.5);
+  -webkit-box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.5);
+}
+
+/* line 2245, ../../sass/mnm.scss */
+.mini-sneaker-item {
+  margin: 0 5px 0 5px;
+  width: 99%;
+  clear: both;
+  border-bottom: 1px solid;
+  padding: 2px 0 2px 0;
+  text-align: center;
+  overflow: hidden;
+  border-bottom-color: #ccc;
+}
+
+/* line 2256, ../../sass/mnm.scss */
+.mini-sneaker-ts, .mini-sneaker-type, .mini-sneaker-votes, .mini-sneaker-who, .mini-sneaker-status {
+  float: left;
+  display: block;
+}
+
+/* line 2261, ../../sass/mnm.scss */
+.mini-sneaker-title strong {
+  color: #FF9400;
+}
+
+/* line 2265, ../../sass/mnm.scss */
+.mini-sneaker-ts {
+  width: 18%;
+  text-align: left;
+}
+
+/* line 2270, ../../sass/mnm.scss */
+.mini-sneaker-type {
+  width: 18%;
+}
+
+/* line 2274, ../../sass/mnm.scss */
+.mini-sneaker-type img {
+  border: none;
+  margin: 0;
+  vertical-align: middle;
+}
+
+/* line 2280, ../../sass/mnm.scss */
+.mini-sneaker-votes {
+  width: 18%;
+}
+
+/* line 2284, ../../sass/mnm.scss */
+.mini-sneaker-who {
+  width: 21%;
+  text-align: left;
+}
+
+/* line 2289, ../../sass/mnm.scss */
+.mini-sneaker-who img {
+  float: right;
+  margin-right: 2px;
+  margin-left: 4px;
+  vertical-align: bottom;
+}
+
+/* line 2296, ../../sass/mnm.scss */
+.mini-sneaker-status {
+  width: 18%;
+  text-align: right;
+}
+
+/* line 2301, ../../sass/mnm.scss */
+.rich-edit-key {
+  color: #fff;
+  font-size: 15px;
+  text-align: center;
+  height: 25px;
+  width: 25px;
+  margin-left: 5px;
+  float: right;
+}
+
+/* line 2311, ../../sass/mnm.scss */
+#addpost {
+  padding: 0;
+  margin-top: 0px;
+  margin-bottom: 10px;
+}
+
+/* line 2317, ../../sass/mnm.scss */
+.media-icon {
+  margin-bottom: 0px;
+}
+
+/* line 2321, ../../sass/mnm.scss */
+.note {
+  font-size: 85%;
+  font-weight: normal;
+  color: #FF9400;
+}
+
+@media print {
+  /* line 2329, ../../sass/mnm.scss */
+  body {
+    font-size: small;
+  }
+}
+/* line 2333, ../../sass/mnm.scss */
+#mDialog_box {
+  position: absolute;
+  z-index: 15000;
+  width: 25%;
+  min-width: 250px;
+  height: 18.5ex;
+  border: 1px solid #000;
+  background: #FFEEC7;
+  overflow: hidden;
+  border-radius: 5px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.5);
+  -webkit-box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.5);
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+}
+
+/* line 2353, ../../sass/mnm.scss */
+#mDialog_header {
+  width: 100%;
+  background: url(http://memocracia.com.local/img/common/modal-header-bkg01.png) repeat;
+  color: #fff;
+  font-weight: bold;
+  height: 20px;
+  padding-top: 3px;
+  font-size: 14px;
+}
+
+/* line 2363, ../../sass/mnm.scss */
+#mDialog_content {
+  margin-top: 10px;
+  padding: 0 5px;
+  vertical-align: center;
+  text-align: center;
+  font-weight: bold;
+  font-size: 15px;
+  height: 7ex;
+  overflow: hidden;
+  color: #101010;
+  word-wrap: break-word;
+}
+
+/* line 2376, ../../sass/mnm.scss */
+#mDialog_options {
+  margin: 10px;
+  text-align: center;
+}
+
+/* line 2381, ../../sass/mnm.scss */
+#mDialog_options button {
+  margin: 0 15px 0 15px;
+  padding: 2px 15px;
+  width: auto;
+}
+
+/* line 2387, ../../sass/mnm.scss */
+#mDialog_input {
+  padding: 4px;
+  width: 60%;
+}
+
+/* line 2392, ../../sass/mnm.scss */
+#mDialog_close {
+  float: right;
+  cursor: pointer;
+  margin-right: 5px;
+}
+
+/* line 2398, ../../sass/mnm.scss */
+.semiopaque {
+  opacity: 0.3;
+  vertical-align: middle;
+}
+
+/* line 2403, ../../sass/mnm.scss */
+.semiopaque:hover {
+  opacity: 1.0;
+}
+
+/* line 2407, ../../sass/mnm.scss */
+#header-top #notifier {
+  display: inline-block;
+  cursor: pointer;
+  background: #666;
+  color: #fff;
+  font-size: 15px;
+  font-weight: bold;
+  height: 25px;
+  width: 35px;
+  padding-top: 5px;
+  text-align: center;
+  vertical-align: middle;
+}
+
+/* line 2421, ../../sass/mnm.scss */
+#header-top #notifier:hover {
+  background: #fff;
+  color: #f00;
+}
+
+/* line 2426, ../../sass/mnm.scss */
+#header-top #notifier.nonzero {
+  background: #f00;
+  color: #fff;
+}
+
+/* line 2432, ../../sass/mnm.scss */
+#notifier_panel {
+  border-radius: 3px;
+  position: fixed;
+  right: 10px;
+  top: 31px;
+  padding: 2px 2px;
+  color: #aaa;
+  background: #fff;
+  min-width: 200px;
+  border: 1px solid #aaa;
+  text-align: left;
+  box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.5);
+  -webkit-box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.5);
+  display: none;
+}
+
+/* line 2449, ../../sass/mnm.scss */
+#notifier_panel div {
+  font-size: 14px;
+  margin: 0;
+  position: relative;
+  color: #333;
+  padding: 7px 4px 3px 30px;
+  margin-bottom: 0px;
+  border-top: 1px solid #ddd;
+  height: 24px;
+}
+
+/* line 2460, ../../sass/mnm.scss */
+#notifier_panel div:first-child {
+  border-top: none;
+}
+
+/* line 2464, ../../sass/mnm.scss */
+#notifier_panel div:hover {
+  background-color: #ddd !important;
+}
+
+/* line 2468, ../../sass/mnm.scss */
+#notifier_panel div a {
+  color: #888;
+  text-decoration: none;
+}
+
+/* line 2473, ../../sass/mnm.scss */
+#notifier_panel div.privates {
+  background: url(http://memocracia.com.local/img/common/icon_message-02.png) no-repeat 5px 5px;
+}
+
+/* line 2477, ../../sass/mnm.scss */
+#notifier_panel div.posts {
+  background: url(http://memocracia.com.local/img/common/icon_post-02.png) no-repeat 5px 5px;
+}
+
+/* line 2481, ../../sass/mnm.scss */
+#notifier_panel div.comments {
+  background: url(http://memocracia.com.local/img/common/icon_comment-01.png) no-repeat 5px 5px;
+}
+
+/* line 2485, ../../sass/mnm.scss */
+#notifier_panel div.friends {
+  background: url(http://memocracia.com.local/img/common/icon_friend_bi_00.png) no-repeat 5px 5px;
+}
+
+/* line 2489, ../../sass/mnm.scss */
+.ads-interlinks {
+  height: 90px;
+  padding: 0;
+  margin: 8px 0 8px 95px;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+/* line 2497, ../../sass/mnm.scss */
+.auth-buttons {
+  margin-top: 20px;
+  text-align: center;
+}
+
+/* line 2502, ../../sass/mnm.scss */
+.auth-buttons img {
+  vertical-align: middle;
+  margin: 5px 5px 5px 5px;
+}
+
+/* line 2507, ../../sass/mnm.scss */
+.share_icons {
+  display: inline;
+}
+
+/* line 2511, ../../sass/mnm.scss */
+.share_icons span {
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  margin: 0 3px;
+  padding: 0;
+  opacity: 0.6;
+  cursor: pointer;
+  vertical-align: text-top;
+  background: url(http://memocracia.com.local/img/common/icons-common.png) no-repeat;
+  background-size: 20px 300px;
+}
+
+/* line 2524, ../../sass/mnm.scss */
+.share_icons span:hover {
+  opacity: 1.0;
+}
+
+/* line 2528, ../../sass/mnm.scss */
+.share_icons span.fb {
+  background-position: 0px -180px;
+}
+
+/* line 2532, ../../sass/mnm.scss */
+.share_icons span.tw {
+  background-position: 0px -160px;
+}
+
+/* line 2536, ../../sass/mnm.scss */
+.ts {
+  display: inline-block;
+  text-overflow: clip;
+}
+
+/* line 2541, ../../sass/mnm.scss */
+.ts.visible {
+  min-width: 2.5em;
+}
+
+/* line 2545, ../../sass/mnm.scss */
+.comment-meta .ts {
+  font-size: 90%;
+}
+
+/* line 2549, ../../sass/mnm.scss */
+a.permalink {
+  display: inline-block;
+  height: 18px;
+  width: 18px;
+  margin: 0px 4px 0px 4px;
+  background: url(http://memocracia.com.local/img/common/icons-common.png) no-repeat 0px -40px;
+  background-size: 20px 300px;
+  overflow: hidden !important;
+  color: transparent !important;
+}
+
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  /* line 2561, ../../sass/mnm.scss */
+  .comment-meta .vote, .comment-meta .reply, .favorite, .share_icons span, .searchform .searchbox, .comment-meta .answers, a.permalink, #header-top .userlogin, #nav-menu {
+    background-image: url(http://memocracia.com.local/img/common/icons-common-2x.png);
+  }
+
+  /* line 2562, ../../sass/mnm.scss */
+  #header-top .logo-mnm, #footthingy {
+    background-image: url("http://memocracia.com.local/img/mnm/logos-common-2x.png");
+  }
+}

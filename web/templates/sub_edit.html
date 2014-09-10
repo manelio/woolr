@@ -1,0 +1,134 @@
+<div class="genericform">
+{% if errors %}
+    {% for e in errors %}
+        <div class="form-error-submit">&nbsp;&nbsp;{{ e }}</div>
+    {% endfor %}
+{% endif %}
+
+<form method="post" id="thisform" name="thisform" autocomplete="off">
+<input type="hidden" name="id" value="{{ sub.id }}"/>
+<input type="hidden" name="u" value="{{ current_user.user_id }}"/>
+<input type="hidden" name="created_from" value="{{ site.id }}"/>
+
+
+<fieldset><legend>
+{% if sub.id %}
+	{% trans _('edición sub') %} <a href="{{ sub.base_url }}m/{{ sub.name }}">{{ sub.name }}</a>
+{% else %}
+	{% trans _('nuevo sub') %}
+{% endif %}
+</legend>
+
+{% if ! current_user.admin %}
+	<input type="hidden" id="owner" name="owner" 
+	{% if sub.name %}
+		value="{{ sub.owner }}"
+	{% else %}
+		value="{{ current_user.user_id }}"
+	{% endif %}
+	/>
+{% endif %}
+
+
+<label for="name">{% trans _('nombre corto, sin espacios') %}:</label><br/>
+<input type="text" id="name" name="name" value="{{ sub.name }}" maxlength="12" pattern="\S{3,12}" />
+&nbsp;&nbsp;
+[<a href="http://meneame.wikispaces.com/Subs">{% trans _('ayuda') %}</a>]
+<br/>
+
+<label for="name">{% trans _('título') %}:</label><br/>
+<input type="text" id="name_long" name="name_long" value="{{ sub.name_long }}" pattern=".{6,40}" maxlength="40" style="width:60%"/>
+<br/>
+
+<label for="name">{% trans _('color título') %}:</label>
+<input type="text" id="color1" name="color1" value="{{ sub.color1 }}" pattern="#[a-fA-F\d]{6}" placeholder="#a0a0a0" maxlength="7" />
+&nbsp;&nbsp;
+<label for="name">{% trans _('color fondo') %}:</label>
+<input type="text" id="color2" name="color2" value="{{ sub.color2 }}" pattern="#[a-fA-F\d]{6}" placeholder="#a0a0a0" maxlength="7" />
+
+<br/>
+{% trans _('privado') %}: <input type="checkbox" name="private" value="1" {% if sub.private %}checked{% endif %}/>
+&nbsp;&nbsp;
+{% trans _('nsfw') %}: <input type="checkbox" name="nsfw" value="1" {% if sub.nsfw %}checked{% endif %}/>
+&nbsp;&nbsp;
+{% trans _('deshabilitar control anti spam') %}: <input type="checkbox" name="no_anti_spam" value="1" {% if extended.no_anti_spam %}checked{% endif %}/>
+<br/>
+{% trans _('enlace') %}: 
+{% trans _('siempre') %} <input type="radio" name="no_link" value="0" {% if extended.no_link == 0 %}checked{% endif %}/>&nbsp;
+{% trans _('opcional (microblogging)') %} <input type="radio" name="no_link" value="1" {% if extended.no_link == 1 %}checked{% endif %}/>&nbsp;
+{% trans _('sin enlace (microblogging)') %} <input type="radio" name="no_link" value="2" {% if extended.no_link == 2 %}checked{% endif %}/>
+
+{# TODO: enable later
+{% trans _('sin enlace (microblogging)') %}: <input type="checkbox" name="no_link" value="1" {% if extended.no_link %}checked{% endif %}/>
+{% trans _('sin control antispam') %}: <input type="checkbox" name="no_anti_spam" value="1" {% if extended.no_anti_spam %}checked{% endif %}/>
+<br/>
+#}
+
+<fieldset><legend>{% trans _('límites de entradilla') %}</legend>
+	{% trans _('longitud mínima') %}: <input type="number" name="intro_min_len" min="0" max="200" 
+			value="{{ extended.intro_min_len }}"/>
+	&nbsp;&nbsp;
+	{% trans _('longitud máxima') %}: <input type="number" name="intro_max_len" min="0" max="5000" 
+			value="{{ extended.intro_max_len }}"/><br/>
+	{% trans _('permitir párrafos') %}: <input type="checkbox" name="allow_paragraphs" value="1" {% if extended.allow_paragraphs %}checked{% endif %}/>
+</fieldset>
+
+<br/>
+
+<fieldset><legend>{% trans _('mensajes') %}</legend>
+	<label>{% trans _('reglas para el envío') %}<br/>
+		<textarea maxlength="300" name="rules" rows="5" id="rules" style="width:60%">{{ extended.rules }}</textarea>
+	</label>
+	<br />
+	<label>{% trans _('mensaje barra lateral') %}<br/>
+		<textarea maxlength="300" name="message" rows="5" id="message" style="width:60%">{{ extended.message }}</textarea>
+	</label>
+</fieldset>
+
+<br/>
+
+{% if current_user.admin %}
+	{% trans _('¡ALERTA admins! las siguientes opciones son delicadas') %}<br/><br/>
+
+	<label for="name">user_id:</label>
+	<input type="number" id="owner" name="owner" maxlength="10" pattern="[0-9]+"
+	{% if sub.name %}
+		value="{{ sub.owner }}"
+	{% else %}
+		value="{{ current_user.user_id }}"
+	{% endif %}
+	/>
+	<br/>
+	{% if sub.id > 0 %}
+		<input type="checkbox" name="enabled" value="1" {% if sub.enabled %}checked{% endif %}>{% trans _("habilitado") %}
+		<input type="checkbox" name="allow_main_link" value="1" {% if sub.allow_main_link %}checked{% endif %}>{% trans _("permitir enlace principal") %}
+		<br/>
+	{% endif %}
+
+	{% if copy_from %}
+		{% trans _('copiar desde') %}:<br/>
+		{% for c in copy_from %}
+			<select name="copy_from[]">
+			<option value="{{ c.id }}" selected>{{ c.name }}</option>
+			<option value="0">{% trans _('eliminar') %}</option>
+			</select>
+			<br/>
+		{% endfor %}
+	{% endif %}
+	{% if candidates_from %}
+		{% trans _('añadir copiar desde') %}:<br/>
+		<select name="copy_from[]">
+		<option value="0" selected>--</option>
+		{% for c in candidates_from %}
+			<option value="{{ c.id }}">{{ c.name }}</option>
+		{% endfor %}
+		</select>
+	{% endif %}
+{% endif %}
+
+<br/><br/>
+<input class="button" type="submit" value="{% trans _('guardar') %}" />
+</fieldset>
+</form>
+</div>
+
