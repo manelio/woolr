@@ -1,3 +1,8 @@
+.navbar-nav > li#li-avatar > a {
+  padding-top: 4px;
+  padding-bottom: 0;
+}
+
 #userinfo {
   #avatar {
     width: 40px;
@@ -5,9 +10,40 @@
   }
 }
 
-
-.navbar-nav > li#li-avatar > a {
-  padding-top: 4px;
-  padding-bottom: 0;
+#sidebar {
+  float: right;
 }
 
+#footwrap {
+  clear: both;
+}
+
+.news-summary {
+  .news-shakeit {
+    float: left;
+    margin-right: 8px;
+    padding: 8px;
+
+    border: 1px solid black;
+  }
+
+  .link-votes.label {
+    position: absolute;
+    right: 0px;
+    top: -10px;
+    font-size: 20px;
+    font-weight: bold;
+    z-index: 2;  
+  }
+}
+
+.news-body {
+  /* background: #603cba; */
+  border: 1px solid #ccc;
+
+  padding: 0 12px 12px 12px;
+}
+
+.news-shakeit {
+  display: none;
+}

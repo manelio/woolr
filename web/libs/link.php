@@ -812,7 +812,10 @@ class Link extends LCPBase {
 		global $db, $current_user, $globals;
 
 		$vote = new Vote('links', $this->id, $current_user->user_id);
-		if ($vote->exists(true)) return false;
+		
+		// MDOMENECH
+		// if ($vote->exists(true)) return false;
+
 		// For karma calculation
 		$status = ( ! empty($this->sub_status) ? $this->sub_status : $this->status);
 		$vote_value = ($value > 0 ? $value : -$current_user->user_karma);
