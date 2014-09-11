@@ -9,8 +9,17 @@ Haanga::Load('js/main.js');
 Haanga::Load('js/jquery.colorbox-min.js');
 Haanga::Load('js/jquery.autosize.min.js');
 
-Haanga::Load('js/masonry.pkgd.min.js');
 Haanga::Load('js/imagesloaded.pkgd.min.js');
 
+/*
+Haanga::Load('js/masonry.pkgd.min.js');
 Haanga::Load('js/masonry.main.js');
+*/
 
+Haanga::Load('js/isotope.pkgd.min.js');
+Haanga::Load('js/modulo-columns.js');
+//Haanga::Load('js/jquery.isotope.perfectmasonry.js');
+Haanga::Load('js/fit-columns.js');
+Haanga::Load('js/masonry-horizontal.js');
+
+Haanga::Load('js/isotope.main.js');

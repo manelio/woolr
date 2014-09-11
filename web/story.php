@@ -238,8 +238,12 @@ if (!empty($new_comment_error)) {
 do_tabs("main",_('noticia'), true);
 print_story_tabs($tab_option);
 
+
+
+
+
 /*** SIDEBAR ****/
-echo '<div id="sidebar">';
+echo '<div id="sidebar" class="col-sm-3 col-md-3 col-lg-3">';
 do_sub_message_right();
 do_banner_right();
 // GEO
@@ -254,8 +258,14 @@ do_banner_promotions();
 echo '</div>';
 /*** END SIDEBAR ***/
 
-echo '<div id="newswrap">';
-$link->print_summary();
+
+
+
+
+echo '<div id="content-main" class="col-sm-9 col-md-9 col-lg-9">'."\n";
+echo '<div id="newswrap" class="clearfix row"><!-- topclicked.php -->';
+
+$link->print_summary('full', 0, true, 'full');
 
 switch ($tab_option) {
 case 1:
@@ -407,7 +417,9 @@ case 9:
 	break;
 
 }
-echo '</div>';
+
+echo '</div>'."\n";
+echo '</div>'."\n";
 
 $globals['tag_status'] = $globals['link']->status;
 do_footer();
@@ -422,8 +434,8 @@ function print_story_tabs($option) {
 
 	echo '<ul class="subheader">';
 	echo '<li class="'.$active[1].'"><a href="'.$globals['permalink'].'">'._('comentarios'). '</a></li>';
-	echo '<li class="'.$active[2].'"><a href="'.$globals['permalink'].'/best-comments">'._('+ valorados'). '</a></li>';
-	echo '<li class="'.$active[9].'wideonly"><a href="'.$globals['permalink'].'/answered">'._('+ respondidos'). '</a></li>';
+	echo '<li class="'.$active[2].'"><a href="'.$globals['permalink'].'/best-comments">'._('+&nbsp;valorados'). '</a></li>';
+	echo '<li class="'.$active[9].'wideonly"><a href="'.$globals['permalink'].'/answered">'._('+&nbsp;respondidos'). '</a></li>';
 	if (!$globals['bot']) { // Don't show "empty" pages to bots, Google can penalize too
 		if ($globals['link']->sent_date > $globals['now'] - 86400*60) { // newer than 60 days
 			echo '<li class="'.$active[3].'"><a href="'.$globals['permalink'].'/voters">'._('votos'). '</a></li>';

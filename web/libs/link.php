@@ -686,7 +686,8 @@ class Link extends LCPBase {
 		return false;
 	}
 
-	function print_summary($type='full', $karma_best_comment = 0, $show_tags = true) {
+	function print_summary($type='full', $karma_best_comment = 0, $show_tags = true, $column_type = null) {
+
 		global $current_user, $current_user, $globals, $db;
 
 		if(!$this->read) return;
@@ -696,6 +697,18 @@ class Link extends LCPBase {
 		$this->get_current_sub_status_and_date();
 
 		$this->content = $this->to_html($this->content);
+
+		$contentLength = strlen($this->content);
+		$isWide = $contentLength > 100;
+
+		if (!$column_type) {
+			$column_type = 'normal';
+			if ($isWide) $column_type = 'wide';
+		}
+
+		$this->column_class = $globals['column_class'][$column_type];
+
+
 		$this->show_tags = $show_tags;
 		$this->permalink	 = $this->get_permalink();
 		$this->relative_permalink	 = $this->get_relative_permalink();

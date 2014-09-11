@@ -1,6 +1,6 @@
 (function($) {
     /* Masonry */
-    var $container = $('#newswrap');
+    var $container = $('#newswrap.masonry');
 
     // Callback on After new masonry boxes load
     window.onAfterLoaded = function(el) {
@@ -29,17 +29,33 @@
     onAfterLoaded($container.find('.box'));
 
     
-    $container.imagesLoaded(function() {
+    //$container.imagesLoaded(function() {
         
-        $container.masonry({
-            itemSelector: '.box'
+        $container.isotope({
+            itemSelector: '.box',
+            sortBy : 'original-order',
+
+            
+            layoutMode: 'moduloColumns',
+            moduloColumns: {
+                columnWidth: $container.find('.box').not('.wide').get(0),
+                gutter: 0
+            }
+            
+            /*
+            layoutMode: 'fitRows',
+            */
+
         });
         
+        /*
         $(window).resize(function() {
             //$container.masonry('reload');
             $container.masonry('reloadItems');
         });
-    });
+        */
+
+    //});
     
 
     /*
