@@ -90,6 +90,58 @@
 </head>
 <body>
 
+
+
+
+   <!-- Fixed navbar -->
+    <div class="navbar navbar-default navbar-static-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="{{ globals.base_url_general }}" title="{% trans _('portada') %} {{ globals.site_name }}">{{ globals.site_name }}</a>
+        </div>
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+
+						{% for o in left_options %}
+						    <li {% if o.selected %}class="selected"{% endif %} title="{{ o.title }}"><a href="{{ o.url }}">{{ o.text }}</a></li>
+						{% endfor %}
+            
+            {#
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <span class="caret"></span></a>
+              <ul class="dropdown-menu" role="menu">
+                <li><a href="#">Action</a></li>
+                <li><a href="#">Another action</a></li>
+                <li><a href="#">Something else here</a></li>
+                <li class="divider"></li>
+                <li class="dropdown-header">Nav header</li>
+                <li><a href="#">Separated link</a></li>
+                <li><a href="#">One more separated link</a></li>
+              </ul>
+            </li>
+            #}
+
+          </ul>
+
+          {% include "header_userinfo.html" %}
+
+        </div><!--/.nav-collapse -->
+
+      </div>
+
+    </div>
+
+
+
+    
+
+{#
 <div id="header-top">
   <div id="nav-menu"></div>
   <a href="{{ globals.base_url_general }}" title="{% trans _('portada') %} {{ globals.site_name }}" id="header-logo" class="logo-mnm">{% trans _('portada') %} {{ globals.site_name }}</a>
@@ -108,9 +160,9 @@
 		{% endfor %}
 		</ul>
 	{% endif %}
-
-  {% include "header_userinfo.html" %}
 </div>
+#}
+
 
 <div id="variable">
 {% else %} {# PARTIAL partial #}
@@ -126,6 +178,13 @@
 	{% include 'js/basic.js' %}
 </script>
 
+
+<div id="wrap" class="container">
+{% exec do_banner_top as foo%}
+
+
+
+<div id="container">
 
 
 <div id="header">
@@ -160,9 +219,9 @@
 	{% exec print_follow_sub this_site.id as dummy %}
   </div>
 {% else %}
-  
+
   <div class="edname">
-	<a href="{{ globals.base_url }}">{% trans _('edición') %} <b>{{ this_site.name_long }}</b></a>
+	{# <a href="{{ globals.base_url }}">{% trans _('edición') %} <b>{{ this_site.name_long }}</b></a> #}
 	{% if globals.facebook_page || globals.twitter_page %}
 		&nbsp;&nbsp;
 		{% if globals.facebook_page %}
@@ -176,6 +235,8 @@
 {% endif %}
 
 <!--search-->
+
+<!--
   <div id="searchform" class="searchform">
     <form action="{{ globals.base_url }}search" method="get" name="top_search">
 		{% if globals.search_options %}
@@ -186,33 +247,41 @@
 		<input class="searchbox" name="q" type="search" {% if globals.q %}value="{{globals.q|escape}}"{% endif %}/>
     </form>
   </div>
+ -->
+
 <!--end search-->
 
 </div><!--header-center-->
 
-<div id="header-menu">
-<div class="header-menu01">
-  <ul class="menu01-itemsl">
-	{% for o in left_options %}
-	    <li {% if o.selected %}class="selected"{% endif %} title="{{ o.title }}"><a href="{{ o.url }}">{{ o.text }}</a></li>
-	{% endfor %}
-  </ul>
 
-	<ul class="menu01-itemsr">
-	{% for o in right_options %}
-		<li {% if o.selected %}class="selected"{% endif %} title="{{ o.title }}"><a href="{{ o.url }}">{{ o.text }}</a></li>
-	{% endfor %}
 
-	{% if globals.help_url %}
-		<li><a href="{{ globals.help_url }}" title="{% trans _('ayuda para principiantes') %}"><b>?</b></a></li>
-	{% endif %}
-	</ul>
 
-</div>
-</div><!--header-menu01-->
+	{#
+	<div id="header-menu">
+	<div class="header-menu01">
+
+		
+	  <ul class="menu01-itemsl">
+		{% for o in left_options %}
+		    <li {% if o.selected %}class="selected"{% endif %} title="{{ o.title }}"><a href="{{ o.url }}">{{ o.text }}</a></li>
+		{% endfor %}
+	  </ul>
+	  
+
+		<ul class="menu01-itemsr">
+		{% for o in right_options %}
+			<li {% if o.selected %}class="selected"{% endif %} title="{{ o.title }}"><a href="{{ o.url }}">{{ o.text }}</a></li>
+		{% endfor %}
+
+		{% if globals.help_url %}
+			<li><a href="{{ globals.help_url }}" title="{% trans _('ayuda para principiantes') %}"><b>?</b></a></li>
+		{% endif %}
+		</ul>
+
+	</div>
+	</div><!--header-menu01-->
+	#}
+
+
+
 </div><!--header-->
-
-
-<div id="wrap">
-{% exec do_banner_top as foo%}
-<div id="container">

@@ -89,7 +89,7 @@ do_last_blogs();
 echo '</div>';
 /*** END SIDEBAR ***/
 
-echo '<div id="newswrap">';
+echo '<div id="newswrap"><!-- index.php -->';
 
 do_banner_top_news();
 

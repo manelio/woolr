@@ -41,7 +41,7 @@ do_best_stories();
 echo '</div>' . "\n";
 /*** END SIDEBAR ***/
 
-echo '<div id="newswrap">'."\n";
+echo '<div id="newswrap"><!-- cloud.php -->'."\n";
 
 
 echo '<div class="topheading"><h2>+ '.$words_limit.'</h2></div>';

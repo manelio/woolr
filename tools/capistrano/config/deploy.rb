@@ -9,6 +9,9 @@ set :domain, "memocracia.com"
 set :repository,  "https://github.com/manelio/memocracia.git"
 set :scm, :git
 
+set :normalize_asset_timestamps, false
+
+
 # set :scm, :git # You can set :scm explicitly or Capistrano will make an intelligent guess based on known version control directory names
 # Or: `accurev`, `bzr`, `cvs`, `darcs`, `git`, `mercurial`, `perforce`, `subversion` or `none`
 
@@ -37,4 +40,9 @@ set  :use_sudo, false
 
 set :subpath, "web/"
 
-set :copy_exclude, [".git", ".DS_Store", ".gitignore", ".gitmodules", "/web/media"]
+set :copy_exclude, [".git", ".DS_Store", ".gitignore", ".gitmodules", "/web/cache"]
+
+set :app_symlinks, ["/web/cache"]
+set :app_shared_dirs, ["/web/cache"]
+set :app_shared_files, ["/web/memocracia.com-local.php"]
+

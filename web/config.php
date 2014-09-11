@@ -229,10 +229,14 @@ $globals['min_time_for_comments'] = 3600; // Time to wait until first comment (f
 $globals['min_karma_for_comment_votes'] = 5.5;
 
 
+//$globals['new_user_links_limit'] = 1; //links allowed to submit in interval for new users
+$globals['new_user_links_limit'] = 15; //links allowed to submit in interval for new users
 
-$globals['new_user_links_limit'] = 1; //links allowed to submit in interval for new users
 $globals['new_user_links_interval'] = 3600;
-$globals['user_links_limit'] = 5;
+
+//$globals['user_links_limit'] = 5;
+$globals['user_links_limit'] = 15;
+
 $globals['user_links_interval'] = 7200;
 $globals['user_links_clon_interval'] = 12; // hours forbidden to send with a clone, 0 to allow it
 

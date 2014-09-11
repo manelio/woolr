@@ -23,7 +23,7 @@ do_vertical_tags();
 echo '</div>' . "\n";
 /*** END SIDEBAR ***/
 
-echo '<div id="newswrap">'."\n";
+echo '<div id="newswrap"><!-- map.php -->'."\n";
 
 echo '<div class="topheading"><h2>'._('noticias de las últimas 24 horas').'</h2></div>';
 

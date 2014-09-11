@@ -1,0 +1,102 @@
+/* line 1, ../../sass/masonry.scss */
+#newswrap {
+  margin-top: 20px;
+}
+
+/* line 5, ../../sass/masonry.scss */
+#newswrap .caption {
+  padding-top: 0px;
+}
+
+/* line 9, ../../sass/masonry.scss */
+#newswrap .img-thumbnail {
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+  padding: 0px;
+}
+
+/* line 16, ../../sass/masonry.scss */
+.masonry .post-meta {
+  display: block;
+}
+
+/* line 20, ../../sass/masonry.scss */
+.masonry .post-content p {
+  text-align: justify;
+  font-size: 14px;
+}
+
+/* line 25, ../../sass/masonry.scss */
+.masonry .box {
+  margin-bottom: 20px;
+  /* Fix Firefox */
+  margin-left: -1px;
+}
+
+/* line 31, ../../sass/masonry.scss */
+.masonry .box .post-comments.label {
+  position: absolute;
+  right: 0px;
+  top: -10px;
+  font-size: 20px;
+  font-weight: bold;
+  z-index: 2;
+}
+
+/* line 40, ../../sass/masonry.scss */
+.masonry .box .panel-body {
+  padding: 15px 35px;
+  position: relative;
+}
+
+/* line 45, ../../sass/masonry.scss */
+.masonry .box .panel-body .well {
+  margin-left: -35px;
+  margin-right: -35px;
+  margin-bottom: -15px;
+  text-align: center;
+  border: none;
+  border-radius: 0px;
+}
+
+/* line 54, ../../sass/masonry.scss */
+.masonry .box .panel-body .well ul {
+  margin-bottom: 0px;
+  font-size: 15px;
+}
+
+/* line 59, ../../sass/masonry.scss */
+.masonry .box.hover .post-thumbnail, .masonry .box.hover .post-content {
+  display: none;
+}
+
+/* line 63, ../../sass/masonry.scss */
+.masonry .box .caption {
+  min-height: 200px;
+}
+
+/* line 67, ../../sass/masonry.scss */
+.masonry .box .post-title {
+  font-size: 18px;
+  line-height: 22px;
+  text-shadow: none;
+  font-weight: bold;
+  margin-top: 0px;
+}
+
+/* line 75, ../../sass/masonry.scss */
+.masonry .box img.main-image {
+  display: block;
+  width: 100%;
+}
+
+/* line 80, ../../sass/masonry.scss */
+.masonry hr {
+  margin: 5px 0;
+}
+
+/* line 84, ../../sass/masonry.scss */
+.masonry .panel {
+  margin-bottom: 0px;
+}

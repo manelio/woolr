@@ -6,7 +6,12 @@ header("Expires: " . gmdate("r", $globals['now'] + 864000));
 header('Last-Modified: ' .  gmdate('D, d M Y H:i:s', max(filemtime('mnm.css'), filemtime('handheld.css')) ) . ' GMT');
 
 Haanga::Load('css/colorbox.css');
-Haanga::Load('css/mnm.css');
+
+// bootstrap styles
+Haanga::Load('css/styles.css');
+
+Haanga::Load('css/memocracia.css');
+Haanga::Load('css/masonry.css');
 
 /* Include handheld classes for mobile/tablets */
 

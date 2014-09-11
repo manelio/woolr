@@ -106,7 +106,7 @@ echo '</div>' . "\n";
 /*** END SIDEBAR ***/
 
 
-echo '<div id="newswrap">'."\n";
+echo '<div id="newswrap" class="masonry clearfix row"><!-- shakeit.php -->'."\n";
 
 $sql = "SELECT".Link::SQL."INNER JOIN (SELECT link FROM sub_statuses $from WHERE $where $order_by LIMIT $offset,$page_size) as ids on (ids.link = link_id)";
 

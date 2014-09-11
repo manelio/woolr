@@ -60,7 +60,7 @@ echo '</div>' . "\n";
 
 $options = array('u1' => $u1, 'u2' => $u2, 'type' => $type, 'types' => array('posts', 'comments'));
 
-echo '<div id="newswrap">';
+echo '<div id="newswrap"><!-- between.php -->';
 
 Haanga::Load('between.html', compact('options'));
 

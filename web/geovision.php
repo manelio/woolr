@@ -22,7 +22,7 @@ do_vertical_tags();
 echo '</div>' . "\n";
 /*** END SIDEBAR ***/
 
-echo '<div id="newswrap">'."\n";
+echo '<div id="newswrap"><!-- geovision.php -->'."\n";
 
 echo '<div class="topheading"><h2>actividad de los usuarios geolocalizados</h2></div>';
 

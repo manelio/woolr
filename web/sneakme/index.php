@@ -217,7 +217,7 @@ do_banner_promotions();
 echo '</div>' . "\n";
 /*** END SIDEBAR ***/
 
-echo '<div id="newswrap">'."\n";
+echo '<div id="newswrap"><!-- sneakme/index.php -->'."\n";
 do_pages($rows, $page_size);
 
 echo '<div class="notes">';

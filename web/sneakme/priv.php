@@ -63,7 +63,7 @@ if ($rows > 20) {
 echo '</div>' . "\n";
 /*** END SIDEBAR ***/
 
-echo '<div id="newswrap">'."\n";
+echo '<div id="newswrap"><!-- sneakme/priv.php -->'."\n";
 
 if (check_email($current_user->user_email)) {
 	Haanga::Load('priv_notify.html');
