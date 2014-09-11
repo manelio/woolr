@@ -1,11 +1,50 @@
-/* line 2, ../../sass/memocracia.scss */
+/* line 1, ../../sass/memocracia.scss */
+.navbar-nav > li#li-avatar > a {
+  padding-top: 4px;
+  padding-bottom: 0;
+}
+
+/* line 7, ../../sass/memocracia.scss */
 #userinfo #avatar {
   width: 40px;
   height: 40px;
 }
 
-/* line 9, ../../sass/memocracia.scss */
-.navbar-nav > li#li-avatar > a {
-  padding-top: 4px;
-  padding-bottom: 0;
+/* line 13, ../../sass/memocracia.scss */
+#sidebar {
+  float: right;
+}
+
+/* line 17, ../../sass/memocracia.scss */
+#footwrap {
+  clear: both;
+}
+
+/* line 22, ../../sass/memocracia.scss */
+.news-summary .news-shakeit {
+  float: left;
+  margin-right: 8px;
+  padding: 8px;
+  border: 1px solid black;
+}
+/* line 30, ../../sass/memocracia.scss */
+.news-summary .link-votes.label {
+  position: absolute;
+  right: 0px;
+  top: -10px;
+  font-size: 20px;
+  font-weight: bold;
+  z-index: 2;
+}
+
+/* line 40, ../../sass/memocracia.scss */
+.news-body {
+  /* background: #603cba; */
+  border: 1px solid #ccc;
+  padding: 0 12px 12px 12px;
+}
+
+/* line 47, ../../sass/memocracia.scss */
+.news-shakeit {
+  display: none;
 }

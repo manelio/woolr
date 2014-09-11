@@ -671,8 +671,11 @@ function do_best_queued() {
 		$link = new Link();
 		foreach ($res as $l) {
 			$link = Link::from_db($l->link_id);
-			if ($link->negatives > $link->votes/10 && $link->karma < $warned_threshold) continue;
-			if ($link->clicks / ($link->votes + $link->negatives) < 1.75) continue;
+
+			//if ($link->votes + $link->negatives == 0) continue;
+
+			//if ($link->negatives > $link->votes/10 && $link->karma < $warned_threshold) continue;
+			//if ($link->clicks / ($link->votes + $link->negatives) < 1.75) continue;
 			$link->url = $link->get_relative_permalink();
 			$link->thumb = $link->has_thumb();
 			$link->total_votes = $link->votes+$link->anonymous;
@@ -683,6 +686,7 @@ function do_best_queued() {
 			$link->check_warn();
 			$links[] = $link;
 		}
+		
 		$subclass = '';
 		$vars = compact('links', 'title', 'url', 'subclass');
 		$output = Haanga::Load('best_stories.html', $vars, true);

@@ -45,7 +45,10 @@ if ($current_user->user_id == 0 && $link->status != 'published') {
 	} else {
 		// Check that there are not too much annonymous votes
 		if ($link->status == 'published') $anon_to_user_votes = max(10, $globals['anon_to_user_votes']); // Allow more ano votes if published. 
-		if ($link->anonymous >	$link->votes * $globals['anon_to_user_votes']) {
+		if (
+			0 && // MDOMENECH
+
+			$link->anonymous >	$link->votes * $globals['anon_to_user_votes']) {
 			error(_('Demasiados votos anónimos para esta noticia, regístrese como usuario o inténtelo más tarde'));
 		}
 	}
@@ -80,13 +83,19 @@ if (!empty($link->url) && $globals['click_counter']
 		error(_('enlace no leído, con muchos negativos'));
 	} elseif ( (empty($_GET['l']) || $_GET['l'] != $link->id) 
 		// Check is not in "story" page 
-		&& $link->total_votes > $link->get_clicks()) {
+		&& $link->total_votes > $link->get_clicks()
+
+		&& 0 // MDOMENECH
+
+		) {
 		// Don't allow to vote if it has less clicks than votes
 		error(_('no leído, y con más votos que lecturas').' ('.$link->get_clicks().' < '.$link->total_votes.')');
 	}
 }
 
-if ($votes_freq > $freq) {
+if (
+	0 && // MDOMENECH
+	$votes_freq > $freq) {
 	if ($current_user->user_id > 0 && $current_user->user_karma > 4 && $link->status != 'published') {
 		// Crazy votes attack, decrease karma
 		// she does not deserve it :-)
