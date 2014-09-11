@@ -40,7 +40,7 @@ do_vertical_tags('published');
 echo '</div>' . "\n";
 /*** END SIDEBAR ***/
 
-echo '<div id="newswrap">'."\n";
+echo '<div id="newswrap"><!-- friends.php -->'."\n";
 
 if ($links) {
 	foreach($links as $dblink) {

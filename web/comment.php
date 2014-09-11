@@ -79,7 +79,7 @@ do_banner_promotions();
 echo '</div>' . "\n";
 /*** END SIDEBAR ***/
 
-echo '<div id="newswrap">'."\n";
+echo '<div id="newswrap"><!-- comment.php -->'."\n";
 
 echo '<h3 style="text-shadow: 0 1px #ccc"><a href="'.$link->get_permalink().'">'. $link->title. '</a></h3>';
 

@@ -1,0 +1,11 @@
+/* line 2, ../../sass/memocracia.scss */
+#userinfo #avatar {
+  width: 40px;
+  height: 40px;
+}
+
+/* line 9, ../../sass/memocracia.scss */
+.navbar-nav > li#li-avatar > a {
+  padding-top: 4px;
+  padding-bottom: 0;
+}

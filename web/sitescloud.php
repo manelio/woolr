@@ -46,7 +46,7 @@ do_vertical_tags('published');
 echo '</div>' . "\n";
 /*** END SIDEBAR ***/
 
-echo '<div id="newswrap">'."\n";
+echo '<div id="newswrap"><!-- sitescloud.php -->'."\n";
 
 echo '<div class="topheading"><h2>Los sitios más enlazados</h2></div>';
 echo '<div style="margin: 20px 0 20px 0; line-height: '.$line_height.'pt; margin-left: 50px;">';
