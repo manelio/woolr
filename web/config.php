@@ -429,6 +429,17 @@ $globals['anon_karma']	= 4;
 
 $globals['user_agent'] = 'Meneamebot (http://meneame.net/)';
 
+
+
+// MDOMENECH
+$globals['column_class'] = array(
+  'normal'  => 'col-sm-6 col-md-6 col-lg-4',
+  'wide'  => 'col-sm-6 col-md-6 col-lg-4',
+  //'wide'    => 'col-sm-12 col-md-12 col-lg-8 wide',
+  'full'    => '',
+);
+
+
 // Send logs to "log_user", it's windows compatible
 openlog('meneame', LOG_ODELAY, LOG_USER);
 

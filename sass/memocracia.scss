@@ -1,3 +1,7 @@
+h2, .h2 {
+  font-size: 24px;
+}
+
 .navbar-nav > li#li-avatar > a {
   padding-top: 4px;
   padding-bottom: 0;
@@ -18,7 +22,13 @@
   clear: both;
 }
 
+.news-summary.box {
+  position: relative;
+  padding: 0 15px;
+}
+
 .news-summary {
+
   .news-shakeit {
     float: left;
     margin-right: 8px;
@@ -46,4 +56,23 @@
 
 .news-shakeit {
   display: none;
+}
+
+
+ul.subheader {
+  list-style: none;  
+  padding: 0;
+  margin: 0;
+
+  float: left;
+  width: 100%;
+
+  li {
+    display: inline;
+    float: left;
+
+    a {
+      padding: 10px 15px;
+    }
+  }
 }

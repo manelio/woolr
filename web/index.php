@@ -65,7 +65,7 @@ switch ($globals['meta']) {
 
 
 /*** SIDEBAR ****/
-echo '<div id="sidebar">';
+echo '<div id="sidebar" class="col-sm-3 col-md-3 col-lg-3">';
 do_sub_message_right();
 do_banner_right();
 if ($globals['show_popular_published']) {
@@ -89,7 +89,9 @@ do_last_blogs();
 echo '</div>';
 /*** END SIDEBAR ***/
 
-echo '<div id="newswrap"><!-- index.php -->';
+
+echo '<div id="content-main" class="col-sm-9 col-md-9 col-lg-9">'."\n";
+echo '<div id="newswrap" class="masonry clearfix row"><!-- index.php -->';
 
 do_banner_top_news();
 
@@ -104,7 +106,7 @@ $order_by = "ORDER BY date DESC ";
 if (!$rows) $rows = $db->get_var("SELECT SQL_CACHE count(*) FROM sub_statuses $from WHERE $where");
 
 // We use a "INNER JOIN" in order to avoid "order by" whith filesorting. It was very bad for high pages
-$sql = "SELECT".Link::SQL."INNER JOIN (SELECT link FROM sub_statuses $from WHERE $where $order_by LIMIT $offset,$page_size) as ids ON (ids.link = link_id)";
+$sql = "SELECT".Link::SQL."INNER JOIN (SELECT link FROM sub_statuses $from WHERE $where $order_by LIMIT $offset,$page_size) as ids ON (ids.link = link_id) GROUP BY link_id";
 
 $links = $db->object_iterator($sql, "Link");
 if ($links) {
@@ -117,7 +119,9 @@ if ($links) {
 
 
 do_pages($rows, $page_size);
-echo '</div>';
+
+echo '</div>'."\n";
+echo '</div>'."\n";
 
 do_footer_menu();
 do_footer();

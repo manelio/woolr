@@ -66,7 +66,7 @@ $globals['tag_status'] = 'published';
 print_period_tabs();
 
 /*** SIDEBAR ****/
-echo '<div id="sidebar">';
+echo '<div id="sidebar" class="col-sm-3 col-md-3 col-lg-3">';
 do_banner_right();
 do_active_stories();
 do_banner_promotions();
@@ -77,7 +77,8 @@ do_vertical_tags('published');
 echo '</div>' . "\n";
 /*** END SIDEBAR ***/
 
-echo '<div id="newswrap">'."\n";
+echo '<div id="content-main" class="col-sm-9 col-md-9 col-lg-9">'."\n";
+echo '<div id="newswrap" class="masonry clearfix row"><!-- topclicked.php -->';
 
 if ($links) {
 	$counter = 0;
@@ -89,6 +90,8 @@ if ($links) {
 	}
 }
 do_pages($rows, $page_size);
+
+echo '</div>'."\n";
 echo '</div>'."\n";
 
 do_footer_menu();
