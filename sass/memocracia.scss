@@ -63,6 +63,13 @@ h2, .h2 {
   padding: 0 12px 12px 12px;
 }
 
+.news-body
+{
+-moz-box-shadow: -3px -3px 8px #ccc;
+-webkit-box-shadow: -3px -3px 8px #ccc;
+box-shadow: -3px -3px 8px #ccc;
+}  
+
 .news-shakeit {
   display: none;
 }
@@ -94,6 +101,6 @@ ul.subheader, #footwrap ul, #footthingy ul {
   display: block;
   text-align: center;
 
-  border: 1px solid #ccc;
-  border-top: none;
+  margin-top:3px;
+  border: 1px solid #ccc;  
 }
