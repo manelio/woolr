@@ -2,41 +2,9 @@
 	<div class="{{ self.comment_class }}" id="cid-{{ self.prefix_id }}{{self.id}}">
 	{% include 'comment_summary_text.html' %}
 	</div>
+
+
 	<div class="{{ self.comment_meta_class }}">
-		<div class="comment-votes-info">
-		{% if self.type != 'admin' AND self.user_level != 'disabled' %}
-			{% if self.can_vote %}
-				{% if self.user_can_vote %}
-	 				<span id="vc-p-{{ self.id }}" class="vote up" onClick="menealo_comment({{ current_user.user_id}},{{ self.id }},1)" title="{% trans _('informativo, opinión razonada...') %}"> </span>
-					{% include 'comment_summary_votes.html' %}
-	 				<span id="vc-n-{{ self.id }}" class="vote right down" onClick="menealo_comment({{ current_user.user_id}},{{ self.id }},-1)" title="{% trans _('sólo para racismo, insultos, spam...') %}"></span>
-				{% else %}
-					{% if self.voted >  0 %}
-						<span id="vc-p-{{ self.id }}" class="vote up voted" title="{% trans _('votado positivo') %}"></span>
-					{% else %}{% if self.voted < 0 %}
-						<span id="vc-n-{{ self.id }}" class="vote down voted" title="{% trans _('votado negativo') %}"></span>
-					{% endif %}{% endif %}
-
-					{% include 'comment_summary_votes.html' %}
-				{% endif %}
-			{% else %}
-				{% include 'comment_summary_votes.html' %}
-			{% endif %}
-
-
-		{% endif %}
-
-		<a href="{% exec self.get_relative_individual_permalink %}" title="permalink" class="permalink"></a>
-
-		{% if current_user.user_id > 0 %}
-		<span id="favc-{{ self.prefix_id }}{{ self.id }}" onclick="add_remove_fav('favc-{{ self.prefix_id }}{{ self.id }}', 'comment', {{ self.id }})" {% if self.favorite %} class="favorite on" {% else %} class="favorite" {% endif %} ></span>
-		{% endif %}
-
-		{% if self.can_reply %}
-			<span onclick="comment_reply({{self.c_order}})" title="{% trans _('responder') %}" class="reply"></span>
-		{% endif %}
-
-	</div>
 
 		<div class="comment-info">
 		<span class="ts showmytitle nomobile" data-ts="{{ self.date }}" title="{% trans _('creado') %}: "></span>
@@ -67,5 +35,57 @@
 		/>
 		{% endif %}
 		</div>
+
+
+		<div class="comment-votes-info">
+		{% if self.type != 'admin' AND self.user_level != 'disabled' %}
+			{% if self.can_vote %}
+				{% if self.user_can_vote %}
+	 				<button id="vc-p-{{ self.id }}" class="vote up btn btn-default btn-xs" onClick="menealo_comment({{ current_user.user_id}},{{ self.id }},1)" title="{% trans _('informativo, opinión razonada...') %}">
+	 					<i class="glyphicon glyphicon-thumbs-up"></i>
+	 				</button>
+					{% include 'comment_summary_votes.html' %}
+	 				<button id="vc-n-{{ self.id }}" class="vote right down btn btn-default btn-xs" onClick="menealo_comment({{ current_user.user_id}},{{ self.id }},-1)" title="{% trans _('sólo para racismo, insultos, spam...') %}">
+	 					<i class="glyphicon glyphicon-thumbs-down"></i>
+	 				</button>
+				{% else %}
+					{% if self.voted >  0 %}
+						<span id="vc-p-{{ self.id }}" class="vote up voted" title="{% trans _('votado positivo') %}">
+							<i class="glyphicon glyphicon-thumbs-up"></i>
+						</span>
+					{% else %}{% if self.voted < 0 %}
+						<span id="vc-n-{{ self.id }}" class="vote down voted" title="{% trans _('votado negativo') %}">
+							<i class="glyphicon glyphicon-thumbs-down"></i>
+						</span>
+					{% endif %}{% endif %}
+
+					{% include 'comment_summary_votes.html' %}
+				{% endif %}
+			{% else %}
+				{% include 'comment_summary_votes.html' %}
+			{% endif %}
+
+
+		{% endif %}
+
+		<a href="{% exec self.get_relative_individual_permalink %}" title="permalink" class="permalink">
+			<i class="glyphicon glyphicon-paperclip"></i>
+		</a>
+
+		{% if current_user.user_id > 0 %}
+		<button id="favc-{{ self.prefix_id }}{{ self.id }}" onclick="add_remove_fav('favc-{{ self.prefix_id }}{{ self.id }}', 'comment', {{ self.id }})" {% if self.favorite %} class="favorite on btn btn-default btn-xs" {% else %} class="favorite btn btn-default btn-xs" {% endif %} >
+			<i class="glyphicon glyphicon-star"></i>
+		</button>
+		{% endif %}
+
+		{% if self.can_reply %}
+			<button onclick="comment_reply({{self.c_order}})" title="{% trans _('responder') %}" class="reply btn btn-default btn-xs">
+				<i class="glyphicon glyphicon-comment"></i>
+			</button>
+		{% endif %}
+
+	</div>
+
+			
 	</div>
 </div>
