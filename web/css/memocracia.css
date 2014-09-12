@@ -113,18 +113,48 @@ div.comments ol {
   padding: 0;
   marging: 0;
 }
+/* line 116, ../../sass/memocracia.scss */
+div.comments ol li {
+  margin-top: 16px;
+}
 
-/* line 118, ../../sass/memocracia.scss */
+/* line 122, ../../sass/memocracia.scss */
 .comment-body {
   padding: 5px 5px 10px 10px;
-  line-height: 120%;
+  line-height: 1.2em;
   text-align: left;
   overflow: hidden;
-  min-height: 25px;
-  background: #FFF1E2;
-  color: #202020;
-  border-color: #FF6400;
-  border-radius: 5px;
-  -moz-border-radius: 5px;
-  -webkit-border-radius: 5px;
+  background: #f7f7f9;
+  border: 1px solid #e1e1e8;
+  border-width: 1px;
+  border-bottom-right-radius: 4px;
+  border-bottom-left-radius: 4px;
+  color: black;
+}
+
+/* line 138, ../../sass/memocracia.scss */
+.comment-meta:after {
+  clear: both;
+}
+
+/* line 142, ../../sass/memocracia.scss */
+.comment-meta {
+  margin-top: 8px;
+}
+/* line 147, ../../sass/memocracia.scss */
+.comment-meta .comment-votes-info > a.permalink, .comment-meta .comment-votes-info > .votes-info-wrap, .comment-meta .comment-votes-info button {
+  margin-right: 8px;
+  color: #999;
+}
+/* line 156, ../../sass/memocracia.scss */
+.comment-meta .comment-info {
+  float: right;
+}
+/* line 158, ../../sass/memocracia.scss */
+.comment-meta .comment-info .ts {
+  color: #999;
+}
+/* line 163, ../../sass/memocracia.scss */
+.comment-meta .vote.voted {
+  border: 1px solid red;
 }
