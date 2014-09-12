@@ -89,7 +89,7 @@ function to_html(data) {
 	}
 	switch (data.type) {
 		case 'post':
-			html += '<img src="'+base_static+'img/common/sneak-newnotame01.png" width="21" height="17" alt="{% trans _('nótame') %}" class="tooltip p:'+data.id+'"/><\/div>';
+			html += '<img src="'+base_static+'img/common/sneak-newnotame01.png" width="21" height="17" alt="{% trans _('nótame') %}" class="tooltipx p:'+data.id+'"/><\/div>';
 			html += '<div class="sneaker-votes">&nbsp;<\/div>';
 			if (check_user_ping(data.title)) {
 				text_style = 'style="font-weight: bold;"';
@@ -97,7 +97,7 @@ function to_html(data) {
 			html += '<div class="sneaker-story" '+text_style+'><a target="_blank" href="'+data.link+'">'+data.title+'<\/a><\/div>';
 			html += '<div class="sneaker-who">';
 			if (data.icon != undefined && data.icon.length > 0) {
-				html += '<a target="_blank" href="'+base_url+'user/'+data.who+'"><img src="'+data.icon+'" width=20 height=20 class="tooltip u:'+data.uid+'"/><\/a>';
+				html += '<a target="_blank" href="'+base_url+'user/'+data.who+'"><img src="'+data.icon+'" width=20 height=20 class="tooltipx u:'+data.uid+'"/><\/a>';
 			}
 			html += '&nbsp;<a target="_blank" href="'+base_url+'user/'+data.who+'">'+data.who.substring(0,15)+'<\/a><\/div>';
 			html += '<div class="sneaker-status">'+data.status+'<\/div>';
@@ -126,7 +126,7 @@ function to_html(data) {
 			html += '<div id="chat'+chat_counter+'" class="'+chat_class+'" '+text_style+'>'+data.title+'<\/div>';
 			html += '<div class="sneaker-who">';
 			if (data.icon != undefined &&  data.icon.length > 0) {
-				html += '<a target="_blank" href="'+base_url+'user/'+data.who+'"><img src="'+data.icon+'" width=20 height=20 class="tooltip u:'+data.uid+'"/><\/a>';
+				html += '<a target="_blank" href="'+base_url+'user/'+data.who+'"><img src="'+data.icon+'" width=20 height=20 class="tooltipx u:'+data.uid+'"/><\/a>';
 			}
 			html += '&nbsp;<a target="_blank" href="'+base_url+'user/'+data.who+'">'+data.who.substring(0,15)+'<\/a><\/div>';
 			html += '<div class="sneaker-status">'+data.status+'<\/div>';
@@ -135,33 +135,33 @@ function to_html(data) {
 			break;
 		case 'vote':
 			if (data.status == '{% trans _('publicada') %}')
-				html += '<img src="'+base_static+'img/common/sneak-vote-published01.png" width="21" height="17" alt="{% trans _('voto') %}" class="tooltip l:'+data.id+'"/><\/div>';
+				html += '<img src="'+base_static+'img/common/sneak-vote-published01.png" width="21" height="17" alt="{% trans _('voto') %}" class="tooltipx l:'+data.id+'"/><\/div>';
 			else
-				html += '<img src="'+base_static+'img/common/sneak-vote01.png" width="21" height="17" alt="{% trans _('voto') %}" class="tooltip l:'+data.id+'"/><\/div>';
+				html += '<img src="'+base_static+'img/common/sneak-vote01.png" width="21" height="17" alt="{% trans _('voto') %}" class="tooltipx l:'+data.id+'"/><\/div>';
 			break;
 		case 'problem':
-			html += '<img src="'+base_static+'img/common/sneak-problem01.png" width="21" height="17" alt="{% trans _('problema') %}" class="tooltip l:'+data.id+'"/><\/div>';
+			html += '<img src="'+base_static+'img/common/sneak-problem01.png" width="21" height="17" alt="{% trans _('problema') %}" class="tooltipx l:'+data.id+'"/><\/div>';
 			break;
 		case 'comment':
-			html += '<img src="'+base_static+'img/common/sneak-comment01.png" width="21" height="17" alt="{% trans _('comentario') %}" class="tooltip c:'+data.id+'"/><\/div>';
+			html += '<img src="'+base_static+'img/common/sneak-comment01.png" width="21" height="17" alt="{% trans _('comentario') %}" class="tooltipx c:'+data.id+'"/><\/div>';
 			break;
 		case 'new':
-			html += '<img src="'+base_static+'img/common/sneak-new01.png" width="21" height="17" alt="{% trans _('nueva') %}" class="tooltip l:'+data.id+'"/><\/div>';
+			html += '<img src="'+base_static+'img/common/sneak-new01.png" width="21" height="17" alt="{% trans _('nueva') %}" class="tooltipx l:'+data.id+'"/><\/div>';
 			break;
 		case 'published':
-			html += '<img src="'+base_static+'img/common/sneak-published01.png" width="21" height="17" alt="{% trans _('publicada') %}" class="tooltip l:'+data.id+'"/><\/div>';
+			html += '<img src="'+base_static+'img/common/sneak-published01.png" width="21" height="17" alt="{% trans _('publicada') %}" class="tooltipx l:'+data.id+'"/><\/div>';
 			break;
 		case 'discarded':
-			html += '<img src="'+base_static+'img/common/sneak-reject01.png" width="21" height="17" alt="{% trans _('descartada') %}" class="tooltip l:'+data.id+'"/><\/div>';
+			html += '<img src="'+base_static+'img/common/sneak-reject01.png" width="21" height="17" alt="{% trans _('descartada') %}" class="tooltipx l:'+data.id+'"/><\/div>';
 			break;
 		case 'edited':
-			html += '<img src="'+base_static+'img/common/sneak-edit-notice01.png" width="21" height="17" alt="{% trans _('editada') %}" class="tooltip l:'+data.id+'"/><\/div>';
+			html += '<img src="'+base_static+'img/common/sneak-edit-notice01.png" width="21" height="17" alt="{% trans _('editada') %}" class="tooltipx l:'+data.id+'"/><\/div>';
 			break;
 		case 'cedited':
-			html += '<img src="'+base_static+'img/common/sneak-edit-comment01.png" width="21" height="17" alt="{% trans _('comentario editado') %}" class="tooltip c:'+data.id+'"/><\/div>';
+			html += '<img src="'+base_static+'img/common/sneak-edit-comment01.png" width="21" height="17" alt="{% trans _('comentario editado') %}" class="tooltipx c:'+data.id+'"/><\/div>';
 			break;
 		case 'geo_edited':
-			html += '<img src="'+base_static+'img/common/sneak-geo01.png" width="21" height="17" alt="{% trans _('geo editado') %}" class="tooltip l:'+data.id+'"/><\/div>';
+			html += '<img src="'+base_static+'img/common/sneak-geo01.png" width="21" height="17" alt="{% trans _('geo editado') %}" class="tooltipx l:'+data.id+'"/><\/div>';
 			break;
 		case 'conversations':
 			//alert(data.c_conv_c + "  " + data.p_conv_c);
@@ -182,7 +182,7 @@ function to_html(data) {
 	} else if (data.uid > 0)  {
 		html += '<div class="sneaker-who">';
 		if (data.icon != undefined && data.icon.length > 0) {
-			html += '<a target="_blank" href="'+base_url+'user/'+data.who+'"><img src="'+data.icon+'" width=20 height=20 class="tooltip u:'+data.uid+'"/><\/a>';
+			html += '<a target="_blank" href="'+base_url+'user/'+data.who+'"><img src="'+data.icon+'" width=20 height=20 class="tooltipx u:'+data.uid+'"/><\/a>';
 		}
 		html += '&nbsp;<a target="_blank" href="'+base_url+'user/'+data.who+'">'+data.who.substring(0,15)+'<\/a><\/div>';
 	} else {

@@ -31,6 +31,8 @@ if ($current_user->user_id > 0) {
 
 // MDOMENECH
 //$globals['extra_css'][] = 'es/sneak.css';
+$globals['extra_css'][] = 'es/sneak.memocracia.css';
+
 
 if (!empty($_REQUEST['friends'])) {
 	do_header(_('amigos en la fisgona'), _('fisgona'), sneak_menu_items($option));

@@ -1,0 +1,168 @@
+/* Menéame colors and images */
+
+/***
+All images referenced by the CSS and distributed in the tar file are
+copyrighted by Benjamí Villoslada and published under a CC license:
+http://creativecommons.org/licenses/by-sa/2.5/
+
+Source code was developed by Ricardo Galli, it's published
+under the Affero GPL License (http://meneame.net/COPYING) unless
+stated otherwise in individual files.
+***/
+
+/* sneaker */
+
+.sneaker {
+font-size: small;
+margin-top: -1px;
+background: url(../../img/mnm/elmnm-sneak-reverse02.png) 97% 95% no-repeat;
+}
+
+.sneaker-title strong {
+color: #FF9400;
+}
+
+.sneaker-story .thumb {
+float: left;
+margin: 0 4px 0 0;
+}
+
+.sneaker-legend {
+color: #FF6400;
+background: #FFEDC6;
+border-bottom-color: #FFEDC6;
+}
+
+.sneaker-item {
+border-bottom-color: #FFE2C5;
+}
+
+.sneaker-chat, .sneaker-chat a {
+color: #9B0000;
+}
+
+.sneaker-chat-friends, .sneaker-chat-friends a {
+color: #255c25;
+}
+
+.sneaker-chat-admin, .sneaker-chat-admin a {
+color: #f00000;
+}
+
+.sneaker-who img {
+border-color: #FFE2C5;
+}
+
+.sneaker-problem {
+color: #F00;
+}
+
+.sneaker-published {
+color: #FF6400;
+}
+
+.sneaker-discarded {
+color: #D9AA95;
+}
+
+
+
+
+
+
+
+.sneaker {
+margin: 0;
+}
+
+.mini-sneaker-title strong, .sneaker-title strong {
+font-size: 95%;
+}
+
+.sneaker-legend {
+font-size: 9pt;
+text-align: center;
+padding: 8px 0 2px 0;
+margin: 0;
+}
+
+.sneaker-legend img {
+margin: 0 25px 0 3px;
+vertical-align: baseline;
+}
+
+.sneaker-control {
+margin: 0;
+}
+
+.sneaker-item {
+width: 100%;
+clear: both;
+border-bottom: 1px solid;
+padding: 5px 0 5px 0;
+text-align: center;
+overflow: hidden;
+}
+
+.sneaker-ts, .sneaker-sub, .sneaker-type, .sneaker-votes, .sneaker-story, .sneaker-chat, .sneaker-who, .sneaker-status, .sneaker-chat-friends, .sneaker-chat-admin {
+float: left;
+display: block;
+}
+
+.sneaker-ts {
+width: 6%;
+text-align: left;
+}
+
+.sneaker-sub {
+width: 9%;
+font-variant:small-caps;
+}
+
+.sneaker-type {
+width: 5%;
+}
+
+.sneaker-type img {
+border: none;
+margin: 0;
+vertical-align: middle;
+}
+
+.sneaker-votes {
+width: 8%;
+}
+
+.sneaker-story {
+width: 50%;
+text-align: left;
+overflow: hidden;
+}
+
+.sneaker-chat, .sneaker-chat-friends, .sneaker-chat-admin {
+width: 50%;
+text-align: left;
+overflow: hidden;
+}
+
+.sneaker-who {
+width: 15%;
+text-align: left;
+}
+
+.sneaker-who img {
+border: 0px solid;
+float: right;
+margin-right: 2px;
+margin-left: 4px;
+vertical-align: bottom;
+}
+
+.sneaker-status {
+width: 6%;
+text-align: right;
+}
+
+.voters, .mini-sneaker {
+margin: 25px 5px 0 10px;
+}
