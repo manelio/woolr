@@ -1,0 +1,4 @@
+#header-center, #header-menu, #sidebar, #edlist, .logo-ed, .wideonly, .wide {
+  display: none;
+  background: none !important;
+}

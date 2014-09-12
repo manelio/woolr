@@ -19,7 +19,9 @@ if (! $globals['mobile']) { /* If not mobile, it's a @media rule */
 	echo "@media (max-width: 800px) {";
 }
 
-Haanga::Load('css/handheld.css');
+// MDOMENECH
+//Haanga::Load('css/handheld.css');
+Haanga::Load('css/handheld.memocracia.css');
 
 if (! $globals['mobile']) { /* Close @media bracket */
 	echo "}";
