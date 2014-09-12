@@ -109,7 +109,7 @@
           <ul class="nav navbar-nav">
 
 						{% for o in left_options %}
-						    <li {% if o.selected %}class="selected"{% endif %} title="{{ o.title }}"><a href="{{ o.url }}">{{ o.text }}</a></li>
+						    <li {% if o.selected %}class="active"{% endif %} title="{{ o.title }}"><a href="{{ o.url }}" {% if o.attributes %}{{ o.attributes }}{% endif %}>{{ o.text }}</a></li>
 						{% endfor %}
             
             {#
@@ -263,14 +263,14 @@
 		
 	  <ul class="menu01-itemsl">
 		{% for o in left_options %}
-		    <li {% if o.selected %}class="selected"{% endif %} title="{{ o.title }}"><a href="{{ o.url }}">{{ o.text }}</a></li>
+		    <li {% if o.selected %}class="active"{% endif %} title="{{ o.title }}"><a href="{{ o.url }}">{{ o.text }}</a></li>
 		{% endfor %}
 	  </ul>
 	  
 
 		<ul class="menu01-itemsr">
 		{% for o in right_options %}
-			<li {% if o.selected %}class="selected"{% endif %} title="{{ o.title }}"><a href="{{ o.url }}">{{ o.text }}</a></li>
+			<li {% if o.selected %}class="active"{% endif %} title="{{ o.title }}"><a href="{{ o.url }}">{{ o.text }}</a></li>
 		{% endfor %}
 
 		{% if globals.help_url %}

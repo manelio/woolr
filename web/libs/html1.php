@@ -31,14 +31,26 @@ if (! $globals['bot'] && ($globals['allow_partial'] || preg_match('/meneame/i', 
 
 class MenuOption{
 	// Small helper class to store links' information
-	function __construct($text, $url, $active = false, $title = '') {
+	function __construct($text, $url, $active = false, $title = '', $attributes = array()) {
 		$this->text = $text;
 		$this->url = $url;
-		$this->title = $title;
+		$this->title = $title;		
 		if ($active && $active == $this->text) {
 			$this->selected = true;
 		} else {
 			$this->selected = false;
+		}
+
+		if (count($attributes)) {
+			$aux = array();
+			foreach($attributes as $name => $value) {
+				$aux[] = "$name=\"$value\"";
+			}
+			$aux = implode(" ", $aux);
+			$this->attributes = $aux;
+		}
+		else {
+			$this->attributes = false;
 		}
 	}
 }
@@ -74,14 +86,18 @@ function do_header($title, $id='home', $options = false) {
 
 	if (! is_array($options)) {
 		$left_options = array();
-		if ($this_site->enabled) {
-			$left_options[] = new MenuOption(_('enviar historia'), $globals['base_url'].'submit', $id, _('enviar nueva historia'));
-		}
 		//$left_options[] = new MenuOption(_('portada'), $globals['base_url'], $id, _('página principal'));
 		$left_options[] = new MenuOption(_('nuevas'), $globals['base_url'].'queue', $id, _('menear noticias pendientes'));
 		$left_options[] = new MenuOption(_('populares'), $globals['base_url'].'popular', $id, _('historias más votadas'));
 		$left_options[] = new MenuOption(_('más visitadas'), $globals['base_url'].'top_visited', $id, _('historias más visitadas/leídas'));
 		//$left_options[] = new MenuOption(_('destacadas'), $globals['base_url'].'top_active', $id, _('historias más activas'));
+
+		if ($this_site->enabled) {
+			$left_options[] = new MenuOption(_('enviar historia'), $globals['base_url'].'submit', $id, _('enviar nueva historia'), array(
+				'class' => 'link-send-story',
+			));
+		}
+
 
 		$right_options = array();
 		$right_options[] = new MenuOption(_('m/'), $globals['base_url_general'].'subs', $id, _('sub menéames'));
@@ -279,52 +295,58 @@ function do_pages($total, $page_size=25, $margin = true) {
 		echo '<div class="pages">';
 	}
 
+	// MDOMENECH
+	echo '<ul class="pagination">';
+
+
 	if($current==1) {
-		echo '<span class="nextprev">&#171; '.$go_prev. '</span>';
+		echo '<li><span class="nextprev">&#171; '.$go_prev. '</span></li>';
 	} else {
 		$i = $current-1;
 		if ($i > 10) $nofollow = ' rel="nofollow"'; else $nofollow = '';
-		echo '<a href="?page='.$i.$query.'"'.$nofollow.' rel="prev">&#171; '.$go_prev.'</a>';
+		echo '<li><a href="?page='.$i.$query.'"'.$nofollow.' rel="prev">&#171; '.$go_prev.'</a></li>';
 	}
 
 	if ($total_pages > 0) {
 
 		if($start>1) {
 			$i = 1;
-			echo '<a href="?page='.$i.$query.'" title="'._('ir a página')." $i".'">'.$i.'</a>';
-			echo "<span>$separator</span>";
+			echo '<li><a href="?page='.$i.$query.'" title="'._('ir a página')." $i".'">'.$i.'</a></li>';			
 		}
 
 		for ($i=$start;$i<=$end && $i<= $total_pages;$i++) {
 			if($i==$current) {
-				echo '<span class="current">'.$i.'</span>';
+				echo '<li><span class="current">'.$i.'</span></li>';
 			} else {
 				if ($i > 10) $nofollow = ' rel="nofollow"'; else $nofollow = '';
-				echo '<a href="?page='.$i.$query.'" title="'._('ir a página')." $i".'"'.$nofollow.'>'.$i.'</a>';
+				echo '<li><a href="?page='.$i.$query.'" title="'._('ir a página')." $i".'"'.$nofollow.'>'.$i.'</a></li>';
 			}
 		}
 
 		if($total_pages>$end) {
-			$i = $total_pages;
-			echo "<span>$separator</span>";
+			$i = $total_pages;			
 			if ($i > 10) $nofollow = ' rel="nofollow"'; else $nofollow = '';
-			echo '<a href="?page='.$i.$query.'" title="'._('ir a página')." $i".'"'.$nofollow.'>'.$i.'</a>';
+			echo '<li><a href="?page='.$i.$query.'" title="'._('ir a página')." $i".'"'.$nofollow.'>'.$i.'</a></li>';
 		}
 	} else {
 		if($current>2) {
-			echo '<a href="?page=1'.$query.'" title="'._('ir a página')." 1".'">1</a>';
-			echo "<span>$separator</span>";
+			echo '<li><a href="?page=1'.$query.'" title="'._('ir a página')." 1".'">1</a></li>';			
 		}
-		echo '<span class="current">'.$current.'</span>';
+		echo '<li><span class="current">'.$current.'</span></li>';
 	}
 
 	if($total < 0 || $current<$total_pages) {
 		$i = $current+1;
 		if ($i > 10) $nofollow = ' rel="nofollow"'; else $nofollow = '';
-		echo '<a href="?page='.$i.$query.'"'.$nofollow.' rel="next">'.$go_next.' &#187;</a>';
+		echo '<li><a href="?page='.$i.$query.'"'.$nofollow.' rel="next">'.$go_next.' &#187;</a></li>';
 	} else {
-		echo '<span class="nextprev">&#187; '.$go_next. '</span>';
+		echo '<li><span class="nextprev">'.$go_next. ' &#187;</span></li>';
 	}
+
+	echo '</ul><!-- pagination -->';
+
+
+
 	echo '</div>';
 
 }

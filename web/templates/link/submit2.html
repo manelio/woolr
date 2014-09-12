@@ -1,4 +1,4 @@
-<div id="singlewrap">
+<div id="singlewrap" class="link-preview">
 
 <script type="text/javascript">
 var img_src1='{{ globals.base_static }}img/common/indicator_orange.gif';
@@ -26,7 +26,7 @@ img1.src = img_src1;
 	<div class="genericformtxt"><label>{% trans _('ATENCIÓN: esto es sólo una muestra. Puedes retroceder o enviar a la cola y finalizar') %}</label>&nbsp;&nbsp;</div>
 
 	<div class="formnotice">
-	{% exec link.print_summary 'preview' as dummy %}
+	{% exec link.print_summary 'preview', 0, true, 'full' as dummy %}
 	</div>
 
 	<input type="hidden" name="phase" value="3" />
