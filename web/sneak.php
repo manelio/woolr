@@ -28,7 +28,10 @@ if ($current_user->user_id > 0) {
 //////
 
 // Start html
-$globals['extra_css'][] = 'es/sneak.css';
+
+// MDOMENECH
+//$globals['extra_css'][] = 'es/sneak.css';
+
 if (!empty($_REQUEST['friends'])) {
 	do_header(_('amigos en la fisgona'), _('fisgona'), sneak_menu_items($option));
 } elseif ($current_user->user_id > 0 && !empty($_REQUEST['admin']) && $current_user->admin) {

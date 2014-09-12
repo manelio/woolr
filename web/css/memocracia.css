@@ -67,35 +67,42 @@ h2, .h2 {
 }
 
 /* line 66, ../../sass/memocracia.scss */
+.news-body {
+  -moz-box-shadow: -3px -3px 8px #ccc;
+  -webkit-box-shadow: -3px -3px 8px #ccc;
+  box-shadow: -3px -3px 8px #ccc;
+}
+
+/* line 73, ../../sass/memocracia.scss */
 .news-shakeit {
   display: none;
 }
 
-/* line 70, ../../sass/memocracia.scss */
+/* line 77, ../../sass/memocracia.scss */
 #footthingy {
   margin-top: 30px;
 }
 
-/* line 74, ../../sass/memocracia.scss */
+/* line 81, ../../sass/memocracia.scss */
 ul.subheader, #footwrap ul, #footthingy ul {
   list-style: none;
   padding: 0;
   margin: 0;
 }
-/* line 81, ../../sass/memocracia.scss */
+/* line 88, ../../sass/memocracia.scss */
 ul.subheader li, #footwrap ul li, #footthingy ul li {
   display: inline-block;
 }
-/* line 85, ../../sass/memocracia.scss */
+/* line 92, ../../sass/memocracia.scss */
 ul.subheader li a, #footwrap ul li a, #footthingy ul li a {
   padding: 10px 15px;
 }
 
-/* line 92, ../../sass/memocracia.scss */
+/* line 99, ../../sass/memocracia.scss */
 .comments-counter {
   padding: 5px 0;
   display: block;
   text-align: center;
+  margin-top: 3px;
   border: 1px solid #ccc;
-  border-top: none;
 }
