@@ -90,3 +90,12 @@ ul.subheader li, #footwrap ul li, #footthingy ul li {
 ul.subheader li a, #footwrap ul li a, #footthingy ul li a {
   padding: 10px 15px;
 }
+
+/* line 92, ../../sass/memocracia.scss */
+.comments-counter {
+  padding: 5px 0;
+  display: block;
+  text-align: center;
+  border: 1px solid #ccc;
+  border-top: none;
+}
