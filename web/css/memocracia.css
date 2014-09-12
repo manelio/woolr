@@ -26,7 +26,7 @@ h2, .h2 {
 }
 
 /* line 25, ../../sass/memocracia.scss */
-#footwrap, #singlewrap {
+#footwrap, #singlewrap, .comments {
   clear: both;
   padding: 0 15px;
 }
@@ -84,7 +84,7 @@ ul.subheader, #footwrap ul, #footthingy ul {
 }
 /* line 81, ../../sass/memocracia.scss */
 ul.subheader li, #footwrap ul li, #footthingy ul li {
-  display: inline;
+  display: inline-block;
 }
 /* line 85, ../../sass/memocracia.scss */
 ul.subheader li a, #footwrap ul li a, #footthingy ul li a {
