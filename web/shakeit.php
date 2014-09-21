@@ -106,7 +106,7 @@ echo '</div>' . "\n";
 /*** END SIDEBAR ***/
 
 
-echo '<div id="content-main" class="col-sm-9 col-md-9 col-lg-9">'."\n";
+echo '<div id="content-main" class="'.$globals['links_container_class'].'">'."\n";
 echo '<div id="newswrap" class="masonry clearfix row"><!-- shakeit.php -->'."\n";
 
 $sql = "SELECT".Link::SQL."INNER JOIN (SELECT link FROM sub_statuses $from WHERE $where $order_by LIMIT $offset,$page_size) as ids on (ids.link = link_id) GROUP BY link_id";

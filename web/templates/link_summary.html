@@ -83,6 +83,7 @@
 			<a href="{{ url }}" class="l:{{ self.id }}" 
 			{% if self.status != 'published' %} rel="nofollow"{% endif %}>{{ self.title }}
 			</a>
+
 			{% if self.content_type == 'image' %}
 				<span class="wideonly">&nbsp;<img src="{{ globals.base_static }}img/common/is-photo01.png" class="media-icon" width="18" height="15" alt="{% trans _('imagen') %}" title="{% trans _('imagen') %}" /></span>
 			{% else %} {% if self.content_type == 'video' %}
@@ -93,6 +94,14 @@
 	{% else %}
 		<h1><a href="{{ self.permalink }}" class="l:{{ self.id }}">{{ self.title }}</a></h1> 
 	{% endif %}
+
+			<!--
+			<div class="link-thumbnail">
+				<img src="http://shprinkone.julienrenaux.fr/wp-content/uploads/2012/06/dsc20050604_133440_34211-268x268.jpg" />
+			</div>
+			-->
+	
+	<div class="news-body-content">
 
 	<div class="news-submitted">
 		{% if type != 'short' %}
@@ -120,8 +129,11 @@
 		{% endif %}
 		{{ self.content }}
 		{% if type != 'preview' %}
+
 			{% if self.is_editable %}
-				&nbsp;&nbsp;<a href="{% get_url 'editlink?id=' self.id '&amp;user=' current_user.user_id %}" title="{% trans _('editar noticia') %} #{{ self.id }}"><img class="mini-icon-text" src="{{ globals.base_static }}img/common/edit-misc01.png" alt="edit" width="18" height="12"/></a>
+				<a href="{% get_url 'editlink?id=' self.id '&amp;user=' current_user.user_id %}" title="{% trans _('editar noticia') %} #{{ self.id }}">
+					<i class="fa fa-edit"></i>
+				</a>
 			{% endif %}
 
 			{% if self.map_editable %}
@@ -144,25 +156,59 @@
 
 	{% if globals.link || ((self.is_editable OR self.status == 'queued') AND globals.now - self.date < 7200) || type == 'short' %}
 		{% if self.show_tags AND self.tags %}
-		<br/><span class="news-tags"><strong>{% trans _('etiquetas') %}</strong>:
+		<br/>
+		<div class="news-tags">
 		{% exec explode "," self.tags as tags_array %}
-		{% for id, tag in tags_array %}{% if id > 0 %}, {% endif %}<a href='{{ globals.base_url }}search?p=tags&amp;q={{ tag|urlencode }}'>{{ tag }}</a>{% endfor %}
+		{% for id, tag in tags_array %}
+		<span class="label label-info">
+			<i title="Etiquetas" class="fa fa-tag"></i> <a href='{{ globals.base_url }}search?p=tags&amp;q={{ tag|urlencode }}'>{{ tag }}</a>
+		</span>
+		{% endfor %}
 
 		{# Show link to analyze the tags #}
 		{% if globals.fancybox_enabled AND globals.sphinx_server AND self.is_editable OR self.author == current_user.user_id %}
 		&nbsp;[<a class="fancybox" href="{{ globals.base_url_general }}backend/tags_analysis?id={{ self.id }}" title="{% trans _('diagnóstico de etiquetas') %}"><strong>{% trans _('diagnosticar') %}</strong></a>]
 		{% endif %}
 
-		</span>
+		</div>
 		{% endif %}
 	{% endif %}
 	{# {% if globals.ads %}<!-- google_ad_section_end -->{% endif %} #}
 
 	{% if type != 'short' %}
 			<div class="news-details">
+			{#
 				<strong>{% trans _('usuarios') %}</strong>: <span id="a-usu-{{ self.id }}">{{ self.votes }}</span>&nbsp;&nbsp;
 				<span  class="wideonly"><strong>{% trans _('anónimos') %}</strong>: <span id="a-ano-{{ self.id }}">{{ self.anonymous }}</span>&nbsp;&nbsp;</span>
 				<strong>{% trans _('negativos') %}</strong>: <span id="a-neg-{{ self.id }}">{{ self.negatives }}</span>&nbsp;&nbsp;
+			#}
+
+			
+
+			<div class="news-votes">			
+
+				{% if self.votes > 0 %}
+				<span class="label label-success" title="Votos de usuarios">
+					<i class="fa fa-user"></i> <span id="a-usu-{{ self.id }}">{{ self.votes }}</span>
+				</span>
+				{% endif %}
+
+				{% if self.anonymous > 0 %}
+				<span class="label label-info" title="Votos anónimos">
+					<i class="fa fa-question"></i> <span id="a-ano-{{ self.id }}">{{ self.anonymous }}</span>
+				</span>
+				{% endif %}
+				
+				{% if self.negatives > 0 %}
+				<span class="label label-danger" title="Votos negativos">
+					<i class="fa fa-thumbs-down"></i> <span id="a-neg-{{ self.id }}">{{ self.negatives }}</span>
+				</span>
+				{% endif %}
+
+			</div>
+
+			
+			
 
 			{% if current_user.user_id > 0 %}
 				<span class="tool">
@@ -178,7 +224,11 @@
 
 				{% if not globals.mobile %}
 					{% exec self.get_short_permalink as short_link %}
-					<strong class="wideonly"><a href="{{ short_link }}" title="{% trans _('enlace corto') %}">{% trans _('compartir') %}</a>:</strong>
+					<strong class="wideonly">
+						<a href="{{ short_link }}" title="{% trans _('enlace corto') %}">
+							<i class="fa fa-share-square fa-2x"></i>
+						</a>
+					</strong> 
 				{% endif %}
 				{% include "share.html" %}
 
@@ -234,6 +284,8 @@
 		{% exec do_banner_story as dummy %}
 	{% endif %}
 	
+
+	</div> <!-- .news-body-content -->
 	</div> <!-- .news-body -->
 
 		<span class="comments-counter"><a href="{{ self.relative_permalink }}" title="{% trans _('comentarios de') %}: «{{ self.title }}»">{% if self.comments > 0 %}<span class="counter">{{ self.comments }}</span> {% trans _("comentarios") %}{% else %}{% trans _("¡Sé el primero en comentar!") %}{% endif %}</a></span>		

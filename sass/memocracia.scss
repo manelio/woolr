@@ -60,14 +60,43 @@ h2, .h2 {
   /* background: #603cba; */
   border: 1px solid #ccc;
 
-  padding: 0 12px 12px 12px;
+  /* padding: 0 12px 12px 12px; */
+  padding: 0;
+
+  h2, h1 {
+    padding: 12px 12px;
+    background: pink;
+    margin: 0 0 0 0;
+
+      a {
+        color: black;
+      }
+  }
+
+  .link-thumbnail {
+    img {
+      width: 100%;
+      max-width: 480px;
+      display: block;
+    }
+  }
+
+  .news-body-content {
+    padding: 12px 12px 12px 12px;
+
+    .news-submitted {
+      margin-bottom: 12px;
+    }
+
+    .news-details {
+      margin-top: 12px;
+    }
+  }
 }
 
 .news-body
 {
--moz-box-shadow: -3px -3px 8px #ccc;
--webkit-box-shadow: -3px -3px 8px #ccc;
-box-shadow: -3px -3px 8px #ccc;
+
 }  
 
 .news-shakeit {
@@ -133,6 +162,20 @@ div.comments ol {
 
   color: black;
 
+  a.comment-number {
+    float: left;
+    margin-right: 12px;
+    margin-bottom: 12px;
+  }
+
+  a.fancybox {
+    display: block;
+    /* margin-top: 12px; */
+    float: left;
+    margin-right: 12px;
+    margin-bottom: 12px;
+  }  
+
 }
 
 .comment-meta:after {
@@ -164,4 +207,79 @@ div.comments ol {
     border: 1px solid red;
   }
 
+}
+
+
+div.commentform {
+  textarea {
+    width: 100%;
+  }
+}
+
+
+
+.share_icons {
+display: inline;
+}
+
+.share_icons span {
+display: inline-block;
+width: 18px;
+height: 18px;
+margin: 0 3px;
+padding: 0;
+opacity:0.6;
+cursor:pointer;
+vertical-align: text-top;
+background: url(/img/common/icons-common.png) no-repeat;
+background-size: 20px 300px;
+}
+
+.share_icons span:hover {
+opacity:1.0;
+}
+
+.share_icons span.fb {
+background-position: 0px -180px;
+}
+
+.share_icons span.tw {
+background-position: 0px -160px;
+}
+
+.bigform .input-group {
+  margin-bottom: 20px;
+}
+
+.bigform .inline-block > li {
+position: relative;
+display: inline-block;
+margin: 0 10px 10px 0;
+}
+
+.bigform .well h3 {
+padding-top: 0;
+margin-top: 0;
+margin-bottom: 20px;
+}
+
+.news-votes {
+  margin-bottom: 12px;
+
+  .label {
+    font-size: inherit;
+    margin-right: 4px;
+  }
+}
+
+.news-tags {
+  margin-top: 12px;
+
+  span.label {
+    margin-right: 4px;
+
+    a {
+      color: white;
+    }
+  }
 }
