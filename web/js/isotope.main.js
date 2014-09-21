@@ -34,6 +34,7 @@
         $container.isotope({
             itemSelector: '.box',
             sortBy : 'original-order',
+            sortAscending: false,
 
             
             layoutMode: 'moduloColumns',

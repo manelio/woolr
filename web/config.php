@@ -38,7 +38,9 @@ if ($_GET['theme']) {
 
 // WARN WARNING ALERT: we use $_SERVER['SERVER_NAME'] which is the first
 // server_name in NGInx and other servers
-// $globals['server_name']	= $_SERVER['SERVER_NAME'];
+
+$globals['server_name'] = $_SERVER['SERVER_NAME'];
+$globals['canonical_server_name']	= $_SERVER['SERVER_NAME'];
 
 // In case you have different domains and want to avoid Google penalization for duplicated content
 // $globals['canonical_server_name'] = 'www.canonical.com';
@@ -205,11 +207,23 @@ $globals['depublish_positive_karma'] = 7.4; //minimun karma of the vote to get i
 //$globals['tags'] = 'tecnología, internet, cultura, software libre, linux, open source, bitácoras, blogs, ciencia';
 $globals['max_sneakers'] = 250;
 $globals['max_comments'] = 2718;
-$globals['time_enabled_comments'] = 604800; // 7 days
+
+//$globals['time_enabled_comments'] = 604800; // 7 days
+$globals['time_enabled_comments'] = 4*7*24*60*60; // 4 weeks
+
+/*
 $globals['time_enabled_comments_status']['queued'] = 259200; // 3 days
 $globals['time_enabled_comments_status']['discard'] = 86400; // 1 day
 $globals['time_enabled_comments_status']['autodiscard'] = 86400; // 1 day
 $globals['time_enabled_comments_status']['abuse'] = 43200; // 1/2 day
+*/
+
+$globals['time_enabled_comments_status']['queued'] = 4*7*24*60*60; // 4 weeks
+$globals['time_enabled_comments_status']['discard'] = 4*7*24*60*60; // 4 weeks
+$globals['time_enabled_comments_status']['autodiscard'] = 4*7*24*60*60; // 4 weeks
+$globals['time_enabled_comments_status']['abuse'] = 4*7*24*60*60; // 4 weeks
+
+
 $globals['time_enabled_votes'] = 345600; // 4 days
 $globals['time_enabled_negative_votes'] = 3600; // 1 hour
 $globals['mysql_persistent'] = true;
@@ -440,7 +454,7 @@ $globals['user_agent'] = 'Meneamebot (http://meneame.net/)';
 
 
 // MDOMENECH
-/*
+
 $globals['links_container_class'] = 'col-sm-9 col-md-9 col-lg-9';
 $globals['column_class'] = array(
   'normal'  => 'col-sm-6 col-md-6 col-lg-4',
@@ -448,8 +462,8 @@ $globals['column_class'] = array(
   //'wide'    => 'col-sm-12 col-md-12 col-lg-8 wide',
   'full'    => '',
 );
-*/
 
+/*
 $globals['links_container_class'] = 'col-sm-12 col-md-12 col-lg-12';
 $globals['column_class'] = array(
   'normal'  => 'col-sm-6 col-md-4 col-lg-3',
@@ -457,6 +471,7 @@ $globals['column_class'] = array(
   //'wide'    => 'col-sm-12 col-md-12 col-lg-8 wide',
   'full'    => '',
 );
+*/
 
 
 // Send logs to "log_user", it's windows compatible

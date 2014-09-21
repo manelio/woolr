@@ -1025,6 +1025,8 @@ class Link extends LCPBase {
 	function get_relative_permalink($strict = false) {
 		global $globals;
 
+		if (empty($this->base_url)) $this->base_url = $globals['base_url'];
+
 		if ( $this->is_sub && ($strict || self::$original_status || ($globals['submnm'] && $this->sub_id == SitesMgr::my_id()) || ! $this->sub_status)) {
 			$base = $this->base_url . 'm/'.$this->sub_name.'/';
 		} else {

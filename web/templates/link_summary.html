@@ -4,9 +4,18 @@
 
 	{% if 1 || self.show_shakebox %}
 
-		<a id="a-votes-{{ self.id}}" href="javascript:menealo({{ current_user.user_id}}, {{self.id}})" class="link-votes label label-default">
-			{{ self.total_votes }}
-		</a>
+		<div class="link-votes label label-info">
+			<a id="a-votes-{{ self.id}}" href="javascript:menealo({{ current_user.user_id}}, {{self.id}})">
+				{{ self.total_votes }}				
+			</a>
+
+			{% if self.id >= globals.click_counter AND self.clicks > 0 %}
+			<div class="clics">
+				{{ self.clicks }} <i class="fa fa-eye"></i>
+			</div>
+			{% endif %}
+
+		</div>
 
 		<div class="news-shakeit {{ self.box_class }}">
 			
@@ -79,7 +88,7 @@
 
 	{% if self.url %}
 		{% exec htmlspecialchars self.url as url %}
-		{% if globals.link %}<h1>{% else %}<h2>{% endif %}
+		{% if globals.link %}<h1 class="bg-primary">{% else %}<h2 class="bg-primary">{% endif %}
 			<a href="{{ url }}" class="l:{{ self.id }}" 
 			{% if self.status != 'published' %} rel="nofollow"{% endif %}>{{ self.title }}
 			</a>
