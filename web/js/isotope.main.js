@@ -29,7 +29,7 @@
     onAfterLoaded($container.find('.box'));
 
     
-    //$container.imagesLoaded(function() {
+    $container.imagesLoaded(function() {
         
         $container.isotope({
             itemSelector: '.box',
@@ -55,7 +55,7 @@
         });
         */
 
-    //});
+    });
     
 
     /*

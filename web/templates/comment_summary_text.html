@@ -1,21 +1,15 @@
 {% if self.url %}
-	<a href="{{ self.url }}"><strong>#{{ self.c_order }}</strong></a>&nbsp;&nbsp;
+	<a class="comment-number" href="{{ self.url }}"><strong>#{{ self.c_order }}</strong></a>
 {% else %}
 	{% if self.link_permalink %}
-		<a href="{{ self.link_permalink }}/c0{{ self.c_order }}#c-{{ self.c_order }}" rel="nofollow"><strong>#{{ self.c_order }}</strong></a>&nbsp;&nbsp;
+		<a class="comment-number" href="{{ self.link_permalink }}/c0{{ self.c_order }}#c-{{ self.c_order }}" rel="nofollow"><strong>#{{ self.c_order }}</strong></a>
 	{% else %}
-		<strong>#{{ self.c_order }}</strong>&nbsp;&nbsp;
+		<a class="comment-number"><strong>#{{ self.c_order }}</strong></a>
 	{% endif %}
 {% endif %}
 
-{% if self.hide_comment %}
-	&#187;&nbsp;<a href="javascript:get_votes('get_comment.php','comment','cid-{{ self.prefix_id }}{{ self.id }}',0,{{ self.id }})" title="{% trans 'ver comentario' %}">{% trans 'ver comentario' %}</a>
-{% else %}
-
-	{{ self.txt_content }}
-
 	{% if self.media_size > 0 %}
-		&nbsp;<a class="fancybox" title="{% trans _('subida por') %} {{ self.username }} ({{ self.media_size }} bytes)" href="{{ self.media_url }}"><img src="{{ globals.base_static }}img/g.gif"
+		<a class="fancybox" title="{% trans _('subida por') %} {{ self.username }} ({{ self.media_size }} bytes)" href="{{ self.media_url }}"><img src="{{ globals.base_static }}img/g.gif"
 		{% if globals.cache_redirector %}
 			class="thumb ok lazy"
 			data-src="{{ self.media_thumb_dir }}/media_thumb-comment-{{ self.id }}.jpg?{{ self.media_date }}"
@@ -28,6 +22,12 @@
 		alt="media" {# title="{% trans _('Mayúsculas+Clic para expandir todas') %}" #}/></a>
 	{% endif %}
 
+
+{% if self.hide_comment %}
+	&#187;&nbsp;<a href="javascript:get_votes('get_comment.php','comment','cid-{{ self.prefix_id }}{{ self.id }}',0,{{ self.id }})" title="{% trans 'ver comentario' %}">{% trans 'ver comentario' %}</a>
+{% else %}
+
+	{{ self.txt_content }}
 
 	{% if self.can_edit %}
 		&nbsp;&nbsp;<a 

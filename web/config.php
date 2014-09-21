@@ -28,6 +28,14 @@
 if (defined("config_done")) return TRUE; // If not "included_once"
 define('config_done', 1);
 
+
+$globals['theme'] = 'default';
+if ($_GET['theme']) {
+  $globals['theme'] = $_GET['theme'];
+}
+
+
+
 // WARN WARNING ALERT: we use $_SERVER['SERVER_NAME'] which is the first
 // server_name in NGInx and other servers
 // $globals['server_name']	= $_SERVER['SERVER_NAME'];
@@ -136,7 +144,7 @@ $globals['xcache_enabled'] = false; // enable it if want to use xcache vars
 $globals['fancybox_enabled'] = true;
 
 // Comment pages
-$globals['comments_page_size'] = 100;
+$globals['comments_page_size'] = 5;
 $globals['comments_page_threshold'] = 1.10;
 
 // Min karma to highlights comments
@@ -265,7 +273,7 @@ $globals['draft_limit'] = 5; // Max unset drafts at the same time
     }
 */
 // If you did it, change this to true
-$globals['cache_redirector'] = false;
+$globals['cache_redirector'] = true;
 
 // Check it's writeable by the web server
 $globals['cache_dir'] = 'cache';
@@ -432,9 +440,20 @@ $globals['user_agent'] = 'Meneamebot (http://meneame.net/)';
 
 
 // MDOMENECH
+/*
+$globals['links_container_class'] = 'col-sm-9 col-md-9 col-lg-9';
 $globals['column_class'] = array(
   'normal'  => 'col-sm-6 col-md-6 col-lg-4',
   'wide'  => 'col-sm-6 col-md-6 col-lg-4',
+  //'wide'    => 'col-sm-12 col-md-12 col-lg-8 wide',
+  'full'    => '',
+);
+*/
+
+$globals['links_container_class'] = 'col-sm-12 col-md-12 col-lg-12';
+$globals['column_class'] = array(
+  'normal'  => 'col-sm-6 col-md-4 col-lg-3',
+  'wide'  => 'col-sm-6 col-md-4 col-lg-3',
   //'wide'    => 'col-sm-12 col-md-12 col-lg-8 wide',
   'full'    => '',
 );

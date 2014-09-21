@@ -1204,7 +1204,11 @@ function print_oauth_icons($return = false) {
 	}
 	$return = htmlentities($return);
 
-	echo '<div class="auth-buttons">';
+	
+
+	echo '<ul id="social-sign-in" class="inline-block list-unstyled">';
+
+
 	if ($globals['oauth']['twitter']['consumer_key']) {
 		$title = false;
 		if ($current_user->user_id) {
@@ -1218,8 +1222,13 @@ function print_oauth_icons($return = false) {
 			$text = _('login con Twitter');
 		}
 		if ($title) {
-			echo '<a href="'.$globals['base_url_general'].'oauth/signin.php?service=twitter&amp;op=init&amp;return='.$return.'" title="'.$title.'">';
-			echo '<img src="'.$globals['base_static'].'img/external/signin-twitter2.png" width="89" height="21" alt=""/></a>';
+			echo <<<EOT
+<li>
+	<a href="{$globals['base_url_general']}oauth/signin.php?service=twitter&amp;op=init&amp;return={$return}" title="$title">
+		<i class="fa fa-twitter-square fa-5x"></i>
+	</a>
+</li>
+EOT;
 		}
 	}
 
@@ -1236,8 +1245,13 @@ function print_oauth_icons($return = false) {
 			$text = _('login con Facebook');
 		}
 		if ($title) {
-			echo '<a href="'.$globals['base_url_general'].'oauth/fbconnect.php?return='.$return.'" title="'.$title.'">';
-			echo '<img src="'.$globals['base_static'].'img/external/signin-fb.gif" width="89" height="21" alt=""/></a>';
+			echo <<<EOT
+<li>
+	<a href="{$globals['base_url_general']}oauth/fbconnect.php?return={$return}" title="$title">
+		<i class="fa fa-facebook-square fa-5x"></i>
+	</a>
+</li>
+EOT;
 		}
 	}
 
@@ -1258,7 +1272,8 @@ function print_oauth_icons($return = false) {
 			echo '<img src="'.$globals['base_static'].'img/external/signin-gplus.png" width="89" height="21" alt=""/></a>';
 		}
 	}
-	echo '</div>';
+	
+	echo '</ul>';
 }
 
 function backend_call_string($program,$type,$page,$id) {

@@ -76,7 +76,7 @@ do_vertical_tags('published');
 echo '</div>' . "\n";
 /*** END SIDEBAR ***/
 
-echo '<div id="content-main" class="col-sm-9 col-md-9 col-lg-9">'."\n";
+echo '<div id="content-main" class="'.$globals['links_container_class'].'">'."\n";
 echo '<div id="newswrap" class="masonry clearfix row"><!-- topstories.php -->';
 
 if ($links) {
