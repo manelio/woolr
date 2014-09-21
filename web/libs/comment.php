@@ -396,6 +396,19 @@ class Comment extends LCPBase {
 		if (!$link->votes > 0) return;
 		if($link->date < $globals['now']-$globals['time_enabled_comments'] || $link->comments >= $globals['max_comments']) {
 			// Comments already closed
+			
+			echo 4*7*24*60*60;
+			
+			echo "[".$globals['time_enabled_comments']."]";
+
+			echo date('Y-m-d H:i:s', $link->date);
+			echo "<br/>";
+			echo date('Y-m-d H:i:s', $globals['now']);
+			echo "<br/>";
+			echo date('Y-m-d H:i:s', $globals['now']-$globals['time_enabled_comments']);
+			exit;
+
+
 			echo '<div class="commentform warn">'."\n";
 			echo _('comentarios cerrados')."\n";
 			echo '</div>'."\n";
