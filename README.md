@@ -1,6 +1,6 @@
-memocracia
+woolr
 ==========
 
-memocracia.com
+woolr.com
 
 A meneame clone.
