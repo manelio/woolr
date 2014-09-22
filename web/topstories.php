@@ -11,7 +11,7 @@ include(mnminclude.'html1.php');
 
 $page_size = $globals['page_size'];
 
-$range_names  = array(_('24 horas'), _('48 horas'), _('una semana'), _('un mes'), _('un año'), _('todas'));
+$range_names  = array(_('24 horas'), _('48 horas'), _('Última semana'), _('Último mes'), _('Último año'), _('Todas'));
 $range_values = array(1, 2, 7, 30, 365, 0);
 
 $current_page = get_current_page();

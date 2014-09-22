@@ -133,9 +133,9 @@ function print_index_tabs($option=-1) {
 	if (($globals['mobile'] && ! $current_user->has_subs) || (!empty($globals['submnm']) && ! $current_user->user_id)) return;
 
 	$items = array();
-	$items[] = array('id' => 0, 'url' => $globals['meta_skip'], 'title' => _('todas'));
+	$items[] = array('id' => 0, 'url' => $globals['meta_skip'], 'title' => _('Todas'));
 	if (isset($current_user->has_subs)) {
-		$items[] = array('id' => 7, 'url' => $globals['meta_subs'], 'title' => _('suscripciones'));
+		$items[] = array('id' => 7, 'url' => $globals['meta_subs'], 'title' => _('Suscripciones'));
 	}
 
 	if (! $globals['mobile'] && empty($globals['submnm']) && ($subs = SitesMgr::get_sub_subs())) {
@@ -151,7 +151,7 @@ function print_index_tabs($option=-1) {
 	// RSS teasers
 	switch ($option) {
 		case 7: // Personalised, published
-			$feed = array("url" => "?subs=".$current_user->user_id, "title" => _('suscripciones'));
+			$feed = array("url" => "?subs=".$current_user->user_id, "title" => _('Suscripciones'));
 			break;
 		default:
 			$feed = array("url" => '', "title" => "");
@@ -159,7 +159,7 @@ function print_index_tabs($option=-1) {
 	}
 
 	if ($current_user->user_id > 0) {
-		$items[] = array('id' => 1, 'url' => '?meta=_friends', 'title' => _('amigos'));
+		$items[] = array('id' => 1, 'url' => '?meta=_friends', 'title' => _('Amigos'));
 	}
 
 	$vars = compact('items', 'option', 'feed');

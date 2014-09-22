@@ -137,9 +137,9 @@ function print_shakeit_tabs($option=-1) {
 	global $globals, $current_user, $db;
 
 	$items = array();
-	$items[] = array('id' => 1, 'url' => 'queue'.$globals['meta_skip'], 'title' => _('todas'));
+	$items[] = array('id' => 1, 'url' => 'queue'.$globals['meta_skip'], 'title' => _('Todas'));
 	if ($current_user->has_subs) {
-		$items[] = array('id' => 7, 'url' => 'queue'.$globals['meta_subs'], 'title' => _('suscripciones'));
+		$items[] = array('id' => 7, 'url' => 'queue'.$globals['meta_subs'], 'title' => _('Suscripciones'));
 	}
 
 	if (empty($globals['submnm']) && ! $globals['mobile']) {
@@ -154,14 +154,14 @@ function print_shakeit_tabs($option=-1) {
 		}
 	}
 
-	$items[] = array('id' => 3, 'url' => 'queue?meta=_popular', 'title' => _('candidatas'));
+	$items[] = array('id' => 3, 'url' => 'queue?meta=_popular', 'title' => _('Candidatas'));
 
 	if ($current_user->user_id > 0) {
-		$items[] = array('id' => 2, 'url' => 'queue?meta=_friends', 'title' => _('amigos'));
+		$items[] = array('id' => 2, 'url' => 'queue?meta=_friends', 'title' => _('Amigos'));
 	}
 
 	if (!$globals['bot']) {
-		$items [] = array('id' => 5, 'url' => 'queue?meta=_discarded', 'title' => _('descartadas'));
+		$items [] = array('id' => 5, 'url' => 'queue?meta=_discarded', 'title' => _('Descartadas'));
 	}
 
 	// Print RSS teasers
