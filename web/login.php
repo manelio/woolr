@@ -62,7 +62,7 @@ function do_login() {
   $previous_login_failed =  Log::get_date('login_failed', $globals['form_user_ip_int'], 0, 300);
 
   // Show menéame intro only if first try and the there were not previous logins
-  if (! $globals['mobile'] && $previous_login_failed < 3 && empty($_POST["processlogin"]) && empty($_COOKIE['u'])) {
+  if (0 && ! $globals['mobile'] && $previous_login_failed < 3 && empty($_POST["processlogin"]) && empty($_COOKIE['u'])) {
     echo '<div class="faq wideonly" style="float:right; width:55%; margin-top: 10px;">'."\n";
     // Only prints if the user was redirected from submit.php
     if (!empty($_REQUEST['return']) && preg_match('/submit\.php/', $_REQUEST['return'])) {

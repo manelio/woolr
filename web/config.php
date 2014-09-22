@@ -57,7 +57,7 @@ $globals['site_shortname'] = 'memo'; //Used to differentiate in keys
 // If you user version, be careful to rewrite the directory for img, css and js
 // Example for nginx:
 // rewrite /v_\d+/(.+)$ /$1 last;
-$globals['v'] = 14; // internal version, to for reloads
+$globals['v'] = 1; // internal version, to for reloads
 $globals['lang'] = $dblang	= 'es';
 
 $globals['help_url'] = 'http://meneame.wikispaces.com/Comenzando';
@@ -499,10 +499,13 @@ if (!isset($globals['basic_config']) || !$globals['basic_config']) {
 	define("mnminclude", dirname(__FILE__).'/libs/');
 	ini_set("include_path", '.:'.mnminclude.':'.mnmpath);
 
-	if (file_exists('local.php')) include('local.php');
+  $rootDir = dirname(__FILE__);
+	if (file_exists($rootDir.'/local.php')) include($rootDir.'/local.php');
 
-  $customLocalFilename = $_SERVER['SERVER_NAME'].'-local.php';
-  if (file_exists($customLocalFilename)) include($customLocalFilename);
+  $customLocalFilename = $rootDir.'/'.$_SERVER['SERVER_NAME'].'-local.php';
+  if (file_exists($customLocalFilename)) {
+    include($customLocalFilename);
+  }
 
 
 	include mnminclude.'init.php';

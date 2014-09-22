@@ -1,6 +1,6 @@
 var base_url="{{ globals.base_url_general }}",
 	base_cache="{{ globals.cache_dir }}",
-	version_id="v_{{ globals.v }}",
+	version_id="v{{ globals.v }}",
 	base_static="{{ globals.base_static_noversion }}",
 	is_mobile={{ globals.mobile }},
 	touchable=false,
