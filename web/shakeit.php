@@ -85,7 +85,8 @@ switch ($globals['meta']) {
 }
 
 
-$pagetitle = _('noticias pendientes');
+//$pagetitle = _('noticias pendientes');
+$pagetitle = _('Últimas noticias');
 if ($page > 1) {
     $pagetitle .= " ($page)";
 }

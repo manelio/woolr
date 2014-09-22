@@ -1,3 +1,5 @@
 web/cache
 web/*-local.php
 .sass-cache
+*.lock
+web/local.php

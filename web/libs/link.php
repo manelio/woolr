@@ -153,6 +153,8 @@ class Link extends LCPBase {
 	static function visited($id) {
 		global $globals;
 
+		if ($globals['ignore_visited']) return false;
+
 		if (! isset($_COOKIE['v']) || ! ($visited = preg_split('/x/', $_COOKIE['v'], 0, PREG_SPLIT_NO_EMPTY)) ) {
 			$visited = array();
 			$found = false;
@@ -172,7 +174,43 @@ class Link extends LCPBase {
 
 	function add_click() {
 		global $globals, $db;
+		$issues = array();
 
+		$go = true;
+
+		if (!$globals['disable_add_click_checks']) {
+			if ($globals['bot']) {
+				$issues[] = 'globals[bot]';
+				$go = false;
+			}
+
+			if (Link::visited($this->id)) {
+				$issues[] = 'link visited';
+				$go = false;
+			}
+
+			if (!$globals['click_counter']) {
+				$issues[] = 'not click counter';
+				$go = false;
+			}
+
+			if (!isset($_COOKIE['k'])) {
+				$issues[] = 'not set _COOKIE[k]';
+				$go = false;
+			}
+
+			if (!check_security_key($_COOKIE['k'])) {
+				$issues[] = 'not check_security_key(_COOKIE[k]';
+				$go = false;
+			}
+
+			if (!($this->ip != $globals['user_ip'])) {
+				$issues[] = 'this->ip == globals[user_ip]';
+				$go = false;
+			}
+		}
+
+		/*
 		if (! $globals['bot']
 			&& ! Link::visited($this->id)
 			&& $globals['click_counter']
@@ -181,7 +219,15 @@ class Link extends LCPBase {
 			&& $this->ip != $globals['user_ip']) {
 			// Delay storing
 			self::$clicked = $this->id;
+		} else {			
 		}
+		*/
+
+		if ($go) {
+			self::$clicked = $this->id;
+		}
+
+		
 	}
 
 	static function store_clicks() {
@@ -705,6 +751,7 @@ class Link extends LCPBase {
 			$column_type = 'normal';
 			if ($isWide) $column_type = 'wide';
 		}
+
 
 		$this->column_class = $globals['column_class'][$column_type];
 
