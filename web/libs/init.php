@@ -97,7 +97,7 @@ if (!empty($globals['static_server']) && ! $globals['https']) {
 	$globals['base_static_noversion'] = $globals['scheme'].'://'.$globals['server_name'].$globals['base_url'];
 }
 
-$globals['base_static'] = $globals['base_static_noversion'].'v_'.$globals['v'].'/';
+$globals['base_static'] = $globals['base_static_noversion'].'v'.$globals['v'].'/';
 
 if (empty($globals['static_server_name'])) {
 	if ($globals['static_server']) $globals['static_server_name'] = preg_replace('/^http:\/\//', '', $globals['static_server']);
