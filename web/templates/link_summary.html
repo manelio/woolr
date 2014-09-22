@@ -4,8 +4,8 @@
 
 	{% if 1 || self.show_shakebox %}
 
-		<div class="link-votes label label-info">
-			<a id="a-votes-{{ self.id}}" href="javascript:menealo({{ current_user.user_id}}, {{self.id}})">
+		<div class="link-votes label label-info" onclick="javascript:menealo({{ current_user.user_id}}, {{self.id}})">
+			<a id="a-votes-{{ self.id}}" href="#" onclick="return false;">
 				{{ self.total_votes }}				
 			</a>
 
@@ -109,14 +109,12 @@
 				<img src="http://shprinkone.julienrenaux.fr/wp-content/uploads/2012/06/dsc20050604_133440_34211-268x268.jpg" />
 			</div>
 			-->
-	
-	<div class="news-body-content">
 
 	<div class="news-submitted">
 		{% if type != 'short' %}
 			<a href="{{ self.username | useruri }}" class="tooltip u:{{ self.author }}"><img src="{{ globals.base_static }}img/g.gif" data-src="{% exec get_avatar_url self.author, self.avatar, 25, false %}" data-2x="s:-25.:-40." alt="" class="lazy"/></a>
 		{% endif %}
-		{% trans _('por') %} <a href="{% exec get_user_uri self.username, 'history' %}">{{ self.username }}</a>
+		<a href="{% exec get_user_uri self.username, 'history' %}"><i class="fa fa-user"></i> {{ self.username }}</a>
 		{% if self.url %}
 			{% trans _('a') %} <span class="showmytitle" title="{{ url }}">{{ self.url_str }}</span>
 		{% endif %}
@@ -132,13 +130,20 @@
 		{% endif %}
 	</div>
 
+	
+	<div class="news-body-content">
+
+
 	{% if type == 'full' || type == 'preview' %}
 		{% if self.thumb_uri %}
 			<a href="{{ self.thumb_medium_url }}" class="fancybox" title="{% trans _('miniatura') %}"><img data-2x='s:thumb:thumb_2x:' data-src='{{ self.thumb_uri }}' src="{{ globals.base_static }}img/g.gif" alt='' class='thumbnail lazy'/></a>
 		{% endif %}
-		{{ self.content }}
-		{% if type != 'preview' %}
 
+
+		<div class="news-abstract">
+		{{ self.content }}
+		
+		{% if type != 'preview' %}
 			{% if self.is_editable %}
 				<a href="{% get_url 'editlink?id=' self.id '&amp;user=' current_user.user_id %}" title="{% trans _('editar noticia') %} #{{ self.id }}">
 					<i class="fa fa-edit"></i>
@@ -149,7 +154,10 @@
 				&nbsp;&nbsp;<a href="#" onclick="$('#geoedit').load('{% get_url  "geo/get_form.php?id=" self.id  "&amp;type=link&amp;icon=" self.status %}'); return false;">
 				<img class="mini-icon-text" src="{{ globals.base_static }}img/common/edit-geo01.png" alt="edit" title="{% trans _('editar geolocalización') %}"/></a>
 			{% endif %}
+			
 		{% endif %}
+
+		</div>
 	{% endif %}
 
 
@@ -164,13 +172,12 @@
 
 
 	{% if globals.link || ((self.is_editable OR self.status == 'queued') AND globals.now - self.date < 7200) || type == 'short' %}
-		{% if self.show_tags AND self.tags %}
-		<br/>
+		{% if self.show_tags AND self.tags %}		
 		<div class="news-tags">
 		{% exec explode "," self.tags as tags_array %}
 		{% for id, tag in tags_array %}
 		<span class="label label-info">
-			<i title="Etiquetas" class="fa fa-tag"></i> <a href='{{ globals.base_url }}search?p=tags&amp;q={{ tag|urlencode }}'>{{ tag }}</a>
+			<i title="Etiquetas" class="fa fa-tag"></i> <a href='{{ globals.base_url }}search?p=tags&amp;q={{ tag|urlencode }}'>{{ tag }} </a>
 		</span>
 		{% endfor %}
 

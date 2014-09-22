@@ -1,0 +1,10 @@
+{
+  "name": "woolr",
+  "desciption": "A meneame clone",
+  "private": true,  
+  "dependencies": {    
+    "bootstrap-sass-official": "~3.2.0",
+    "bootswatch-scss": "*",
+    "components-font-awesome": "*"
+  }
+}

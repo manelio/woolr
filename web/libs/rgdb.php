@@ -129,12 +129,12 @@ class RGDB extends mysqli {
 	function connect() {
 		if ($this->connected) return;
 
-		@parent::init();
-		@parent::options(MYSQLI_OPT_CONNECT_TIMEOUT, $this->connect_timeout);
+		parent::init();
+		parent::options(MYSQLI_OPT_CONNECT_TIMEOUT, $this->connect_timeout);
 		if ($this->persistent && version_compare(PHP_VERSION, '5.3.0') > 0) {
-			$this->connected = @parent::real_connect('p:'.$this->dbhost, $this->dbuser, $this->dbpassword, $this->dbname, $this->port);
+			$this->connected = parent::real_connect('p:'.$this->dbhost, $this->dbuser, $this->dbpassword, $this->dbname, $this->port);
 		} else {
-			$this->connected = @parent::real_connect($this->dbhost, $this->dbuser, $this->dbpassword, $this->dbname, $this->port);
+			$this->connected = parent::real_connect($this->dbhost, $this->dbuser, $this->dbpassword, $this->dbname, $this->port);
 		}
 		if (! $this->connected) {
 			header('HTTP/1.1 503 Service Unavailable');

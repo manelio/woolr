@@ -33,14 +33,14 @@ $globals['theme'] = 'default';
 if ($_GET['theme']) {
   $globals['theme'] = $_GET['theme'];
 }
-
+if (!empty($_SERVER['HTTP_HOST'])) $_SERVER['SERVER_NAME'] = $_SERVER['HTTP_HOST'];
 
 
 // WARN WARNING ALERT: we use $_SERVER['SERVER_NAME'] which is the first
 // server_name in NGInx and other servers
 
-$globals['server_name'] = $_SERVER['SERVER_NAME'];
-$globals['canonical_server_name']	= $_SERVER['SERVER_NAME'];
+// $globals['server_name'] = $_SERVER['SERVER_NAME'];
+// $globals['canonical_server_name']	= $_SERVER['SERVER_NAME'];
 
 // In case you have different domains and want to avoid Google penalization for duplicated content
 // $globals['canonical_server_name'] = 'www.canonical.com';
@@ -223,8 +223,10 @@ $globals['time_enabled_comments_status']['discard'] = 4*7*24*60*60; // 4 weeks
 $globals['time_enabled_comments_status']['autodiscard'] = 4*7*24*60*60; // 4 weeks
 $globals['time_enabled_comments_status']['abuse'] = 4*7*24*60*60; // 4 weeks
 
+// $globals['time_enabled_votes'] = 345600; // 4 days
+$globals['time_enabled_votes'] = 4*7*24*60*60; // 4 weeks
 
-$globals['time_enabled_votes'] = 345600; // 4 days
+
 $globals['time_enabled_negative_votes'] = 3600; // 1 hour
 $globals['mysql_persistent'] = true;
 $globals['mysql_master_persistent'] = false;
@@ -463,6 +465,9 @@ $globals['column_class'] = array(
   'full'    => '',
 );
 
+$globals['ignore_visited'] = true;
+$globals['disable_add_click_checks'] = true;
+
 /*
 $globals['links_container_class'] = 'col-sm-12 col-md-12 col-lg-12';
 $globals['column_class'] = array(
@@ -473,6 +478,9 @@ $globals['column_class'] = array(
 );
 */
 
+$globals['js'] = array(
+
+);
 
 // Send logs to "log_user", it's windows compatible
 openlog('meneame', LOG_ODELAY, LOG_USER);
@@ -491,9 +499,10 @@ if (!isset($globals['basic_config']) || !$globals['basic_config']) {
 	define("mnminclude", dirname(__FILE__).'/libs/');
 	ini_set("include_path", '.:'.mnminclude.':'.mnmpath);
 
-	@include('local.php');
-	@include($_SERVER['SERVER_NAME'].'-local.php');
-	// @include($_SERVER['SERVER_ADDR'].'-local.php');
+	if (file_exists('local.php')) include('local.php');
+
+  $customLocalFilename = $_SERVER['SERVER_NAME'].'-local.php';
+  if (file_exists($customLocalFilename)) include($customLocalFilename);
 
 
 	include mnminclude.'init.php';

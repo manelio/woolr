@@ -48,6 +48,8 @@ h2, .h2 {
 
   .link-votes {
 
+    cursor: pointer;
+
     /*
     position: absolute;
     right: 0px;
@@ -64,6 +66,10 @@ h2, .h2 {
 
       a {        
         color: black;
+      }
+
+      a:hover {
+        text-decoration: none;
       }
 
       .clics {
@@ -97,6 +103,10 @@ h2, .h2 {
     }
   }
 
+  .news-submitted {
+    color: grey;
+  }
+
   .news-body-content {
     padding: 12px 12px 12px 12px;
 
@@ -106,6 +116,10 @@ h2, .h2 {
 
     .news-details {
       margin-top: 12px;
+    }
+
+    .news-abstract {
+      
     }
   }
 }

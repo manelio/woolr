@@ -412,7 +412,11 @@ function do_vertical_tags($what=false) {
 	$min_pts = 8;
 	$max_pts = 22;
 
-	$min_date = date("Y-m-d H:i:00", $globals['now'] - 172800); // 48 hours (edit! 2zero)
+	// MDOMENECH
+	//$min_date = date("Y-m-d H:i:00", $globals['now'] - 172800); // 48 hours (edit! 2zero)
+	$min_date = date("Y-m-d H:i:00", $globals['now'] - 86400*7*4); // 4 weeks
+
+
 	$from_where = "FROM links, sub_statuses WHERE id = ".SitesMgr::my_id()." AND link_id = link and link_date > '$min_date' and link_status $status";
 	$max = 3;
 
@@ -682,8 +686,10 @@ function do_best_queued() {
 	$title = _('candidatas');
 	$warned_threshold = intval($min_karma * 1.5);
 
+	// MDOMENECH
+	//$min_date = date("Y-m-d H:i:00", $globals['now'] - 86400*3); // 3 days
+	$min_date = date("Y-m-d H:i:00", $globals['now'] - 86400*7*4); // 4 weeks
 
-	$min_date = date("Y-m-d H:i:00", $globals['now'] - 86400*3); // 3 days
 	// The order is not exactly the votes
 	// but a time-decreasing function applied to the number of votes
 	$res = $db->get_results("select link_id from links, sub_statuses where id = ".SitesMgr::my_id()." AND status='queued' and link_id = link AND link_karma > $min_karma AND date > '$min_date' order by link_karma desc limit 20");
