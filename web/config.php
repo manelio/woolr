@@ -493,13 +493,15 @@ if(stripos(setlocale(LC_CTYPE, 0), "utf-8") === false) {
 	setlocale(LC_CTYPE, "en_US.UTF-8");
 }
 
+$globals['root'] = dirname(__FILE__);
+
 // There is another config file, this is called for defaults (used by mobile)
 if (!isset($globals['basic_config']) || !$globals['basic_config']) {
 	define("mnmpath", dirname(__FILE__));
 	define("mnminclude", dirname(__FILE__).'/libs/');
 	ini_set("include_path", '.:'.mnminclude.':'.mnmpath);
 
-  $rootDir = dirname(__FILE__);
+  $rootDir = $globals['root'];
 	if (file_exists($rootDir.'/local.php')) include($rootDir.'/local.php');
 
   $customLocalFilename = $rootDir.'/'.$_SERVER['SERVER_NAME'].'-local.php';

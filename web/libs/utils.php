@@ -553,7 +553,16 @@ function do_error($mess = false, $error = false, $send_status = "Error") {
 		@header("Status: $error $mess");
 	}
 
-	Haanga::Load('error.html', compact('mess', 'error'));
+
+
+	$backgrounds = glob($globals['root'].'/img/error/funny/*.gif');
+	shuffle($backgrounds);
+	$bg = reset($backgrounds);
+	$pathInfo = pathinfo($bg);
+	$basename = $pathInfo['basename'];
+	$bg = '/img/error/funny/'.$basename;
+
+	Haanga::Load('error-new.html', compact('mess', 'error', 'globals', 'bg'));
 	die;
 }
 

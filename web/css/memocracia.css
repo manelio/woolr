@@ -297,3 +297,8 @@ div.commentform textarea {
 .news-tags span.label a {
   color: white;
 }
+
+/* line 318, ../../sass/memocracia.scss */
+.tagcloud .label {
+  font-size: inherit;
+}

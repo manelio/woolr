@@ -87,13 +87,13 @@ function do_header($title, $id='home', $options = false) {
 	if (! is_array($options)) {
 		$left_options = array();
 		//$left_options[] = new MenuOption(_('portada'), $globals['base_url'], $id, _('página principal'));
-		$left_options[] = new MenuOption(_('nuevas'), $globals['base_url'].'queue', $id, _('menear noticias pendientes'));
-		$left_options[] = new MenuOption(_('populares'), $globals['base_url'].'popular', $id, _('historias más votadas'));
-		$left_options[] = new MenuOption(_('más visitadas'), $globals['base_url'].'top_visited', $id, _('historias más visitadas/leídas'));
+		$left_options[] = new MenuOption(_('Nuevas'), $globals['base_url'].'queue', $id, _('menear noticias pendientes'));
+		$left_options[] = new MenuOption(_('Populares'), $globals['base_url'].'popular', $id, _('historias más votadas'));
+		$left_options[] = new MenuOption(_('Más visitadas'), $globals['base_url'].'top_visited', $id, _('historias más visitadas/leídas'));
 		//$left_options[] = new MenuOption(_('destacadas'), $globals['base_url'].'top_active', $id, _('historias más activas'));
 
 		if ($this_site->enabled) {
-			$left_options[] = new MenuOption(_('enviar historia'), $globals['base_url'].'submit', $id, _('enviar nueva historia'), array(
+			$left_options[] = new MenuOption(_('Enviar noticia'), $globals['base_url'].'submit', $id, _('enviar nueva historia'), array(
 				'class' => 'link-send-story',
 			));
 		}
@@ -101,19 +101,19 @@ function do_header($title, $id='home', $options = false) {
 
 		$right_options = array();
 		$right_options[] = new MenuOption(_('m/'), $globals['base_url_general'].'subs', $id, _('sub menéames'));
-		$right_options[] = new MenuOption(_('fisgona'), $globals['base_url'].'sneak', $id, _('visualizador en tiempo real'));
-		$right_options[] = new MenuOption(_('nótame'), post_get_base_url(), $id, _('leer o escribir notas y mensajes privados'));
-		$right_options[] = new MenuOption(_('galería'), 'javascript:fancybox_gallery(\'all\');', false, _('las imágenes subidas por los usuarios'));
+		$right_options[] = new MenuOption(_('Actividad'), $globals['base_url'].'sneak', $id, _('visualizador en tiempo real'));
+		$right_options[] = new MenuOption(_('Notas y mensajes privados'), post_get_base_url(), $id, _('leer o escribir notas y mensajes privados'));
+		$right_options[] = new MenuOption(_('Galería'), 'javascript:fancybox_gallery(\'all\');', false, _('las imágenes subidas por los usuarios'));
 	} else {
 		$left_options = $options;
 		$right_options = array();
 		//$right_options[] = new MenuOption(_('portada'), $globals['base_url'], '', _('página principal'));
-		$right_options[] = new MenuOption(_('nuevas'), $globals['base_url'].'queue', '', _('menear noticias pendientes'));
+		$right_options[] = new MenuOption(_('Nuevas'), $globals['base_url'].'queue', '', _('menear noticias pendientes'));
 
 		$right_options[] = new MenuOption(_('m/'), $globals['base_url_general'].'subs', $id, _('sub menéames'));
-		$right_options[] = new MenuOption(_('fisgona'), $globals['base_url'].'sneak', $id, _('visualizador en tiempo real'));
-		$right_options[] = new MenuOption(_('nótame'), post_get_base_url(), $id, _('leer o escribir notas y mensajes privados'));
-		$right_options[] = new MenuOption(_('galería'), 'javascript:fancybox_gallery(\'all\');', false, _('las imágenes subidas por los usuarios'));
+		$right_options[] = new MenuOption(_('Actividad'), $globals['base_url'].'sneak', $id, _('visualizador en tiempo real'));
+		$right_options[] = new MenuOption(_('Notas y mensajes privados'), post_get_base_url(), $id, _('leer o escribir notas y mensajes privados'));
+		$right_options[] = new MenuOption(_('Galería'), 'javascript:fancybox_gallery(\'all\');', false, _('las imágenes subidas por los usuarios'));
 	}
 
 	$vars = compact('title', 'greeting', 'id', 'left_options', 'right_options', 'sites', 'this_site');
@@ -183,8 +183,8 @@ function do_pages_reverse($total, $page_size=25, $margin = true) {
 
 	if (! $globals['mobile']) {
 		$index_limit = 5;
-		$go_prev = _('anterior');
-		$go_next = _('siguiente');
+		$go_prev = _('Anterior');
+		$go_next = _('Siguiente');
 	} else {
 		$index_limit = 1;
 		$go_prev = '';
@@ -268,8 +268,8 @@ function do_pages($total, $page_size=25, $margin = true) {
 
 	if (! $globals['mobile']) {
 		$index_limit = 5;
-		$go_prev = _('anterior');
-		$go_next = _('siguiente');
+		$go_prev = _('Anterior');
+		$go_next = _('Siguiente');
 	} else {
 		$index_limit = 1;
 		$go_prev = '';
@@ -423,7 +423,7 @@ function do_vertical_tags($what=false) {
 	$res = $db->get_col("select link_tags $from_where");
 	if ($res) {
 		$url = $globals['base_url'].'cloud';
-		$title = _('etiquetas');
+		$title = _('Etiquetas');
 		$content = '';
 
 		foreach ($res as $line) {
@@ -451,7 +451,7 @@ function do_vertical_tags($what=false) {
 			} else {
 				$content .= $globals['base_url'].'search?p=tags&amp;q=';
 			}
-			$content .= urlencode($word).'">'.$word.'</a>  ';
+			$content .= urlencode($word).'"><span class="label label-info"><i title="Etiquetas" class="fa fa-tag"></i> '.$word.'</span></a>  ';
 		}
 		if ($max > 2) {
 			$vars = compact('content', 'title', 'url');
@@ -683,7 +683,7 @@ function do_best_queued() {
 
 	$avg_karma = intval($db->get_var("SELECT avg(karma) from sub_statuses WHERE id = ".SitesMgr::my_id()." AND date >= date_sub(now(), interval 1 day) and status='published'"));
 	$min_karma = intval($avg_karma/4);
-	$title = _('candidatas');
+	$title = _('Candidatas');
 	$warned_threshold = intval($min_karma * 1.5);
 
 	// MDOMENECH
