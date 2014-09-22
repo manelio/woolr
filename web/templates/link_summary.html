@@ -200,56 +200,61 @@
 			#}
 
 			
+			<div class="news-icons">
 
-			<div class="news-votes">			
+				<div class="news-votes">			
 
-				{% if self.votes > 0 %}
-				<span class="label label-success" title="Votos de usuarios">
-					<i class="fa fa-user"></i> <span id="a-usu-{{ self.id }}">{{ self.votes }}</span>
-				</span>
-				{% endif %}
+					{% if self.votes > 0 %}
+					<span class="label label-success" title="Votos de usuarios">
+						<i class="fa fa-user"></i> <span id="a-usu-{{ self.id }}">{{ self.votes }}</span>
+					</span>
+					{% endif %}
 
-				{% if self.anonymous > 0 %}
-				<span class="label label-info" title="Votos anónimos">
-					<i class="fa fa-question"></i> <span id="a-ano-{{ self.id }}">{{ self.anonymous }}</span>
-				</span>
-				{% endif %}
+					{% if self.anonymous > 0 %}
+					<span class="label label-info" title="Votos anónimos">
+						<i class="fa fa-question"></i> <span id="a-ano-{{ self.id }}">{{ self.anonymous }}</span>
+					</span>
+					{% endif %}
+					
+					{% if self.negatives > 0 %}
+					<span class="label label-danger" title="Votos negativos">
+						<i class="fa fa-thumbs-down"></i> <span id="a-neg-{{ self.id }}">{{ self.negatives }}</span>
+					</span>
+					{% endif %}
+
+				</div>
 				
-				{% if self.negatives > 0 %}
-				<span class="label label-danger" title="Votos negativos">
-					<i class="fa fa-thumbs-down"></i> <span id="a-neg-{{ self.id }}">{{ self.negatives }}</span>
-				</span>
+				
+				<div class="tool">
+
+				{% if current_user.user_id > 0 %}
+					
+					<a href="#" id="favl-{{ self.id }}" onclick="add_remove_fav('favl-{{ self.id }}', 'link', {{ self.id }}); return false;" {% if self.favorite %} class="favorite on" {% else %} class="favorite" {% endif %} >
+						<i class="fa fa-star fa-2x"></i>
+					</a>
+					
 				{% endif %}
 
-			</div>
+				
+				{% if ! self.is_discarded %}
 
-			
-			
+					{% set link = self.permalink %}
+					{% set title = self.title %}
 
-			{% if current_user.user_id > 0 %}
-				<span class="tool">
-				<span id="favl-{{ self.id }}" onclick="add_remove_fav('favl-{{ self.id }}', 'link', {{ self.id }})" {% if self.favorite %} class="favorite on" {% else %} class="favorite" {% endif %} ></span>
-				</span>
-			{% endif %}
+					{% if not globals.mobile %}
+						{% exec self.get_short_permalink as short_link %}
+						<strong class="wideonly">
+							<a href="{{ short_link }}" title="{% trans _('enlace corto') %}">
+								<i class="fa fa-share-square fa-2x"></i>
+							</a>
+						</strong> 
+					{% endif %}
+					{% include "share.html" %}
 
-			<div class="tool">
-			{% if ! self.is_discarded %}
 
-				{% set link = self.permalink %}
-				{% set title = self.title %}
-
-				{% if not globals.mobile %}
-					{% exec self.get_short_permalink as short_link %}
-					<strong class="wideonly">
-						<a href="{{ short_link }}" title="{% trans _('enlace corto') %}">
-							<i class="fa fa-share-square fa-2x"></i>
-						</a>
-					</strong> 
 				{% endif %}
-				{% include "share.html" %}
+				</div>
 
-
-			{% endif %}
 			</div>
 		</div>
 
@@ -304,7 +309,9 @@
 	</div> <!-- .news-body-content -->
 	</div> <!-- .news-body -->
 
-		<span class="comments-counter"><a href="{{ self.relative_permalink }}" title="{% trans _('comentarios de') %}: «{{ self.title }}»">{% if self.comments > 0 %}<span class="counter">{{ self.comments }}</span> {% trans _("comentarios") %}{% else %}{% trans _("¡Sé el primero en comentar!") %}{% endif %}</a></span>		
+		<a href="{{ self.relative_permalink }}" title="{% trans _('comentarios de') %}: «{{ self.title }}»">
+		<span class="comments-counter">{% if self.comments > 0 %}<span class="counter">{{ self.comments }}</span> {% trans _("comentarios") %}{% else %}{% trans _("¡Sé el primero en comentar!") %}{% endif %}</span>
+		</a>
 
 
 </div> <!-- .news-summary -->

@@ -299,6 +299,10 @@ margin-bottom: 20px;
   .label {
     font-size: inherit;
     margin-right: 4px;
+
+    i {
+      line-height: 2em;
+    }
   }
 }
 
@@ -318,4 +322,31 @@ margin-bottom: 20px;
   .label {
     font-size: inherit;
   }
+}
+
+a.favorite {
+  color: #ccc;
+}
+
+a.favorite.on {
+  color: blue;
+}
+
+
+.news-icons {
+
+  .news-votes, .tool {
+    display: inline-block;
+    vertical-align: top;
+  }
+
+  .news-votes {
+    margin-right: 8px;
+  }
+
+  .tool {
+    // MDOMENECH: review this. it's a patch.
+    padding-top: 2px;
+  }
+  
 }
