@@ -555,12 +555,12 @@ function do_error($mess = false, $error = false, $send_status = "Error") {
 
 
 
-	$backgrounds = glob($globals['root'].'/img/error/funny/*.gif');
+	$backgrounds = glob($globals['root'].'/img/error/neutral/*.gif');
 	shuffle($backgrounds);
 	$bg = reset($backgrounds);
 	$pathInfo = pathinfo($bg);
 	$basename = $pathInfo['basename'];
-	$bg = '/img/error/funny/'.$basename;
+	$bg = '/img/error/neutral/'.$basename;
 
 	Haanga::Load('error-new.html', compact('mess', 'error', 'globals', 'bg'));
 	die;
