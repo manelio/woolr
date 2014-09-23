@@ -457,6 +457,8 @@ $globals['user_agent'] = 'Meneamebot (http://meneame.net/)';
 
 // MDOMENECH
 
+$globals['error_background_collection'] = 'neutral';
+
 $globals['links_container_class'] = 'col-sm-9 col-md-9 col-lg-9';
 $globals['column_class'] = array(
   'normal'  => 'col-sm-6 col-md-6 col-lg-4',
@@ -481,6 +483,10 @@ $globals['column_class'] = array(
 $globals['js'] = array(
 
 );
+
+$globals['maintenance'] = true;
+$globals['http_header_dev_field'] = 'dev';
+$globals['http_header_dev_value'] = 'manelio1247';
 
 // Send logs to "log_user", it's windows compatible
 openlog('meneame', LOG_ODELAY, LOG_USER);
@@ -517,5 +523,13 @@ if (!isset($globals['basic_config']) || !$globals['basic_config']) {
 	$db->hide_errors();
 }
 
+if ($globals['maintenance']) {
+  $isDeveloper = false;
+  if ($globals['http_header_dev_field'] && $_SERVER['HTTP_'.strtoupper($globals['http_header_dev_field'])] == $globals['http_header_dev_value']) {
+    $isDeveloper = true;
+  }
 
-
+  if (!$isDeveloper) {
+    do_error("En mantenimiento", 503, true);
+  }
+}

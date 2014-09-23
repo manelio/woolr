@@ -539,28 +539,31 @@ function check_security_key($key) {
 }
 
 function do_error($mess = false, $error = false, $send_status = "Error") {
+	// MDOMENECH: modified
+
 	global $globals;
 	$globals['ads'] = false;
+
+	$collection = $globals['error_background_collection'];
 
 	if (headers_sent($file, $line)) {
 		syslog(LOG_INFO, "Headers already sent, file $file line $line, uri: ".$_SERVER["DOCUMENT_URI"]." mess: $mess");
 	}
 
 	if (! $mess ) $mess = _('algún error nos ha petado');
+	else $mess = _($mess);
 
 	if ($error) {
 		@header("HTTP/1.0 $error $mess");
 		@header("Status: $error $mess");
 	}
 
-
-
-	$backgrounds = glob($globals['root'].'/img/error/neutral/*.gif');
+	$backgrounds = glob($globals['root']."/img/error/{$collection}/*.gif");
 	shuffle($backgrounds);
 	$bg = reset($backgrounds);
 	$pathInfo = pathinfo($bg);
 	$basename = $pathInfo['basename'];
-	$bg = '/img/error/neutral/'.$basename;
+	$bg = "/img/error/{$collection}/".$basename;
 
 	Haanga::Load('error-new.html', compact('mess', 'error', 'globals', 'bg'));
 	die;

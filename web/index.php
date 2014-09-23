@@ -165,4 +165,3 @@ function print_index_tabs($option=-1) {
 	$vars = compact('items', 'option', 'feed');
 	return Haanga::Load('print_tabs.html', $vars);
 }
-
