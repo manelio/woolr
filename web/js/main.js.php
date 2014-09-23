@@ -10,6 +10,9 @@ Haanga::Load('js/main.js');
 Haanga::Load('js/jquery.colorbox-min.js');
 Haanga::Load('js/jquery.autosize.min.js');
 
+Haanga::Load('js/custom.js');
+
 foreach($globals['js'] as $jsKey => $jsScript) {
   Haanga::Load('js/'.$jsScript);
 }
+

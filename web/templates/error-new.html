@@ -9,11 +9,8 @@ body {
 }
 
 
-#fullscreen_post_bg {
+#background-error {
   background-image: url('{{ bg }}');
-}
-
-.fullscreen_post_bg { 
   position: fixed;
   top: 0;
   right: 0;
@@ -36,13 +33,13 @@ body {
   bottom: 0;
 }
 
-.valign_outer {
+.table-block {
   display: table;
   width: 100%;
   height: 100%;  
 }
 
-.valign_inner {
+.cell-block {
   display: table-cell;
   vertical-align: middle;
 }
@@ -54,14 +51,24 @@ body {
 
   text-align: center;
   color: white;
+
+  text-shadow: 0 0 5PX #000;
+
 }
 
 .message h1 {
-  font-size: 300%;
+  font-size: 500%;
+  margin: 0 0 .2em 0;
+}
+
+.message a {
+  color: white;
+  text-decoration: none;
 }
 
 .message .errt {
-  font-size: 200%;
+  margin: 0;
+  font-size: 300%;
 }
 
 -->
@@ -70,29 +77,31 @@ body {
 
 <body>
 
-<div id="fullscreen_post_bg" class="fullscreen_post_bg loading">  
+<div id="background-error">
 </div>
 
 <div id="content">
 
 
-  <div class="valign_outer">
-    <div class="valign_inner">
+  <div class="table-block">
+    <div class="cell-block">
 
       <div class="message">
 
-        <h1>{{ globals.site_name }}</h1>
+        <h1><a href="/">{{ globals.site_name }}</a></h1>
 
         <p class="errt">
         {% if mess %}
-            {{ mess }} 
+            {{ mess }}
         {% else %}
             {% trans _('algún error nos ha petado') %}
         {% endif %}
-        <br/>
-        <span style="font-size: 80%">
+        </p>
+        
+        <p>
+        <span>
         {% if error %}
-            {% trans _("error %s"), error %}
+            {% trans _("código %s"), error %}
         {% endif %}
         </span>
         </p>

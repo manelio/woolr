@@ -1,0 +1,10 @@
+@import "../../web/bower_components/bootswatch-scss/united/variables";
+
+.link-votes.label.label-info {
+  background: $body-bg;
+  border: 1px solid $brand-primary;
+
+  .clics {
+    color: $gray;
+  }
+}
