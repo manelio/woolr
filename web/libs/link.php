@@ -752,8 +752,9 @@ class Link extends LCPBase {
 			if ($isWide) $column_type = 'wide';
 		}
 
-
 		$this->column_class = $globals['column_class'][$column_type];
+
+		$this->abstract = truncateHtml($this->content, 400, '...');
 
 
 		$this->show_tags = $show_tags;
@@ -799,6 +800,7 @@ class Link extends LCPBase {
 
 		$vars = compact('type');
 		$vars['self'] = $this;
+
 		return Haanga::Load("link_summary.html", $vars);
 
 	}
@@ -1063,7 +1065,7 @@ class Link extends LCPBase {
 			$server_name = $globals['url_shortener'] . '/';
 			$id = base_convert($this->id, 10, 36);
 		} else {
-			$server_name = get_server_name().$globals['base_url'].'story/';
+			$server_name = get_server_name().$globals['base_path'].'story/';
 			$id = $this->id;
 		}
 		return 'http://'.$server_name.$id;
@@ -1072,12 +1074,24 @@ class Link extends LCPBase {
 	function get_relative_permalink($strict = false) {
 		global $globals;
 
-		if (empty($this->base_url)) $this->base_url = $globals['base_url'];
+		if (empty($this->base_path)) {
+			$this->base_path = $globals['base_path'];
+		}
 
-		if ( $this->is_sub && ($strict || self::$original_status || ($globals['submnm'] && $this->sub_id == SitesMgr::my_id()) || ! $this->sub_status)) {
-			$base = $this->base_url . 'm/'.$this->sub_name.'/';
+		if ( $this->is_sub && ($globals['submnm'] || $strict || self::$original_status) ) {
+			if ($this->sub_status_id == SitesMgr::my_id() && ! $strict && ! self::$original_status) {
+				$sub = $globals['submnm'];		
+			} else { 
+				$sub = $this->sub_name;
+			}
+
+			if ($globals['subs_in_subdomain']) {
+					$base = $this->base_path;
+			} else {				
+					$base = $this->base_path . 'm/'.$sub.'/';				
+			}
 		} else {
-			$base = $this->base_url.'story/';
+			$base = $this->base_path.'story/';
 		}
 
 		if (!empty($this->uri)) {
@@ -1087,16 +1101,23 @@ class Link extends LCPBase {
 		}
 	}
 
-	function get_permalink() {
+	function get_permalink($strict = false, $relative = false) {
 		global $globals;
 
-		if (empty($globals['server_name'])) {
-			$server_name =  $this->server_name;
+		if (empty($globals['base_url'])) {
+			$base_url =  $this->base_url;			
 		} else {
-			$server_name = $globals['server_name'];
+			$base_url =  $globals['base_url_general'];
 		}
-		return 'http://'.$server_name.$globals['base_url'].$this->get_relative_permalink();
-	}
+
+		if (empty($relative)) {
+			$relative = $this->get_relative_permalink($strict);
+		}
+
+		if ($relative[0] == '/') $relative = substr($relative, 1);
+
+		return $base_url.$relative;
+	}	
 
 	function get_canonical_permalink($page = false) {
 		global $globals;
@@ -1907,7 +1928,9 @@ class Link extends LCPBase {
 		if ($properties['allow_paragraphs']) $replace_nl = false;
 		else $replace_nl = true;
 
-		$this->content = clean_text_with_tags($this->content, 0, $replace_nl, $properties['intro_max_len']);
+		
+		// MDOMENECH: WARNING, I COMMENTED THIS
+		//$this->content = clean_text_with_tags($this->content, 0, $replace_nl, $properties['intro_max_len']);
 
 
 
@@ -1951,4 +1974,96 @@ class Link extends LCPBase {
 		
 	}
 
+}
+
+
+
+function truncateHtml($text, $length = 100, $ending = '...', $exact = false, $considerHtml = true) {
+	if ($considerHtml) {
+		// if the plain text is shorter than the maximum length, return the whole text
+		if (strlen(preg_replace('/<.*?>/', '', $text)) <= $length) {
+			return $text;
+		}
+		// splits all html-tags to scanable lines
+		preg_match_all('/(<.+?>)?([^<>]*)/s', $text, $lines, PREG_SET_ORDER);
+		$total_length = strlen($ending);
+		$open_tags = array();
+		$truncate = '';
+		foreach ($lines as $line_matchings) {
+			// if there is any html-tag in this line, handle it and add it (uncounted) to the output
+			if (!empty($line_matchings[1])) {
+				// if it's an "empty element" with or without xhtml-conform closing slash
+				if (preg_match('/^<(\s*.+?\/\s*|\s*(img|br|input|hr|area|base|basefont|col|frame|isindex|link|meta|param)(\s.+?)?)>$/is', $line_matchings[1])) {
+					// do nothing
+				// if tag is a closing tag
+				} else if (preg_match('/^<\s*\/([^\s]+?)\s*>$/s', $line_matchings[1], $tag_matchings)) {
+					// delete tag from $open_tags list
+					$pos = array_search($tag_matchings[1], $open_tags);
+					if ($pos !== false) {
+					unset($open_tags[$pos]);
+					}
+				// if tag is an opening tag
+				} else if (preg_match('/^<\s*([^\s>!]+).*?>$/s', $line_matchings[1], $tag_matchings)) {
+					// add tag to the beginning of $open_tags list
+					array_unshift($open_tags, strtolower($tag_matchings[1]));
+				}
+				// add html-tag to $truncate'd text
+				$truncate .= $line_matchings[1];
+			}
+			// calculate the length of the plain text part of the line; handle entities as one character
+			$content_length = strlen(preg_replace('/&[0-9a-z]{2,8};|&#[0-9]{1,7};|[0-9a-f]{1,6};/i', ' ', $line_matchings[2]));
+			if ($total_length+$content_length> $length) {
+				// the number of characters which are left
+				$left = $length - $total_length;
+				$entities_length = 0;
+				// search for html entities
+				if (preg_match_all('/&[0-9a-z]{2,8};|&#[0-9]{1,7};|[0-9a-f]{1,6};/i', $line_matchings[2], $entities, PREG_OFFSET_CAPTURE)) {
+					// calculate the real length of all entities in the legal range
+					foreach ($entities[0] as $entity) {
+						if ($entity[1]+1-$entities_length <= $left) {
+							$left--;
+							$entities_length += strlen($entity[0]);
+						} else {
+							// no more characters left
+							break;
+						}
+					}
+				}
+				$truncate .= substr($line_matchings[2], 0, $left+$entities_length);
+				// maximum lenght is reached, so get off the loop
+				break;
+			} else {
+				$truncate .= $line_matchings[2];
+				$total_length += $content_length;
+			}
+			// if the maximum length is reached, get off the loop
+			if($total_length>= $length) {
+				break;
+			}
+		}
+	} else {
+		if (strlen($text) <= $length) {
+			return $text;
+		} else {
+			$truncate = substr($text, 0, $length - strlen($ending));
+		}
+	}
+	// if the words shouldn't be cut in the middle...
+	if (!$exact) {
+		// ...search the last occurance of a space...
+		$spacepos = strrpos($truncate, ' ');
+		if (isset($spacepos)) {
+			// ...and cut the text in this position
+			$truncate = substr($truncate, 0, $spacepos);
+		}
+	}
+	// add the defined ending to the text
+	$truncate .= $ending;
+	if($considerHtml) {
+		// close all unclosed html-tags
+		foreach ($open_tags as $tag) {
+			$truncate .= '</' . $tag . '>';
+		}
+	}
+	return $truncate;
 }

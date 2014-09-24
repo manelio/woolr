@@ -1,0 +1,66 @@
+$fa-font-path:        "/fonts/font-awesome" !default;
+@import '../bower_components/components-font-awesome/scss/font-awesome.scss';
+
+@import '_woolr';
+@import '_masonry';
+
+body, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6  {
+  font-family: "Open Sans", "Helvetica Neue", sans-serif;
+}
+
+/*
+.news-abstract {
+  img {
+    display: none;
+  }
+
+  blockquote {
+    display: none;
+  }
+
+  br {
+    display: none;
+  }
+}
+*/
+
+
+.news-abstract {
+  img {
+    width: 100%;
+    max-width: 320px;
+    height: auto;
+  }  
+}
+
+
+.pagination > li > span {  
+  cursor: default;
+  color: $gray-light;
+}
+
+.pagination > li > span:hover {
+  background: inherit;
+  color: $gray-light;
+}
+
+.subheader .selected {
+  background: lightblue;
+}
+
+.navbar.navbar-default.navbar-secondary {
+  margin-top: -$navbar-margin-bottom/2;
+  border: none;
+  background: none;
+}
+
+.navbar-secondary.navbar-default .navbar-nav > li > a {
+  color: $gray-darker;
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+.navbar-secondary.navbar-default .navbar-nav > li.active > a {
+  color: $body-bg;
+}
+

@@ -135,8 +135,7 @@ function save_comment () {
 		} elseif (!empty($_FILES['image']['tmp_name'])) {
 			$comment->store_image($_FILES['image']);
 		}
-
-
+		
 		header('Location: '.$link->get_permalink() . '/c0'.$comment->c_order.'#c-'.$comment->c_order);
 		die;
 	} else {

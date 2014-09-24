@@ -1,4 +1,5 @@
-var base_url="{{ globals.base_url_general }}",
+var /* base_url="{{ globals.base_url_general }}" , */
+	base_url = '/',
 	base_cache="{{ globals.cache_dir }}",
 	version_id="v{{ globals.v }}",
 	base_static="{{ globals.base_static_noversion }}",

@@ -22,7 +22,7 @@ if ($current_user->user_id > 0) {
 	if(!isset($_COOKIE['return_site'])) {
 		$_COOKIE['return_site'] = get_server_name();
 	}
-	header("Location: http://".$_COOKIE['return_site'].get_user_uri($current_user->user_login));
+	header("Location: ".get_user_uri($current_user->user_login));
 	die;
 }
 
@@ -34,7 +34,7 @@ if(isset($_POST["process"])) {
 
 // Check the IP is right
 if(isset($_POST["process"]) && !check_form_auth_ip()) {
-	header("Location: http://".get_server_name().$globals['base_url']."login");
+	header("Location: ".$globals['base_url']."login");
 	die;
 }
 

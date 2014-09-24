@@ -1,17 +1,31 @@
-<ul class="subheader">
-{% for item in items %}
-    <li {% if item.id == option OR item.selected %}class="selected"{% endif %}>
+<div class="navbar navbar-default navbar-secondary" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+
+    <div class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        {% for item in items %}
+          <li {% if item.id == option OR item.selected %}class="active"{% endif %} title="{{ o.title }}">
             <a href="{{globals.base_url}}{{item.url}}">{{ item.title }}</a>
-    </li>
-{% endfor %}
+          </li>
+        {% endfor %}
 
-{% if feed %}
-    <li class="icon wideonly">
-        <a href="{{globals.base_url}}rss{{feed.url}}" title="{{feed.title}}" >            
-            <i class="fa fa-rss-square"></i>
-        </a>
-    </li>
-{% endif %}
+        {% if feed %}
+            <li class="icon wideonly">
+                <a href="{{globals.base_url}}rss{{feed.url}}" title="{{feed.title}}">            
+                    <i class="fa fa-rss-square"></i>
+                </a>
+            </li>
+        {% endif %}
 
-</ul>
-
+      </ul>
+    </div>
+  </div>
+</div>

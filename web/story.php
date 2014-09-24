@@ -243,7 +243,7 @@ print_story_tabs($tab_option);
 
 
 /*** SIDEBAR ****/
-echo '<div id="sidebar" class="col-sm-3 col-md-3 col-lg-3">';
+echo '<div id="sidebar" class="'.$globals['sidebar_container_class'].'">';
 do_sub_message_right();
 do_banner_right();
 // GEO
@@ -262,7 +262,7 @@ echo '</div>';
 
 
 
-echo '<div id="content-main" class="col-sm-9 col-md-9 col-lg-9">'."\n";
+echo '<div id="content-main" class="'.$globals['links_container_class'].'">'."\n";
 echo '<div id="newswrap" class="clearfix row"><!-- topclicked.php -->';
 
 $link->print_summary('full', 0, true, 'full');
@@ -278,6 +278,7 @@ case 2:
 	} else {
 		$last_com_first = false;
 	}
+
 	do_comment_pages($link->comments, $current_page, $last_com_first);
 
 	$update_comments = false;
@@ -311,12 +312,14 @@ case 2:
 		echo '</ol>';
 	}
 
+
 	if($tab_option == 1) {
 		if ($update_comments) {
 			$link->update_comments();
 		}
 	}
 	do_comment_pages($link->comments, $current_page, $last_com_first);
+
 
 	if ($link->comments > 5) {
 		add_javascript('get_total_answers("comment","'.$order_field.'",'.$link->id.','.$offset.','.$globals['comments_page_size'].');');

@@ -1,4 +1,6 @@
-<?
+<?php
+include_once 'server_name.php';
+
 $routes = array(
 	''			=> 'index.php',
 	'story'		=> 'story.php',
@@ -43,6 +45,10 @@ $routes = array(
 	'notame'	=> 'sneakme/dispatcher.php',
 	'mobile'	=> 'mobile/dispatcher.php',
 );
+
+if ($globals['sub']) {
+	$_SERVER['REQUEST_URI'] = '/m/'.$globals['sub'].$_SERVER['REQUEST_URI'];	
+}
 
 $_SERVER['PATH_INFO'] = strtok($_SERVER["REQUEST_URI"],'?');
 $globals['path'] = $path = preg_split('/\/+/', $_SERVER['PATH_INFO'], 10, PREG_SPLIT_NO_EMPTY);

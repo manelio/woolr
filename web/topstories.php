@@ -77,6 +77,9 @@ echo '</div>' . "\n";
 /*** END SIDEBAR ***/
 
 echo '<div id="content-main" class="'.$globals['links_container_class'].'">'."\n";
+
+do_pages($rows, $page_size);
+
 echo '<div id="newswrap" class="masonry clearfix row"><!-- topstories.php -->';
 
 if ($links) {
@@ -88,9 +91,11 @@ if ($links) {
 		$counter++; Haanga::Safe_Load('private/ad-interlinks.html', compact('counter', 'page_size'));
 	}
 }
-do_pages($rows, $page_size);
 
 echo '</div>'."\n";
+
+do_pages($rows, $page_size);
+
 echo '</div>'."\n";
 
 do_footer_menu();

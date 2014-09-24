@@ -68,7 +68,7 @@
 	{% trans _('longitud mínima') %}: <input type="number" name="intro_min_len" min="0" max="200" 
 			value="{{ extended.intro_min_len }}"/>
 	&nbsp;&nbsp;
-	{% trans _('longitud máxima') %}: <input type="number" name="intro_max_len" min="0" max="5000" 
+	{% trans _('longitud máxima') %}: <input type="number" name="intro_max_len" min="0" max="{{ globals.post_max_len }}" 
 			value="{{ extended.intro_max_len }}"/><br/>
 	{% trans _('permitir párrafos') %}: <input type="checkbox" name="allow_paragraphs" value="1" {% if extended.allow_paragraphs %}checked{% endif %}/>
 </fieldset>

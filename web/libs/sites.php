@@ -73,10 +73,13 @@ class SitesMgr {
 
 		if ($id == false || $id == self::$id) {
 			if (! self::$id || $force) self::__init($id);
-			return self::$info;
+			$info = self::$info;			
 		} else {
-			return $db->get_row("select * from subs where id = $id");
+			$info = $db->get_row("select * from subs where id = $id");			
 		}
+		
+		if (key_exists('base_url', $info) && empty($info->base_url)) $info->base_url = '/';
+		return $info;
 	}
 
 	static public function get_name($id = false, $force = false) {
@@ -319,7 +322,9 @@ class SitesMgr {
 
 		$n = $db->get_var("select count(*) from subs where owner = $current_user->user_id");
 		
-		return $n < 3 && time() - $current_user->user_date > 86400*30;
+		// MDOMENECH
+		//return $n < 3 && time() - $current_user->user_date > 86400*30;
+		return $n < 3;
 	}
 
 	static public function my_parent() {

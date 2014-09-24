@@ -613,13 +613,14 @@ function do_subs() {
 		Haanga::Load('subs_simple.html', compact('title', 'subs'));
 	}
 
-
 	if ($current_user->admin && $user->id == $current_user->user_id) {
 		$sql = "select subs.* from subs where subs.sub = 1 and (subs.owner = $user->id or subs.owner = 0)";
 	} else {
 		$sql = "select subs.* from subs where subs.sub = 1 and subs.owner = $user->id";
 	}
+	
 	$subs = $db->get_results($sql);
+	
 	if ($subs) {
 		$title = _('subs de') . " $user->username";
 		if ($current_user->user_id > 0 && $user->id == $current_user->user_id && SitesMgr::can_edit(0)) $can_edit = true;
