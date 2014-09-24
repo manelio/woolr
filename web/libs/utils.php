@@ -1404,3 +1404,15 @@ function add_javascript($code) {
     echo '</script>';
 }
 
+
+function get_sub_base_url($name) {
+	global $globals;
+
+	if ($globals['subs_in_subdomain']) {
+		$base_url = str_replace('://', '://'.$name.'.', $globals['base_url_general']);
+	} else {				
+		$base_url = $globals['base_url_general'] . 'm/'.$name.'/';
+	}	
+
+	return $base_url;
+}

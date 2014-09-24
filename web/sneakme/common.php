@@ -44,7 +44,7 @@ function get_posts_menu($tab_selected, $username) {
 	}
 
 	if ($current_user->user_id > 0 ) {
-		$items[] = new MenuOption(_('privados'), post_get_base_url('_priv'), $id, _('mensajes privados'));
+		$items[] = new MenuOption(_('Privados'), post_get_base_url('_priv'), $id, _('mensajes privados'), array(), 'privados');
 	}
 
 	return $items;

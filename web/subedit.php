@@ -68,7 +68,7 @@ echo "</div>"."\n";
 do_footer();
 
 function save_sub($id, &$errors) {
-	global $current_user, $db;
+	global $globals, $current_user, $db;
 
 	// Double check
 	$owner = intval($_POST['owner']);
@@ -119,8 +119,8 @@ function save_sub($id, &$errors) {
 			$_POST[$k] = intval($_POST[$k]);
 		}
 	}
-	
-	if ($_POST['intro_max_len'] > 5000) $_POST['intro_max_len'] = 5000;
+
+	if ($_POST['intro_max_len'] > $globals['post_max_len']) $_POST['intro_max_len'] = $globals['post_max_len'];
 
 	if (empty($errors)) {
 		$db->transaction();

@@ -31,11 +31,19 @@ if (! $globals['bot'] && ($globals['allow_partial'] || preg_match('/meneame/i', 
 
 class MenuOption{
 	// Small helper class to store links' information
-	function __construct($text, $url, $active = false, $title = '', $attributes = array()) {
+	function __construct($text, $url, $active = false, $title = '', $attributes = array(), $code = '') {
 		$this->text = $text;
 		$this->url = $url;
-		$this->title = $title;		
-		if ($active && $active == $this->text) {
+		$this->title = $title;
+		$this->code = $code;
+
+		if (!$this->code) {			
+			$this->code = strtolower($this->text);
+		}
+
+		// echo "[$text: $active == {$this->code}?]";
+
+		if ($active && $active == $this->code) {
 			$this->selected = true;
 		} else {
 			$this->selected = false;
@@ -87,22 +95,22 @@ function do_header($title, $id='home', $options = false) {
 	if (! is_array($options)) {
 		$left_options = array();
 		//$left_options[] = new MenuOption(_('portada'), $globals['base_url'], $id, _('página principal'));
-		$left_options[] = new MenuOption(_('Nuevas'), $globals['base_url'].'queue', $id, _('menear noticias pendientes'));
-		$left_options[] = new MenuOption(_('Populares'), $globals['base_url'].'popular', $id, _('historias más votadas'));
-		$left_options[] = new MenuOption(_('Más visitadas'), $globals['base_url'].'top_visited', $id, _('historias más visitadas/leídas'));
+		$left_options[] = new MenuOption(_('Nuevas'), $globals['base_url'].'queue', $id, _('menear noticias pendientes'), array(), 'nuevas');
+		$left_options[] = new MenuOption(_('Populares'), $globals['base_url'].'popular', $id, _('historias más votadas'), array(), 'populares');
+		$left_options[] = new MenuOption(_('Más visitadas'), $globals['base_url'].'top_visited', $id, _('historias más visitadas/leídas'), array(), 'más visitadas');
 		//$left_options[] = new MenuOption(_('destacadas'), $globals['base_url'].'top_active', $id, _('historias más activas'));
 
-		if ($this_site->enabled) {
+		if ($this_site->enabled) {			
 			$left_options[] = new MenuOption(_('Enviar noticia'), $globals['base_url'].'submit', $id, _('enviar nueva historia'), array(
 				'class' => 'link-send-story',
-			));
+			), 'enviar historia');
 		}
 
 
 		$right_options = array();
-		$right_options[] = new MenuOption(_('m/'), $globals['base_url_general'].'subs', $id, _('sub menéames'));
-		$right_options[] = new MenuOption(_('Actividad'), $globals['base_url'].'sneak', $id, _('visualizador en tiempo real'));
-		$right_options[] = new MenuOption(_('Notas y mensajes privados'), post_get_base_url(), $id, _('leer o escribir notas y mensajes privados'));
+		$right_options[] = new MenuOption(_('m/'), $globals['base_url_general'].'subs', $id, _('sub menéames'), array(), 'm/');
+		$right_options[] = new MenuOption(_('Actividad'), $globals['base_url'].'sneak', $id, _('visualizador en tiempo real'), array(), 'fisgona');		
+		$right_options[] = new MenuOption(_('Notas y mensajes privados'), post_get_base_url(), $id, _('leer o escribir notas y mensajes privados'), array(), 'nótame');
 		$right_options[] = new MenuOption(_('Galería'), 'javascript:fancybox_gallery(\'all\');', false, _('las imágenes subidas por los usuarios'));
 	} else {
 		$left_options = $options;
@@ -110,9 +118,9 @@ function do_header($title, $id='home', $options = false) {
 		//$right_options[] = new MenuOption(_('portada'), $globals['base_url'], '', _('página principal'));
 		$right_options[] = new MenuOption(_('Nuevas'), $globals['base_url'].'queue', '', _('menear noticias pendientes'));
 
-		$right_options[] = new MenuOption(_('m/'), $globals['base_url_general'].'subs', $id, _('sub menéames'));
-		$right_options[] = new MenuOption(_('Actividad'), $globals['base_url'].'sneak', $id, _('visualizador en tiempo real'));
-		$right_options[] = new MenuOption(_('Notas y mensajes privados'), post_get_base_url(), $id, _('leer o escribir notas y mensajes privados'));
+		$right_options[] = new MenuOption(_('m/'), $globals['base_url_general'].'subs', $id, _('sub menéames'), array(), 'm/');
+		$right_options[] = new MenuOption(_('Actividad'), $globals['base_url'].'sneak', $id, _('visualizador en tiempo real'), array(), 'fisgona');
+		$right_options[] = new MenuOption(_('Notas y mensajes privados'), post_get_base_url(), $id, _('leer o escribir notas y mensajes privados'), array(), 'nótame');
 		$right_options[] = new MenuOption(_('Galería'), 'javascript:fancybox_gallery(\'all\');', false, _('las imágenes subidas por los usuarios'));
 	}
 

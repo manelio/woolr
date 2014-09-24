@@ -93,6 +93,32 @@
 </head>
 <body>
 
+
+{% if 0 && this_site.sub %}
+<header>
+  {% if this_site.owner == 0 %}
+    <a href="{{ globals.base_url }}" class="logo-eli" title="{{ this_site.name_long }}">{{ this_site.name }}</a>
+  {% endif %}
+  <div class="edname">
+  <a href="{{ this_site.base_url }}m/{{ this_site.name }}" class="subname"
+    {% if this_site.owner > 0 %}
+      style="
+        {% if this_site.color1 %}color:{{ this_site.color1 }} !important;{% endif %}
+        {% if this_site.color2 %}background-color:{{ this_site.color2 }} !important;{% endif %}
+      "
+    {% endif %}
+    ><b>{{ this_site.name }}</b>: {{ this_site.name_long }}</a>
+
+
+  {% if this_site.nsfw %}[NSFW]{% endif %}
+  {% if current_user.user_id > 0 && (current_user.admin || this_site.owner == current_user.user_id) %}
+    <sup><a title="edit" href="{{ globals.base_url }}subedit">*</a></sup>
+  {% endif %}
+  {% exec print_follow_sub this_site.id as dummy %}
+  </div>
+</header>
+{% endif %}
+
 {#
 <header>
 <div class="valign_outer">
@@ -106,7 +132,7 @@
 #}
 
    <!-- Fixed navbar -->
-    <div class="navbar navbar-default navbar-static-top" role="navigation">
+    <div id="navbar-main" class="navbar navbar-default navbar-static-top" role="navigation">
       <div class="container">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
@@ -115,7 +141,16 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="{{ globals.base_url_general }}" title="{% trans _('portada') %} {{ globals.site_name }}">{{ globals.site_name }}</a>
+
+          {% if this_site.sub %}
+            <a class="navbar-brand site-name sub" href="{% exec get_sub_base_url this_site.name %}" title="{% trans _('portada') %} {{ this_site.name_long }}">
+              {{ this_site.name_long }}
+            </a>
+          {% else %}
+            <a class="navbar-brand site-name" href="{{ globals.base_url_general }}" title="{% trans _('portada') %} {{ globals.site_name }}">{{ globals.site_name }}</a>
+          {% endif %}
+
+
         </div>
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
@@ -160,9 +195,6 @@
       </div>
 
     </div>
-
-
-
     
 
 {#
@@ -222,26 +254,7 @@
 <div id="header-center" {% if this_site.color2 %}style="background-color:{{ this_site.color2 }}"{% endif %}>
 
 {% if this_site.sub %}
-  {% if this_site.owner == 0 %}
-  	<a href="{{ globals.base_url }}" class="logo-eli" title="{{ this_site.name_long }}">{{ this_site.name }}</a>
-  {% endif %}
-  <div class="edname">
-	<a href="{{ this_site.base_url }}m/{{ this_site.name }}" class="subname"
-		{% if this_site.owner > 0 %}
-			style="
-				{% if this_site.color1 %}color:{{ this_site.color1 }} !important;{% endif %}
-				{% if this_site.color2 %}background-color:{{ this_site.color2 }} !important;{% endif %}
-			"
-		{% endif %}
-		><b>{{ this_site.name }}</b>: {{ this_site.name_long }}</a>
-
-
-	{% if this_site.nsfw %}[NSFW]{% endif %}
-	{% if current_user.user_id > 0 && (current_user.admin || this_site.owner == current_user.user_id) %}
-		<sup><a title="edit" href="{{ globals.base_url }}subedit">*</a></sup>
-	{% endif %}
-	{% exec print_follow_sub this_site.id as dummy %}
-  </div>
+  {# Mover to top #}
 {% else %}
 
   <div class="edname">

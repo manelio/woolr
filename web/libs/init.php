@@ -91,10 +91,18 @@ if($_SERVER['HTTP_HOST']) {
 
 $globals['base_url_general'] = $globals['base_url']; // Keep the original if it's modified in submnms
 
+// MDOMENECH: PATCH!
+$baseUrl = $globals['base_url'];
+if (strpos($baseUrl, 'http') === 0) {
+	// MDOMENECH: PATCH!
+	$baseUrl = preg_replace('#^https?://.*?/#', '/', $baseUrl);
+}
+
+
 if (!empty($globals['static_server']) && ! $globals['https']) {
-	$globals['base_static_noversion'] = $globals['static_server'].$globals['base_url'];
-} else {
-	$globals['base_static_noversion'] = $globals['scheme'].'://'.$globals['server_name'].$globals['base_url'];
+	$globals['base_static_noversion'] = $globals['static_server'].$baseUrl;
+} else {	
+	$globals['base_static_noversion'] = $globals['scheme'].'://'.$globals['server_name'].$baseUrl;
 }
 
 $globals['base_static'] = $globals['base_static_noversion'].'v'.$globals['v'].'/';

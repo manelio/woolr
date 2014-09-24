@@ -1,7 +1,15 @@
 <?
-
 $path = $globals['path'];
-$globals['submnm'] = preg_replace('/[^\p{L}\d_]/u', ':', $path[1]);
+
+// MDOMENECH
+$routes[''] = 'shakeit.php';
+
+if ($globals['sub']) {	
+	$globals['submnm'] = $globals['sub'];
+} else {	
+	$globals['submnm'] = preg_replace('/[^\p{L}\d_]/u', ':', $path[1]);
+}
+
 include_once 'config.php';
 
 $globals['site_shortname'] = $globals['submnm'];
@@ -22,7 +30,12 @@ if (in_array($path[2], $forbidden_routes)) {
 }
 
 $globals['path'] = array_slice($path, 2);
-$globals['base_url'] .= $path[0] . '/' . $path[1] . '/';
+
+if ($globals['subs_in_subdomain']) {
+	$globals['base_url'] = str_replace('://', '://'.$globals['submnm'].'.', $globals['base_url']);	
+} else {	
+	$globals['base_url'] .= $path[0] . '/' . $path[1] . '/';	
+}
 
 if ( !empty($routes[$path[2]]) ) {
 	$res = include './'.$routes[$path[2]];

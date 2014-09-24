@@ -75,6 +75,13 @@ $all_subs = $db->get_results($sql);
 $subs = array();
 foreach ($all_subs as $s) {
 	if ($s->enabled) {
+		
+		if ($globals['subs_in_subdomain']) {
+			$s->base_url = 'http://'.$s->name.'.'.$globals['server_name'].'/';			
+		} else {
+			$s->base_url = $globals['base_url']."m/{$s->name}/";
+		}
+		
 		$subs[] = $s;
 	}
 }

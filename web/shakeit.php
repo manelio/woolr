@@ -94,7 +94,7 @@ do_header($pagetitle, _('nuevas'));
 print_shakeit_tabs($tab);
 
 /*** SIDEBAR ****/
-echo '<div id="sidebar" class="col-sm-3 col-md-3 col-lg-3">';
+echo '<div id="sidebar" class="'.$globals['sidebar_container_class'].'">';
 do_sub_message_right();
 do_banner_right();
 if ($globals['show_popular_queued']) do_best_queued();
@@ -108,9 +108,12 @@ echo '</div>' . "\n";
 
 
 echo '<div id="content-main" class="'.$globals['links_container_class'].'">'."\n";
+
+do_pages($rows, $page_size);
+
 echo '<div id="newswrap" class="masonry clearfix row"><!-- shakeit.php -->'."\n";
 
-$sql = "SELECT".Link::SQL."INNER JOIN (SELECT link FROM sub_statuses $from WHERE $where $order_by LIMIT $offset,$page_size) as ids on (ids.link = link_id) GROUP BY link_id";
+$sql = "SELECT".Link::SQL."INNER JOIN (SELECT link FROM sub_statuses $from WHERE $where $order_by LIMIT $offset,$page_size) as ids on (ids.link = link_id) GROUP BY link_id ORDER BY date DESC";
 
 $links = $db->object_iterator($sql, "Link");
 if ($links) {
@@ -125,9 +128,11 @@ if ($links) {
 		}
 	}
 }
-do_pages($rows, $page_size);
 
 echo '</div>'."\n";
+
+do_pages($rows, $page_size);
+
 echo '</div>'."\n";
 
 do_footer_menu();

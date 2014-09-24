@@ -1,11 +1,7 @@
-@import "../../web/bower_components/bootswatch-scss/united/variables";
-@import "../../web/bower_components/bootstrap-sass-official/assets/stylesheets/bootstrap";
-@import "../../web/bower_components/bootswatch-scss/united/bootswatch";
+@import "bootswatch-scss/united/variables";
+@import "bootstrap-sass-official/assets/stylesheets/bootstrap";
+@import "bootswatch-scss/united/bootswatch";
 
+@import '../_common';
 
-$fa-font-path:        "/bower_components/components-font-awesome/fonts" !default;
-@import '../../web/bower_components/components-font-awesome/scss/font-awesome.scss';
-
-@import '_woolr';
-@import '_masonry';
 @import '_custom';

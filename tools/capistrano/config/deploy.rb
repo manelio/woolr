@@ -44,5 +44,5 @@ set :copy_exclude, [".git", ".DS_Store", ".gitignore", ".gitmodules", "/web/cach
 
 set :app_symlinks, ["/web/cache"]
 set :app_shared_dirs, ["/web/cache"]
-set :app_shared_files, ["/web/memocracia.com-local.php"]
+set :app_shared_files, ["/web/memocracia.com-local.php", "/web/secret1.prj.me-local.php", "/web/secret2.prj.me-local.php", "/web/secret3.prj.me-local.php"]
 

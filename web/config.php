@@ -29,11 +29,12 @@ if (defined("config_done")) return TRUE; // If not "included_once"
 define('config_done', 1);
 
 
+include_once 'server_name.php';
+
 $globals['theme'] = 'default';
 if ($_GET['theme']) {
   $globals['theme'] = $_GET['theme'];
 }
-if (!empty($_SERVER['HTTP_HOST'])) $_SERVER['SERVER_NAME'] = $_SERVER['HTTP_HOST'];
 
 
 // WARN WARNING ALERT: we use $_SERVER['SERVER_NAME'] which is the first
@@ -46,12 +47,12 @@ if (!empty($_SERVER['HTTP_HOST'])) $_SERVER['SERVER_NAME'] = $_SERVER['HTTP_HOST
 // $globals['canonical_server_name'] = 'www.canonical.com';
 
 // If you want to use the same cookie for subdomains, set de .domain.com
-// $globals['cookies_domain'] = '.domain.com';
+// $globals['cookies_domain'] = '.woolr.com.local';
 
 // Specify the name of the ssl server, ensure you have also setup "cookies_domain
 $globals['ssl_server'] = False; 
 
-$globals['site_name'] = 'Menéame';
+$globals['site_name'] = 'woolr.com';
 $globals['site_shortname'] = 'memo'; //Used to differentiate in keys
 
 // If you user version, be careful to rewrite the directory for img, css and js
@@ -68,7 +69,7 @@ $globals['allowed_metas'] = false;
 // $globals['allowed_metas'] = array(100, 101, 102, 103);
 
 
-$globals['page_size'] = 20;
+$globals['page_size'] = 10;
 $globals['anonnymous_vote'] = $anonnymous_vote = true;
 $globals['ads'] = true;
 $globals['external_ads'] = $external_ads = true;
@@ -111,7 +112,10 @@ $globals['click_counter'] = 1; // Put a value since which id should show in "lin
 
 // Specify you base url, "/" if is the root document
 // $globals['base_dir'] = '/meneame/';
-$globals['base_url'] = '/';
+
+$globals['base_path'] = '/';
+$globals['base_url'] = 'http://woolr.com.local'.$globals['base_path'];
+
 $globals['top_logo'] = 'img/mnm/eli.png';
 $globals['thumbnail_logo'] = 'img/mnm/eli_thumbnail.png';
 $globals['legal'] = '/legal';
@@ -209,7 +213,9 @@ $globals['max_sneakers'] = 250;
 $globals['max_comments'] = 2718;
 
 //$globals['time_enabled_comments'] = 604800; // 7 days
-$globals['time_enabled_comments'] = 4*7*24*60*60; // 4 weeks
+
+define('FIVEYEARS', 5*54*7*24*60*60);
+$globals['time_enabled_comments'] = FIVEYEARS;
 
 /*
 $globals['time_enabled_comments_status']['queued'] = 259200; // 3 days
@@ -218,10 +224,10 @@ $globals['time_enabled_comments_status']['autodiscard'] = 86400; // 1 day
 $globals['time_enabled_comments_status']['abuse'] = 43200; // 1/2 day
 */
 
-$globals['time_enabled_comments_status']['queued'] = 4*7*24*60*60; // 4 weeks
-$globals['time_enabled_comments_status']['discard'] = 4*7*24*60*60; // 4 weeks
-$globals['time_enabled_comments_status']['autodiscard'] = 4*7*24*60*60; // 4 weeks
-$globals['time_enabled_comments_status']['abuse'] = 4*7*24*60*60; // 4 weeks
+$globals['time_enabled_comments_status']['queued'] = FIVEYEARS;
+$globals['time_enabled_comments_status']['discard'] = FIVEYEARS;
+$globals['time_enabled_comments_status']['autodiscard'] = FIVEYEARS;
+$globals['time_enabled_comments_status']['abuse'] = FIVEYEARS;
 
 // $globals['time_enabled_votes'] = 345600; // 4 days
 $globals['time_enabled_votes'] = 4*7*24*60*60; // 4 weeks
@@ -457,8 +463,11 @@ $globals['user_agent'] = 'Meneamebot (http://meneame.net/)';
 
 // MDOMENECH
 
+$globals['post_max_len'] = 100000;
+
 $globals['error_background_collection'] = 'neutral';
 
+$globals['sidebar_container_class'] = 'col-sm-3 col-md-3 col-lg-3';
 $globals['links_container_class'] = 'col-sm-9 col-md-9 col-lg-9';
 $globals['column_class'] = array(
   'normal'  => 'col-sm-6 col-md-6 col-lg-4',
@@ -484,7 +493,7 @@ $globals['js'] = array(
 
 );
 
-$globals['maintenance'] = true;
+$globals['maintenance'] = false;
 $globals['http_header_dev_field'] = 'dev';
 $globals['http_header_dev_value'] = 'manelio1247';
 
@@ -510,11 +519,11 @@ if (!isset($globals['basic_config']) || !$globals['basic_config']) {
   $rootDir = $globals['root'];
 	if (file_exists($rootDir.'/local.php')) include($rootDir.'/local.php');
 
-  $customLocalFilename = $rootDir.'/'.$_SERVER['SERVER_NAME'].'-local.php';
+  $customLocalFilename = $rootDir.'/'.$globals['server_name'].'-local.php';
+
   if (file_exists($customLocalFilename)) {
     include($customLocalFilename);
   }
-
 
 	include mnminclude.'init.php';
 	include mnminclude.'login.php';
