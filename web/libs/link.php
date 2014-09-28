@@ -753,12 +753,18 @@ class Link extends LCPBase {
 		}
 
 		$this->column_class = $globals['column_class'][$column_type];
-
-		if (!$column_type == 'full')
-			$this->abstract = truncateHtml($this->content, 560, '...');
-		else 
+		if (!($column_type == 'full')) {
+			$abstract = $this->content;
+			$abstract = strip_tags($this->content, '<img><p>');
+			$abstract = preg_replace('#(<img.+?)height=(["\']?)\d*\2(.*?/?>)#i', '$1$3', $abstract);
+			$abstract = preg_replace('#(<img.+?)width=(["\']?)\d*\2(.*?/?>)#i', '$1$3', $abstract);
+			$abstract = preg_replace('#(<img.+?)style=(["\']?)\d*\2(.*?/?>)#i', '$1$3', $abstract);
+			
+			$this->abstract = truncateHtml($abstract, 560, '...');
+		}
+		else {
 			$this->abstract = $this->content;
-
+		}
 
 		$this->show_tags = $show_tags;
 		$this->permalink	 = $this->get_permalink();
