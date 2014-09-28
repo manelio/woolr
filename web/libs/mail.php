@@ -38,7 +38,7 @@ function send_recover_mail ($user) {
 	else $domain = get_server_name();
 
 	$key = md5($user->id.$user->pass.$now.$site_key.get_server_name());
-	$url = 'http://'.get_server_name().$globals['base_url'].'profile?login='.$user->username.'&t='.$now.'&k='.$key;
+	$url = $globals['base_url'].'profile?login='.$user->username.'&t='.$now.'&k='.$key;
 	//echo "$user->username, $user->email, $url<br />";
 	$to      = $user->email;
 	$subject = _('Recuperación o verificación de contraseña de '). get_server_name();

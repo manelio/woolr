@@ -42,15 +42,12 @@ if ($_POST["processlogin"] == 1) {
 }
 
 do_header("login");
-echo '<div id="singlewrap">' . "\n";
 
 if($_GET["op"] === 'recover' || !empty($_POST['recover'])) {
   do_recover();
 } else {
   do_login();
 }
-
-echo '</div>'."\n"; // singlewrap
 
 do_footer();
 

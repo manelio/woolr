@@ -60,6 +60,109 @@ do_footer();
 exit;
 
 function do_register0() {
+echo '<form action="'.get_auth_link().'register" method="post" id="thisform" onSubmit="return check_checkfield(\'acceptlegal\', \''._('no has aceptado las condiciones de uso').'\')">' . "\n";
+
+ob_start();
+echo _('he leído y acepto las ');
+do_legal(_('condiciones de uso'), 'target="_blank"', false);
+$legal = ob_get_clean();
+
+ob_start();
+print_oauth_icons($_REQUEST['return']);
+$oauthIconsHtml = ob_get_clean();
+
+$rememberPasswordText = _('¿has olvidado la contraseña?');
+
+echo <<<EOT
+<div class="row bigform">
+  <section class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1 col-xs-12 col-sm-offset-0">
+    <div class="well well-lg">
+      <div class="row">
+        <div class="col-sm-6 col-xs-12">
+          <div class="row">
+            <div class="col-xs-12"><h3>Registro social</h3></div>
+          </div>
+          <div class="row">
+            <div class="col-xs-12"><p>Evita quebraderos de cabeza.</p></div>
+          </div>
+          <div class="row">
+            <div class="col-xs-12">
+              {$oauthIconsHtml}             
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6 col-xs-12">
+          <div class="row">
+            <div class="col-xs-12"><h3>Registro clásico</h3></div>
+          </div>
+          <div class="row">
+            <div class="col-xs-12">
+              
+                <div class="input-group">
+                  <span class="input-group-addon"><i class="fa fa-user fa-2x"></i></span>
+                  <input id="name" name="username" value="" onkeyup="enablebutton(this.form.checkbutton1, this.form.submit, this)" class="form-control input-lg" placeholder="Nombre de usuario" required="required" maxlength="100" type="text" data-original-title="" title="">
+              		<span class="input-group-btn btn-group-lg">
+                  	<button class="btn btn-default" type="button" id="checkbutton1" disabled="disabled" onclick="checkfield('username', this.form, this.form.username)">
+                     	Verificar
+                  	</button>
+               		</span>                  
+                </div>
+
+                <div class="input-group">
+                  <span class="input-group-addon"><i class="fa fa-envelope fa-2x"></i></span>
+                  <input id="email" name="email" value="" onkeyup="enablebutton(this.form.checkbutton2, this.form.submit, this)" class="form-control input-lg" placeholder="Correo electrónico" required="required" maxlength="100" type="text" data-original-title="" title="">
+              		<span class="input-group-btn btn-group-lg">
+                  	<button class="btn btn-default" type="button" id="checkbutton2" disabled="disabled" onclick="checkfield('email', this.form, this.form.email)">
+                     	Verificar
+                  	</button>
+               		</span>                  
+                </div>
+                
+                <div class="input-group">
+                  <span class="input-group-addon"><i class="fa fa-asterisk fa-2x"></i></span>
+                  <input id="password" name="password" class="form-control input-lg" placeholder="Clave" required="required" maxlength="60" type="password" data-original-title="" title="">
+                </div>
+
+                <div class="input-group">
+                  <span class="input-group-addon"><i class="fa fa-asterisk fa-2x"></i></span>
+                  <input id="verify" name="password2" class="form-control input-lg" placeholder="Repita la clave" required="required" maxlength="60" type="password" data-original-title="" title="">
+                </div>
+
+                {$captchaHtml}
+
+                <div class="form-group">
+                  <button type="submit" value="login" id="btn-signup" class="btn btn-block btn-primary btn-lg">Crear usuario</button>
+                </div>
+
+                <div class="checkbox">
+                  <label>
+                    <input id="acceptlegal" name="acceptlegal" type="checkbox" value="accept" />
+                    $legal
+                  </label>
+                </div>
+
+                <div class="input-group">
+                  <a href="login?op=recover">{$rememberPasswordText}</a>
+                </div>
+
+              
+            </div><!-- end of column -->
+          </div><!-- end of row -->
+        </div><!-- end of column 2 -->
+      </div><!-- end of well row -->
+    </div><!-- end of well -->
+  </section>
+</div>
+
+<input type="hidden" name="process" value="1"/>
+
+EOT;
+
+	get_form_auth_ip();
+	echo '</form>' . "\n";
+
+
+	/*
 	echo '<div class="recoverpass" style="text-align:center"><h4><a href="login?op=recover">'._('¿has olvidado la contraseña?').'</a></h4></div>';
 
 	echo '<form action="'.get_auth_link().'register" method="post" id="thisform" onSubmit="return check_checkfield(\'acceptlegal\', \''._('no has aceptado las condiciones de uso').'\')">' . "\n";
@@ -98,6 +201,7 @@ function do_register0() {
 	echo '</fieldset>' . "\n";
 	get_form_auth_ip();
 	echo '</form>' . "\n";
+	*/
 
 
 }

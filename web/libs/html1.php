@@ -95,7 +95,8 @@ function do_header($title, $id='home', $options = false) {
 	if (! is_array($options)) {
 		$left_options = array();
 		//$left_options[] = new MenuOption(_('portada'), $globals['base_url'], $id, _('página principal'));
-		$left_options[] = new MenuOption(_('Nuevas'), $globals['base_url'].'queue', $id, _('menear noticias pendientes'), array(), 'nuevas');
+		
+		// $left_options[] = new MenuOption(_('Nuevas'), $globals['base_url'].'queue', $id, _('menear noticias pendientes'), array(), 'nuevas');
 		$left_options[] = new MenuOption(_('Populares'), $globals['base_url'].'popular', $id, _('historias más votadas'), array(), 'populares');
 		$left_options[] = new MenuOption(_('Más visitadas'), $globals['base_url'].'top_visited', $id, _('historias más visitadas/leídas'), array(), 'más visitadas');
 		//$left_options[] = new MenuOption(_('destacadas'), $globals['base_url'].'top_active', $id, _('historias más activas'));
@@ -116,7 +117,8 @@ function do_header($title, $id='home', $options = false) {
 		$left_options = $options;
 		$right_options = array();
 		//$right_options[] = new MenuOption(_('portada'), $globals['base_url'], '', _('página principal'));
-		$right_options[] = new MenuOption(_('Nuevas'), $globals['base_url'].'queue', '', _('menear noticias pendientes'));
+		
+		// $right_options[] = new MenuOption(_('Nuevas'), $globals['base_url'].'queue', '', _('menear noticias pendientes'));
 
 		$right_options[] = new MenuOption(_('m/'), $globals['base_url_general'].'subs', $id, _('sub menéames'), array(), 'm/');
 		$right_options[] = new MenuOption(_('Actividad'), $globals['base_url'].'sneak', $id, _('visualizador en tiempo real'), array(), 'fisgona');
@@ -124,7 +126,7 @@ function do_header($title, $id='home', $options = false) {
 		$right_options[] = new MenuOption(_('Galería'), 'javascript:fancybox_gallery(\'all\');', false, _('las imágenes subidas por los usuarios'));
 	}
 
-	$vars = compact('title', 'greeting', 'id', 'left_options', 'right_options', 'sites', 'this_site');
+	$vars = compact('title', 'greeting', 'id', 'left_options', 'right_options', 'sites', 'this_site', 'themes');
 	return Haanga::Load('header.html', $vars);
 }
 
@@ -191,8 +193,8 @@ function do_pages_reverse($total, $page_size=25, $margin = true) {
 
 	if (! $globals['mobile']) {
 		$index_limit = 5;
-		$go_prev = _('Anterior');
-		$go_next = _('Siguiente');
+		$go_prev = _('previous');
+		$go_next = _('next');
 	} else {
 		$index_limit = 1;
 		$go_prev = '';
@@ -221,9 +223,9 @@ function do_pages_reverse($total, $page_size=25, $margin = true) {
 	if($total < 0 || $current<$total_pages) {
 		$i = $current+1;
 		if ($i > 10) $nofollow = ' rel="nofollow"'; else $nofollow = '';
-		echo '<a href="?page='.$i.$query.'"'.$nofollow.' rel="next">'.$go_next.' &#171;</a>';
+		echo '<a href="?page='.$i.$query.'"'.$nofollow.' rel="next">'.$go_next.'</a>';
 	} else {
-		echo '<span class="nextprev">&#171; '.$go_next. '</span>';
+		echo '<span class="nextprev">'.$go_next. '</span>';
 	}
 
 	if ($total_pages > 0) {
@@ -259,11 +261,11 @@ function do_pages_reverse($total, $page_size=25, $margin = true) {
 	}
 
 	if($current==1) {
-		echo '<span class="nextprev">&#187; '.$go_prev. '</span>';
+		echo '<span class="nextprev">'.$go_prev. '</span>';
 	} else {
 		$i = $current-1;
 		if ($i > 10) $nofollow = ' rel="nofollow"'; else $nofollow = '';
-		echo '<a href="?page='.$i.$query.'"'.$nofollow.' rel="prev">&#187; '.$go_prev.'</a>';
+		echo '<a href="?page='.$i.$query.'"'.$nofollow.' rel="prev">'.$go_prev.'</a>';
 	}
 
 	echo '</div>';
@@ -276,8 +278,8 @@ function do_pages($total, $page_size=25, $margin = true) {
 
 	if (! $globals['mobile']) {
 		$index_limit = 5;
-		$go_prev = _('Anterior');
-		$go_next = _('Siguiente');
+		$go_prev = _('previous');
+		$go_next = _('next');
 	} else {
 		$index_limit = 1;
 		$go_prev = '';
@@ -308,11 +310,11 @@ function do_pages($total, $page_size=25, $margin = true) {
 
 
 	if($current==1) {
-		echo '<li><span class="nextprev">&#171; '.$go_prev. '</span></li>';
+		echo '<li><span class="nextprev">'.$go_prev. '</span></li>';
 	} else {
 		$i = $current-1;
 		if ($i > 10) $nofollow = ' rel="nofollow"'; else $nofollow = '';
-		echo '<li><a href="?page='.$i.$query.'"'.$nofollow.' rel="prev">&#171; '.$go_prev.'</a></li>';
+		echo '<li><a href="?page='.$i.$query.'"'.$nofollow.' rel="prev">'.$go_prev.'</a></li>';
 	}
 
 	if ($total_pages > 0) {
@@ -346,9 +348,9 @@ function do_pages($total, $page_size=25, $margin = true) {
 	if($total < 0 || $current<$total_pages) {
 		$i = $current+1;
 		if ($i > 10) $nofollow = ' rel="nofollow"'; else $nofollow = '';
-		echo '<li><a href="?page='.$i.$query.'"'.$nofollow.' rel="next">'.$go_next.' &#187;</a></li>';
+		echo '<li><a href="?page='.$i.$query.'"'.$nofollow.' rel="next">'.$go_next.'</a></li>';
 	} else {
-		echo '<li><span class="nextprev">'.$go_next. ' &#187;</span></li>';
+		echo '<li><span class="nextprev">'.$go_next. '</span></li>';
 	}
 
 	echo '</ul><!-- pagination -->';

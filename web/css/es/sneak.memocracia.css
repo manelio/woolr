@@ -14,12 +14,12 @@ stated otherwise in individual files.
 .sneaker {
   font-size: small;
   margin-top: -1px;
-  background: url(../../img/mnm/elmnm-sneak-reverse02.png) 97% 95% no-repeat;
+  /*background: url(../../img/mnm/elmnm-sneak-reverse02.png) 97% 95% no-repeat;*/
 }
 
 /* line 21, ../../../sass/es/sneak.memocracia.scss */
 .sneaker-title strong {
-  color: #FF9400;
+  /* color: #FF9400; */
 }
 
 /* line 25, ../../../sass/es/sneak.memocracia.scss */
@@ -30,62 +30,64 @@ stated otherwise in individual files.
 
 /* line 30, ../../../sass/es/sneak.memocracia.scss */
 .sneaker-legend {
+  /*
   color: #FF6400;
-  background: #FFEDC6;
+  background: #FFEDC6; 
   border-bottom-color: #FFEDC6;
+  */
 }
 
-/* line 36, ../../../sass/es/sneak.memocracia.scss */
+/* line 38, ../../../sass/es/sneak.memocracia.scss */
 .sneaker-item {
-  border-bottom-color: #FFE2C5;
+  /* border-bottom-color: #FFE2C5; */
 }
 
-/* line 40, ../../../sass/es/sneak.memocracia.scss */
+/* line 42, ../../../sass/es/sneak.memocracia.scss */
 .sneaker-chat, .sneaker-chat a {
   color: #9B0000;
 }
 
-/* line 44, ../../../sass/es/sneak.memocracia.scss */
+/* line 46, ../../../sass/es/sneak.memocracia.scss */
 .sneaker-chat-friends, .sneaker-chat-friends a {
   color: #255c25;
 }
 
-/* line 48, ../../../sass/es/sneak.memocracia.scss */
+/* line 50, ../../../sass/es/sneak.memocracia.scss */
 .sneaker-chat-admin, .sneaker-chat-admin a {
   color: #f00000;
 }
 
-/* line 52, ../../../sass/es/sneak.memocracia.scss */
+/* line 54, ../../../sass/es/sneak.memocracia.scss */
 .sneaker-who img {
   border-color: #FFE2C5;
 }
 
-/* line 56, ../../../sass/es/sneak.memocracia.scss */
+/* line 58, ../../../sass/es/sneak.memocracia.scss */
 .sneaker-problem {
   color: #F00;
 }
 
-/* line 60, ../../../sass/es/sneak.memocracia.scss */
+/* line 62, ../../../sass/es/sneak.memocracia.scss */
 .sneaker-published {
   color: #FF6400;
 }
 
-/* line 64, ../../../sass/es/sneak.memocracia.scss */
+/* line 66, ../../../sass/es/sneak.memocracia.scss */
 .sneaker-discarded {
   color: #D9AA95;
 }
 
-/* line 74, ../../../sass/es/sneak.memocracia.scss */
+/* line 76, ../../../sass/es/sneak.memocracia.scss */
 .sneaker {
   margin: 0;
 }
 
-/* line 78, ../../../sass/es/sneak.memocracia.scss */
+/* line 80, ../../../sass/es/sneak.memocracia.scss */
 .mini-sneaker-title strong, .sneaker-title strong {
   font-size: 95%;
 }
 
-/* line 82, ../../../sass/es/sneak.memocracia.scss */
+/* line 84, ../../../sass/es/sneak.memocracia.scss */
 .sneaker-legend {
   font-size: 9pt;
   text-align: center;
@@ -93,18 +95,18 @@ stated otherwise in individual files.
   margin: 0;
 }
 
-/* line 89, ../../../sass/es/sneak.memocracia.scss */
+/* line 91, ../../../sass/es/sneak.memocracia.scss */
 .sneaker-legend img {
   margin: 0 25px 0 3px;
   vertical-align: baseline;
 }
 
-/* line 94, ../../../sass/es/sneak.memocracia.scss */
+/* line 96, ../../../sass/es/sneak.memocracia.scss */
 .sneaker-control {
   margin: 0;
 }
 
-/* line 98, ../../../sass/es/sneak.memocracia.scss */
+/* line 100, ../../../sass/es/sneak.memocracia.scss */
 .sneaker-item {
   width: 100%;
   clear: both;
@@ -114,62 +116,62 @@ stated otherwise in individual files.
   overflow: hidden;
 }
 
-/* line 107, ../../../sass/es/sneak.memocracia.scss */
+/* line 109, ../../../sass/es/sneak.memocracia.scss */
 .sneaker-ts, .sneaker-sub, .sneaker-type, .sneaker-votes, .sneaker-story, .sneaker-chat, .sneaker-who, .sneaker-status, .sneaker-chat-friends, .sneaker-chat-admin {
   float: left;
   display: block;
 }
 
-/* line 112, ../../../sass/es/sneak.memocracia.scss */
+/* line 114, ../../../sass/es/sneak.memocracia.scss */
 .sneaker-ts {
   width: 6%;
   text-align: left;
 }
 
-/* line 117, ../../../sass/es/sneak.memocracia.scss */
+/* line 119, ../../../sass/es/sneak.memocracia.scss */
 .sneaker-sub {
   width: 9%;
   font-variant: small-caps;
 }
 
-/* line 122, ../../../sass/es/sneak.memocracia.scss */
+/* line 124, ../../../sass/es/sneak.memocracia.scss */
 .sneaker-type {
   width: 5%;
 }
 
-/* line 126, ../../../sass/es/sneak.memocracia.scss */
+/* line 128, ../../../sass/es/sneak.memocracia.scss */
 .sneaker-type img {
   border: none;
   margin: 0;
   vertical-align: middle;
 }
 
-/* line 132, ../../../sass/es/sneak.memocracia.scss */
+/* line 134, ../../../sass/es/sneak.memocracia.scss */
 .sneaker-votes {
   width: 8%;
 }
 
-/* line 136, ../../../sass/es/sneak.memocracia.scss */
+/* line 138, ../../../sass/es/sneak.memocracia.scss */
 .sneaker-story {
   width: 50%;
   text-align: left;
   overflow: hidden;
 }
 
-/* line 142, ../../../sass/es/sneak.memocracia.scss */
+/* line 144, ../../../sass/es/sneak.memocracia.scss */
 .sneaker-chat, .sneaker-chat-friends, .sneaker-chat-admin {
   width: 50%;
   text-align: left;
   overflow: hidden;
 }
 
-/* line 148, ../../../sass/es/sneak.memocracia.scss */
+/* line 150, ../../../sass/es/sneak.memocracia.scss */
 .sneaker-who {
   width: 15%;
   text-align: left;
 }
 
-/* line 153, ../../../sass/es/sneak.memocracia.scss */
+/* line 155, ../../../sass/es/sneak.memocracia.scss */
 .sneaker-who img {
   border: 0px solid;
   float: right;
@@ -178,13 +180,13 @@ stated otherwise in individual files.
   vertical-align: bottom;
 }
 
-/* line 161, ../../../sass/es/sneak.memocracia.scss */
+/* line 163, ../../../sass/es/sneak.memocracia.scss */
 .sneaker-status {
   width: 6%;
   text-align: right;
 }
 
-/* line 166, ../../../sass/es/sneak.memocracia.scss */
+/* line 168, ../../../sass/es/sneak.memocracia.scss */
 .voters, .mini-sneaker {
   margin: 25px 5px 0 10px;
 }
