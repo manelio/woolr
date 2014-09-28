@@ -34,9 +34,6 @@ if(!$link) {
 	error(_('artículo inexistente'));
 }
 
-print_r("[".$link->is_votable()."]");
-exit;
-
 if(!$link->is_votable() || $link->total_votes == 0) {
 	error(_('votos cerrados'));
 }
