@@ -42,7 +42,6 @@ set :subpath, "web/"
 
 set :copy_exclude, [".git", ".DS_Store", ".gitignore", ".gitmodules", "/web/cache"]
 
-set :app_symlinks, ["/web/cache", "/web/local", "/web/private"]
-set :app_shared_dirs, ["/web/cache", "/web/local", "/web/private"]
+set :app_symlinks, ["/web/cache", "/web/local", "/web/templates/private"]
+set :app_shared_dirs, ["/web/cache", "/web/local", "/web/templates/private"]
 set :app_shared_files, []
-
