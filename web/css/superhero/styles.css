@@ -11139,92 +11139,12 @@ ul.subheader li a, #footwrap ul li a, #footthingy ul li a {
   padding: 10px 15px;
 }
 
-/* line 158, ../../../sass/_woolr.scss */
-.comments-counter {
-  padding: 5px 0;
-  display: block;
-  text-align: center;
-  margin-top: 3px;
-  border: 1px solid #ccc;
-}
-
-/* line 170, ../../../sass/_woolr.scss */
-div.comments ol {
-  list-style: none;
-  padding: 0;
-  marging: 0;
-}
-/* line 175, ../../../sass/_woolr.scss */
-div.comments ol li {
-  margin-top: 16px;
-}
-
-/* line 181, ../../../sass/_woolr.scss */
-.comment-body {
-  padding: 5px 5px 10px 10px;
-  line-height: 1.2em;
-  text-align: left;
-  overflow: hidden;
-  background: #f7f7f9;
-  border: 1px solid #e1e1e8;
-  border-width: 1px;
-  border-bottom-right-radius: 4px;
-  border-bottom-left-radius: 4px;
-  color: black;
-}
-/* line 195, ../../../sass/_woolr.scss */
-.comment-body a.comment-number {
-  float: left;
-  margin-right: 12px;
-  margin-bottom: 12px;
-}
-/* line 201, ../../../sass/_woolr.scss */
-.comment-body a.fancybox {
-  display: block;
-  /* margin-top: 12px; */
-  float: left;
-  margin-right: 12px;
-  margin-bottom: 12px;
-}
-
-/* line 211, ../../../sass/_woolr.scss */
-.comment-meta:after {
-  clear: both;
-}
-
-/* line 215, ../../../sass/_woolr.scss */
-.comment-meta {
-  margin-top: 8px;
-}
-/* line 220, ../../../sass/_woolr.scss */
-.comment-meta .comment-votes-info > a.permalink, .comment-meta .comment-votes-info > .votes-info-wrap, .comment-meta .comment-votes-info button {
-  margin-right: 8px;
-  color: #999;
-}
-/* line 229, ../../../sass/_woolr.scss */
-.comment-meta .comment-info {
-  float: right;
-}
-/* line 231, ../../../sass/_woolr.scss */
-.comment-meta .comment-info .ts {
-  color: #999;
-}
-/* line 236, ../../../sass/_woolr.scss */
-.comment-meta .vote.voted {
-  border: 1px solid red;
-}
-
-/* line 244, ../../../sass/_woolr.scss */
-div.commentform textarea {
-  width: 100%;
-}
-
-/* line 251, ../../../sass/_woolr.scss */
+/* line 160, ../../../sass/_woolr.scss */
 .share_icons {
   display: inline;
 }
 
-/* line 255, ../../../sass/_woolr.scss */
+/* line 164, ../../../sass/_woolr.scss */
 .share_icons span {
   display: inline-block;
   width: 18px;
@@ -11238,94 +11158,174 @@ div.commentform textarea {
   background-size: 20px 300px;
 }
 
-/* line 268, ../../../sass/_woolr.scss */
+/* line 177, ../../../sass/_woolr.scss */
 .share_icons span:hover {
   opacity: 1.0;
 }
 
-/* line 272, ../../../sass/_woolr.scss */
+/* line 181, ../../../sass/_woolr.scss */
 .share_icons span.fb {
   background-position: 0px -180px;
 }
 
-/* line 276, ../../../sass/_woolr.scss */
+/* line 185, ../../../sass/_woolr.scss */
 .share_icons span.tw {
   background-position: 0px -160px;
 }
 
-/* line 280, ../../../sass/_woolr.scss */
+/* line 189, ../../../sass/_woolr.scss */
 .bigform .input-group {
   margin-bottom: 20px;
 }
 
-/* line 284, ../../../sass/_woolr.scss */
+/* line 193, ../../../sass/_woolr.scss */
 .bigform .inline-block > li {
   position: relative;
   display: inline-block;
   margin: 0 10px 10px 0;
 }
 
-/* line 290, ../../../sass/_woolr.scss */
+/* line 199, ../../../sass/_woolr.scss */
 .bigform .well h3 {
   padding-top: 0;
   margin-top: 0;
   margin-bottom: 20px;
 }
 
-/* line 296, ../../../sass/_woolr.scss */
+/* line 205, ../../../sass/_woolr.scss */
 .news-votes {
   margin-bottom: 12px;
 }
-/* line 299, ../../../sass/_woolr.scss */
+/* line 208, ../../../sass/_woolr.scss */
 .news-votes .label {
   font-size: inherit;
   margin-right: 4px;
 }
-/* line 303, ../../../sass/_woolr.scss */
+/* line 212, ../../../sass/_woolr.scss */
 .news-votes .label i {
   line-height: 2em;
 }
 
-/* line 309, ../../../sass/_woolr.scss */
+/* line 218, ../../../sass/_woolr.scss */
 .news-tags {
   margin-top: 12px;
 }
-/* line 312, ../../../sass/_woolr.scss */
+/* line 221, ../../../sass/_woolr.scss */
 .news-tags span.label {
   margin-right: 4px;
 }
-/* line 315, ../../../sass/_woolr.scss */
+/* line 224, ../../../sass/_woolr.scss */
 .news-tags span.label a {
   color: white;
 }
 
-/* line 322, ../../../sass/_woolr.scss */
+/* line 231, ../../../sass/_woolr.scss */
 .tagcloud .label {
   font-size: inherit;
 }
 
-/* line 327, ../../../sass/_woolr.scss */
+/* line 236, ../../../sass/_woolr.scss */
 a.favorite {
   color: #ccc;
 }
 
-/* line 331, ../../../sass/_woolr.scss */
+/* line 240, ../../../sass/_woolr.scss */
 a.favorite.on {
   color: blue;
 }
 
-/* line 338, ../../../sass/_woolr.scss */
+/* line 247, ../../../sass/_woolr.scss */
 .news-icons .news-votes, .news-icons .tool {
   display: inline-block;
   vertical-align: top;
 }
-/* line 343, ../../../sass/_woolr.scss */
+/* line 252, ../../../sass/_woolr.scss */
 .news-icons .news-votes {
   margin-right: 8px;
 }
-/* line 347, ../../../sass/_woolr.scss */
+/* line 256, ../../../sass/_woolr.scss */
 .news-icons .tool {
   padding-top: 2px;
+}
+
+/* line 1, ../../../sass/_comments.scss */
+.comments-counter {
+  padding: 5px 0;
+  display: block;
+  text-align: center;
+  margin-top: 3px;
+  border: 1px solid #ccc;
+}
+
+/* line 10, ../../../sass/_comments.scss */
+div.comments ol {
+  list-style: none;
+  padding: 0;
+  marging: 0;
+}
+/* line 15, ../../../sass/_comments.scss */
+div.comments ol li {
+  margin-top: 16px;
+}
+
+/* line 21, ../../../sass/_comments.scss */
+.comment-body {
+  padding: 5px 5px 10px 10px;
+  line-height: 1.5em;
+  text-align: left;
+  overflow: hidden;
+  background: #f7f7f9;
+  border: 1px solid #e1e1e8;
+  border-width: 1px;
+  border-bottom-right-radius: 4px;
+  border-bottom-left-radius: 4px;
+  color: #EBEBEB;
+}
+/* line 35, ../../../sass/_comments.scss */
+.comment-body a.comment-number {
+  float: left;
+  margin-right: 12px;
+  margin-bottom: 12px;
+}
+/* line 41, ../../../sass/_comments.scss */
+.comment-body a.fancybox {
+  display: block;
+  /* margin-top: 12px; */
+  float: left;
+  margin-right: 12px;
+  margin-bottom: 12px;
+}
+
+/* line 51, ../../../sass/_comments.scss */
+.comment-meta:after {
+  clear: both;
+}
+
+/* line 55, ../../../sass/_comments.scss */
+.comment-meta {
+  margin-top: 8px;
+}
+/* line 60, ../../../sass/_comments.scss */
+.comment-meta .comment-votes-info > a.permalink, .comment-meta .comment-votes-info > .votes-info-wrap, .comment-meta .comment-votes-info button {
+  margin-right: 8px;
+  color: #999;
+}
+/* line 69, ../../../sass/_comments.scss */
+.comment-meta .comment-info {
+  float: right;
+}
+/* line 71, ../../../sass/_comments.scss */
+.comment-meta .comment-info .ts {
+  color: #999;
+}
+/* line 76, ../../../sass/_comments.scss */
+.comment-meta .vote.voted {
+  border: 1px solid red;
+}
+
+/* line 84, ../../../sass/_comments.scss */
+div.commentform textarea {
+  width: 100%;
 }
 
 /* line 1, ../../../sass/_masonry.scss */
@@ -11431,7 +11431,7 @@ a.favorite.on {
   margin-bottom: 0px;
 }
 
-/* line 7, ../../../sass/_common.scss */
+/* line 8, ../../../sass/_common.scss */
 body, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
   font-family: "Open Sans", "Helvetica Neue", sans-serif;
 }
@@ -11451,45 +11451,66 @@ body, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
   }
 }
 */
-/* line 29, ../../../sass/_common.scss */
+/* line 30, ../../../sass/_common.scss */
 .news-abstract img {
   width: 100%;
   max-width: 320px;
   height: auto;
 }
 
-/* line 37, ../../../sass/_common.scss */
+/* line 38, ../../../sass/_common.scss */
 .pagination > li > span {
   cursor: default;
   color: #4E5D6C;
 }
 
-/* line 42, ../../../sass/_common.scss */
+/* line 43, ../../../sass/_common.scss */
 .pagination > li > span:hover {
   background: inherit;
   color: #4E5D6C;
 }
 
-/* line 47, ../../../sass/_common.scss */
+/* line 48, ../../../sass/_common.scss */
 .subheader .selected {
   background: lightblue;
 }
 
-/* line 51, ../../../sass/_common.scss */
+/* line 52, ../../../sass/_common.scss */
 .navbar.navbar-default.navbar-secondary {
   margin-top: -10.5px;
   border: none;
   background: none;
 }
 
-/* line 57, ../../../sass/_common.scss */
+/* line 58, ../../../sass/_common.scss */
 .navbar-secondary.navbar-default .navbar-nav > li > a {
   color: #222222;
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-/* line 63, ../../../sass/_common.scss */
+/* line 64, ../../../sass/_common.scss */
 .navbar-secondary.navbar-default .navbar-nav > li.active > a {
   color: #2B3E50;
+}
+
+/* line 68, ../../../sass/_common.scss */
+#top-notifier a {
+  padding-left: 0;
+}
+
+/* line 72, ../../../sass/_common.scss */
+#userinfo li.usertext a {
+  padding-right: 8px;
+}
+
+/* line 76, ../../../sass/_common.scss */
+#userinfo #avatar {
+  border: 1px solid #EBEBEB;
+}
+
+/* line 80, ../../../sass/_common.scss */
+p.tagcloud {
+  background-color: #5bc0de;
+  padding: 12px;
 }

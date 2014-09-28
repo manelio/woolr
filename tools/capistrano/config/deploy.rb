@@ -3,10 +3,10 @@ require 'capistrano/ext/multistage'
 set :stages, ["staging", "production"]
 set :default_stage, "staging"
 
-set :application, "memocracia"
-set :domain, "memocracia.com"
+set :application, "woolr"
+set :domain, "woolr.com"
 
-set :repository,  "https://github.com/manelio/memocracia.git"
+set :repository,  "git@github.com:manelio/woolr.git"
 set :scm, :git
 
 set :normalize_asset_timestamps, false
@@ -42,7 +42,7 @@ set :subpath, "web/"
 
 set :copy_exclude, [".git", ".DS_Store", ".gitignore", ".gitmodules", "/web/cache"]
 
-set :app_symlinks, ["/web/cache"]
-set :app_shared_dirs, ["/web/cache"]
-set :app_shared_files, ["/web/memocracia.com-local.php", "/web/secret1.prj.me-local.php", "/web/secret2.prj.me-local.php", "/web/secret3.prj.me-local.php"]
+set :app_symlinks, ["/web/cache", "/web/local"]
+set :app_shared_dirs, ["/web/cache", "/web/local"]
+set :app_shared_files, []
 

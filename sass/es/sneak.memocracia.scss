@@ -15,11 +15,11 @@ stated otherwise in individual files.
 .sneaker {
 font-size: small;
 margin-top: -1px;
-background: url(../../img/mnm/elmnm-sneak-reverse02.png) 97% 95% no-repeat;
+/*background: url(../../img/mnm/elmnm-sneak-reverse02.png) 97% 95% no-repeat;*/
 }
 
 .sneaker-title strong {
-color: #FF9400;
+/* color: #FF9400; */
 }
 
 .sneaker-story .thumb {
@@ -28,13 +28,15 @@ margin: 0 4px 0 0;
 }
 
 .sneaker-legend {
+/*
 color: #FF6400;
-background: #FFEDC6;
+background: #FFEDC6; 
 border-bottom-color: #FFEDC6;
+*/
 }
 
 .sneaker-item {
-border-bottom-color: #FFE2C5;
+/* border-bottom-color: #FFE2C5; */
 }
 
 .sneaker-chat, .sneaker-chat a {

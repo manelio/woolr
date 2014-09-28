@@ -754,7 +754,10 @@ class Link extends LCPBase {
 
 		$this->column_class = $globals['column_class'][$column_type];
 
-		$this->abstract = truncateHtml($this->content, 400, '...');
+		if (!$column_type == 'full')
+			$this->abstract = truncateHtml($this->content, 560, '...');
+		else 
+			$this->abstract = $this->content;
 
 
 		$this->show_tags = $show_tags;
@@ -1107,7 +1110,13 @@ class Link extends LCPBase {
 		if (empty($globals['base_url'])) {
 			$base_url =  $this->base_url;			
 		} else {
-			$base_url =  $globals['base_url_general'];
+			
+			if ($globals['subs_in_subdomain']) {
+				$base_url =  $globals['base_url'];
+			} else {
+				$base_url =  $globals['base_url_general'];
+			}
+			
 		}
 
 		if (empty($relative)) {

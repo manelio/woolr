@@ -54,3 +54,15 @@ header {
   text-shadow: 0 0 5PX #000;
 
 }
+
+.navbar-secondary.navbar-default .navbar-nav > li.active > a,  .navbar-secondary.navbar-default .navbar-nav > li > a{
+  color: $text-color;
+}
+
+#userinfo li.usertext a {
+  border-right: none;
+}
+
+#top-notifier a {
+  border-left: none;
+}

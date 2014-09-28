@@ -1,6 +1,7 @@
 <?
 include('../config.php');
 $theme = $globals['theme'];
+if ($_GET['theme']) $theme = $_GET['theme'];
 
 header('Content-Type: text/css; charset=utf-8');
 header('Cache-Control: public, max-age=864000');

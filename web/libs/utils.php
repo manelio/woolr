@@ -550,7 +550,8 @@ function do_error($mess = false, $error = false, $send_status = "Error") {
 		syslog(LOG_INFO, "Headers already sent, file $file line $line, uri: ".$_SERVER["DOCUMENT_URI"]." mess: $mess");
 	}
 
-	if (! $mess ) $mess = _('algún error nos ha petado');
+	//if (! $mess ) $mess = _('algún error nos ha petado');
+	if (! $mess ) $mess = _('error');
 	else $mess = _($mess);
 
 	if ($error) {

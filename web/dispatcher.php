@@ -46,6 +46,10 @@ $routes = array(
 	'mobile'	=> 'mobile/dispatcher.php',
 );
 
+// MDOMENECH
+$routes[''] = 'shakeit.php';
+
+
 if ($globals['sub']) {
 	$_SERVER['REQUEST_URI'] = '/m/'.$globals['sub'].$_SERVER['REQUEST_URI'];	
 }

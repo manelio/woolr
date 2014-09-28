@@ -2,6 +2,7 @@ $fa-font-path:        "/fonts/font-awesome" !default;
 @import '../bower_components/components-font-awesome/scss/font-awesome.scss';
 
 @import '_woolr';
+@import '_comments';
 @import '_masonry';
 
 body, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6  {
@@ -64,3 +65,19 @@ body, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6  {
   color: $body-bg;
 }
 
+#top-notifier a {
+  padding-left: 0;
+}
+
+#userinfo li.usertext a {
+  padding-right: 8px;
+}
+
+#userinfo #avatar {
+  border: 1px solid $text-color;
+}
+
+p.tagcloud {
+  background-color: $brand-info;
+  padding: 12px;
+}

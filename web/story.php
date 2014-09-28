@@ -473,28 +473,35 @@ function do_comment_pages($total, $current, $reverse = true) {
 
 	echo '<div class="pages">';
 
+	// MDOMENECH
+	$go_prev = _('previous');
+	$go_next = _('next');
+
+	echo '<ul class="pagination">';	
+
+
 	if($current==1) {
-		echo '<span class="nextprev">&#171;</span>';
+		echo '<li><span class="nextprev">'.$go_prev.'</span></li>';
 	} else {
 		$i = $current-1;
-		echo '<a href="'.get_comment_page_url($i, $total_pages, $query, $reverse).'" rel="prev">&#171;</a>';
+		echo '<li><a href="'.get_comment_page_url($i, $total_pages, $query, $reverse).'" rel="prev">'.$go_prev.'</a></li>';
 	}
 
 
 	$dots_before = $dots_after = false;
 	for ($i=1;$i<=$total_pages;$i++) {
 		if($i==$current) {
-			echo '<span class="current">'.$i.'</span>';
+			echo '<li><span class="current">'.$i.'</span></li>';
 		} else {
 			if ($total_pages < 7 || abs($i-$current) < 1 || $i < 3 || abs($i-$total_pages) < 2) {
-				echo '<a href="'.get_comment_page_url($i, $total_pages, $query, $reverse).'" title="'._('ir a página')." $i".'">'.$i.'</a>';
+				echo '<li><a href="'.get_comment_page_url($i, $total_pages, $query, $reverse).'" title="'._('ir a página')." $i".'">'.$i.'</a></li>';				
 			} else {
 				if ($i<$current && !$dots_before) {
 					$dots_before = true;
-					echo '<span>&hellip;</span>';
+					echo '<li><span><i class="fa fa-ellipsis-h"></i></span></li>';
 				} elseif ($i>$current && !$dots_after) {
 					$dots_after = true;
-					echo '<span>&hellip;</span>';
+					echo '<li><span><i class="fa fa-ellipsis-h"></i></span></li>';
 				}
 			}
 		}
@@ -502,10 +509,13 @@ function do_comment_pages($total, $current, $reverse = true) {
 
 	if($current<$total_pages) {
 		$i = $current+1;
-		echo '<a href="'.get_comment_page_url($i, $total_pages, $query, $reverse).'" rel="next">&#187;</a>';
+		echo '<li><a href="'.get_comment_page_url($i, $total_pages, $query, $reverse).'" rel="next">'.$go_next.'</a></li>';
 	} else {
-		echo '<span class="nextprev">&#187;</span>';
+		echo '<li><span class="nextprev">'.$go_next.'</span></li>';
 	}
+
+	echo '</ul><!-- pagination -->';
+
 	echo '</div>';
 
 }

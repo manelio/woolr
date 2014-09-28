@@ -59,7 +59,7 @@
 
 
 {% if globals.css_main %}
-	<link rel="stylesheet" type="text/css" media="all" href="{{ globals.base_url_general }}v{{ globals.v }}/css/{{globals.css_main}}"/>
+	<link rel="stylesheet" type="text/css" media="all" href="{{ globals.base_url_general }}v{{ globals.v }}/css/{{globals.css_main}}?theme={{globals.theme}}"/>
 {% endif %}
 
 {% for css in globals.extra_css %}
@@ -172,19 +172,19 @@
                   <li><a href="{{ globals.help_url }}" title="{% trans _('ayuda para principiantes') %}"><b>?</b></a></li>
                 {% endif %}
 
-                {#
-                <li><a href="#">Action</a></li>
-                <li><a href="#">Another action</a></li>
-                <li><a href="#">Something else here</a></li>
-                <li class="divider"></li>
-                <li class="dropdown-header">Nav header</li>
-                <li><a href="#">Separated link</a></li>
-                <li><a href="#">One more separated link</a></li>
-                #}
+              </ul>
+            </li>
+
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Tema <span class="caret"></span></a>
+              <ul class="dropdown-menu" role="menu">
+
+                {% for o in globals.themes %}                  
+                  <li {% if o.selected %}class="active"{% endif %} title="{{ o.title }}"><a href="{{ o.url }}">{{ o.text }}</a></li>
+                {% endfor %}
 
               </ul>
             </li>
-            
 
           </ul>
 

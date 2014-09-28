@@ -28,6 +28,16 @@
 if (defined("config_done")) return TRUE; // If not "included_once"
 define('config_done', 1);
 
+// locales
+$locale = 'es_ES.UTF-8';
+putenv('LANG='.$locale);
+putenv('LC_ALL='.$locale);
+setlocale(LC_ALL, $locale);
+
+$domain = "messages";
+bindtextdomain($domain, dirname(dirname(__FILE__))."/locale");
+bind_textdomain_codeset($domain, 'UTF-8');
+textdomain($domain);
 
 include_once 'server_name.php';
 
@@ -53,7 +63,7 @@ if ($_GET['theme']) {
 $globals['ssl_server'] = False; 
 
 $globals['site_name'] = 'woolr.com';
-$globals['site_shortname'] = 'memo'; //Used to differentiate in keys
+$globals['site_shortname'] = 'woolr'; //Used to differentiate in keys
 
 // If you user version, be careful to rewrite the directory for img, css and js
 // Example for nginx:
@@ -114,7 +124,7 @@ $globals['click_counter'] = 1; // Put a value since which id should show in "lin
 // $globals['base_dir'] = '/meneame/';
 
 $globals['base_path'] = '/';
-$globals['base_url'] = 'http://woolr.com.local'.$globals['base_path'];
+$globals['base_url'] = $globals['http_protocol'].'://'.$_SERVER['SERVER_NAME'].$globals['base_path'];
 
 $globals['top_logo'] = 'img/mnm/eli.png';
 $globals['thumbnail_logo'] = 'img/mnm/eli_thumbnail.png';
@@ -517,15 +527,50 @@ if (!isset($globals['basic_config']) || !$globals['basic_config']) {
 	ini_set("include_path", '.:'.mnminclude.':'.mnmpath);
 
   $rootDir = $globals['root'];
-	if (file_exists($rootDir.'/local.php')) include($rootDir.'/local.php');
+	if (file_exists($rootDir.'/local/local.php')) include($rootDir.'/local/local.php');
 
-  $customLocalFilename = $rootDir.'/'.$globals['server_name'].'-local.php';
+  $customLocalFilename = $rootDir.'/local/'.$globals['server_name'].'-local.php';
 
   if (file_exists($customLocalFilename)) {
     include($customLocalFilename);
   }
 
-	include mnminclude.'init.php';
+  if ($_GET['theme']) {
+    $globals['theme'] = $_GET['theme'];
+    setcookie('theme',  $globals['theme'], time()+3600);
+  } else {
+    if (key_exists('theme', $_COOKIE)) $globals['theme'] = $_COOKIE['theme'];    
+  }
+
+  $themeFilename = $rootDir.'/themes/'.$globals['theme'].'.php';  
+  if (file_exists($themeFilename)) {
+    include($themeFilename);
+  }
+
+  $themes = array();
+  $themeFilenames = glob($globals['root'].'/themes/*.php');
+  foreach($themeFilenames as $themeFilename) {
+    $fileInfo = pathinfo($themeFilename);
+    $filename = $fileInfo['filename'];
+    
+    $params = $_GET;
+    $params['theme'] = $filename;
+    $qs = http_build_query($params);
+
+    $uriParts = explode('?', $_SERVER['REQUEST_URI'], 2);
+    $uri = reset($uriParts);
+
+    $themes[] = array(
+      'title' => $filename,
+      'text' => ucwords($filename),
+      'url' => $uri."?".$qs,
+      'selected' => $filename == $globals['theme'],
+    );
+  }
+
+  $globals['themes'] = $themes;
+
+  include mnminclude.'init.php';
 	include mnminclude.'login.php';
 
 	// For production servers
