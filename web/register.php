@@ -329,7 +329,11 @@ function check_user_fields() {
 		$ip_classes = explode(".", $user_ip);
 
 		// From the same IP
-		$registered = (int) $db->get_var("select count(*) from logs where log_date > date_sub(now(), interval 24 hour) and log_type in ('user_new', 'user_delete') and log_ip = '$user_ip'");
+
+    // MDOMENECH
+    //$registered = (int) $db->get_var("select count(*) from logs where log_date > date_sub(now(), interval 24 hour) and log_type in ('user_new', 'user_delete') and log_ip = '$user_ip'");
+		$registered = 0;
+    
 		if($registered > 0) {
 			syslog(LOG_NOTICE, "Meneame, register not accepted by IP address ($_POST[username]) $user_ip");
 			register_error(_("para registrar otro usuario desde la misma dirección debes esperar 24 horas"));
