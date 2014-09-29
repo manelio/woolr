@@ -4,7 +4,7 @@ $globals['server_name'] = $_SERVER['SERVER_NAME'];
 
 $serverName = $_SERVER['SERVER_NAME'];
 
-while($serverName && !file_exists(dirname(__FILE__).'/'.$serverName.'-local.php')) {  
+while($serverName && !file_exists(dirname(__FILE__).'/local/'.$serverName.'-local.php')) {  
   if (($i = strpos($serverName, ".")) !== false) {    
     $serverName = substr($serverName, $i + 1);
   } else $serverName = null;
