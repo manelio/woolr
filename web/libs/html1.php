@@ -90,6 +90,12 @@ function do_header($title, $id='home', $options = false) {
 		$globals['ads'] = false;
 	}
 
+	/*
+	echo "<pre>";
+	print_r($this_site);
+	exit;
+	*/
+
 
 
 	if (! is_array($options)) {
@@ -191,7 +197,8 @@ function do_pages_reverse($total, $page_size=25, $margin = true) {
 
 	if ($total > 0 && $total < $page_size) return;
 
-	if (! $globals['mobile']) {
+	// MDOMENECH
+	if (1 || ! $globals['mobile']) {		
 		$index_limit = 5;
 		$go_prev = _('previous');
 		$go_next = _('next');
@@ -276,7 +283,8 @@ function do_pages($total, $page_size=25, $margin = true) {
 
 	if ($total > 0 && $total < $page_size) return;
 
-	if (! $globals['mobile']) {
+	// MDOMENECH
+	if (1 || ! $globals['mobile']) {
 		$index_limit = 5;
 		$go_prev = _('previous');
 		$go_next = _('next');

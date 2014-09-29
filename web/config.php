@@ -148,7 +148,6 @@ $globals['karma_clicks_bonus'] = 0.05; // Bonus to give due to clicks, it reache
 $globals['memcache_port'] = 11211; // optional
 $globals['xcache_enabled'] = false; // enable it if want to use xcache vars
 
-
 // Enable it if you to log every access to the scripts (progname will be "meneame_accesslog")
 //$globals['access_log'] = false;
 
@@ -281,7 +280,6 @@ $globals['user_links_interval'] = 7200;
 $globals['user_links_clon_interval'] = 12; // hours forbidden to send with a clone, 0 to allow it
 
 $globals['user_comments_clon_interval'] = 0; // hours forbidden to comment with a clone
-
 
 //sneakme
 $globals['posts_len'] = 500;

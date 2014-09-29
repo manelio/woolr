@@ -91,7 +91,7 @@
 {% endif %}
 
 </head>
-<body>
+<body {% if globals.mobile %}class="mobile"{% endif %}>
 
 
 {% if 0 && this_site.sub %}
@@ -244,12 +244,17 @@
 
 
 <div id="header">
+{# MDOMENECH #}
+{#
+
 {% if globals.mobile AND this_site.sub %}
 	<div id="header-sub" {% if this_site.color2 %}style="background-color:{{ this_site.color2 }}"{% endif %}>
 		<a href="{{ this_site.base_url }}m/{{ this_site.name }}" {% if this_site.color1 %}style="color:{{ this_site.color1 }}"{% endif %}><span style="font-variant:small-caps">{{ this_site.name }} {% if this_site.nsfw %}[NSFW]{% endif %}</span>: <span style="text-transform:lowercase">{{ this_site.name_long }}</span></a>
 		{% exec print_follow_sub this_site.id as dummy %}
 	</div>
 {% endif %}
+
+#}
 
 <div id="header-center" {% if this_site.color2 %}style="background-color:{{ this_site.color2 }}"{% endif %}>
 
