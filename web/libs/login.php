@@ -96,7 +96,7 @@ class UserAuth {
 					$this->SetIDCookie(2, $remember);
 				}
 				// Set the sticky cookie for use un LoadBalancers that allows it (as Amazon ELB)
-				setcookie ('sticky', '1', 0, $globals['base_url']);
+				setcookie ('sticky', '1', 0, $globals['base_path']);
 			}
 		}
 		// Mysql variables to use en join queries
@@ -112,11 +112,11 @@ class UserAuth {
 		switch ($what) {
 			case 0:	// Expires cookie,logout
 				$this->user_id = 0;
-				setcookie ('ukey', '', $globals['now'] - 3600, $globals['base_url'], self::domain());
+				setcookie ('ukey', '', $globals['now'] - 3600, $globals['base_path'], self::domain());
 				$this->SetUserCookie();
-				setcookie ('sticky', '', $globals['now'] - 3600,  $globals['base_url']);
+				setcookie ('sticky', '', $globals['now'] - 3600,  $globals['base_path']);
 				break;
-			case 1: // User is logged, update the cookie
+			case 1: // User is logged, update the cookie				
 				$this->AddClone();
 				$this->SetUserCookie();
 			case 2: // Only update the key
@@ -128,7 +128,7 @@ class UserAuth {
 						.self::CURRENT_VERSION.':' // Version number
 						.$globals['now'].':'
 						.$time);
-				setcookie('ukey', $strCookie, $time, $globals['base_url'], self::domain(), false, true);
+				setcookie('ukey', $strCookie, $time, $globals['base_path'], self::domain(), false, true);
 				break;
 		}
 	}
@@ -153,6 +153,7 @@ class UserAuth {
 
 			foreach(get_object_vars($user) as $var => $value) $this->$var = $value;
 			$this->authenticated = true;
+
 			$this->SetIDCookie(1, $remember);
 			return true;
 		}
@@ -160,6 +161,9 @@ class UserAuth {
 	}
 
 	function Logout($url='./') {
+
+		if (!$url) $url = '/';
+
 		$this->user_id = 0;
 		$this->user_login = '';
 		$this->admin = false;
@@ -183,12 +187,13 @@ class UserAuth {
 	function SetUserCookie() {
 		global $globals;
 		$expiration = $globals['now'] + 86400 * 1000;
+
 		setcookie('u',
 					$this->user_id.
 					':'.$this->u[1].
 					':'.$globals['now'].
 					':'.$this->signature($this->user_id.$this->u[1].$globals['now']),
-					$expiration, $globals['base_url'], self::domain(), false, true);
+					$expiration, $globals['base_path'], self::domain(), false, true);
 	}
 
 	function AddClone() {
@@ -260,7 +265,7 @@ class UserAuth {
 		return array_unique(array_merge($a, $b));
 	}
 
-	static function check_clon_from_cookies() {
+	static function check_clon_from_cookies() {		
 		global $current_user, $globals;
 		// Check the cookies and store clones
 		$clones = array_reverse($current_user->GetClones()); // First item is the current login, second is the previous

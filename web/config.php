@@ -535,7 +535,7 @@ if (!isset($globals['basic_config']) || !$globals['basic_config']) {
 
   if ($_GET['theme']) {
     $globals['theme'] = $_GET['theme'];
-    setcookie('theme',  $globals['theme'], time()+3600);
+    setcookie('theme',  $globals['theme'], time()+3600, $globals['base_path']);
   } else {
     if (key_exists('theme', $_COOKIE)) $globals['theme'] = $_COOKIE['theme'];    
   }

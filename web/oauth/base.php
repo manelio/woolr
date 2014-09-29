@@ -26,9 +26,11 @@ require_once(mnminclude.$globals['html_main']);
 class OAuthBase {
 
 	function __construct() {
+		global $globals;
+
 		// syslog(LOG_INFO, "AuthBase::__construct: ". $_GET['return'] . "  COOKIE: ".$_COOKIE['return']);
 		if (!empty($_GET['return'])) {
-			setcookie('return', $_GET['return'], 0, $globals['base_url'], UserAuth::domain(), false, true);
+			setcookie('return', $_GET['return'], 0, $globals['base_path'], UserAuth::domain(), false, true);
 			$this->return = $_GET['return'];
 		} elseif ($_COOKIE['return']) {
 			$this->return = $_COOKIE['return'];
@@ -127,12 +129,13 @@ class OAuthBase {
 		global $globals;
 
 		// syslog(LOG_INFO, "user_return: ". $this->return. "  COOKIE: ".$_COOKIE['return']);
-		setcookie('return', '', time() - 10000, $globals['base_url'], UserAuth::domain());
-		setcookie('return', '', time() - 10000, $globals['base_url']);
+		setcookie('return', '', time() - 10000, $globals['base_path'], UserAuth::domain());
+		setcookie('return', '', time() - 10000, $globals['base_path']);
+
 		if(!empty($this->return)) {
-			header('Location: http://'.get_server_name().$this->return);
+			header('Location: '.$globals['base_url'].$this->return);
 		} else {
-			header('Location: http://'.get_server_name().$globals['base_url']);
+			header('Location: '.$globals['base_url']);
 		}
 		exit;
 	}

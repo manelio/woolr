@@ -1212,10 +1212,16 @@ function set_count($key, $count) {
 function print_oauth_icons($return = false) {
 	global $globals, $current_user;
 
+	if (!$return && key_exists('return', $_GET)) $return = $_GET['return'];
+
 	if (! $return) {
 		$return = $globals['uri'];
 	}
+
+	if ($return[0] == '/') $return = substr($return, 1);
+	
 	$return = htmlentities($return);
+
 
 	
 

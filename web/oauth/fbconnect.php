@@ -66,7 +66,6 @@ class FBConnect extends OAuthBase {
 		global $globals, $db;
 		// syslog(LOG_INFO, "authorize: ".$_SERVER["REQUEST_URI"]);
 
-
 		try {
 			$user_profile = $this->facebook->api('/me');
 		} catch (FacebookApiException $e) {
@@ -98,6 +97,7 @@ class FBConnect extends OAuthBase {
 			}
 			$this->store_user();
 		}
+		
 		$this->store_auth();
 		$db->commit();
 		$this->user_login();

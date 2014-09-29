@@ -14,17 +14,21 @@ $globals['ads'] = false;
 
 // Clean return variable
 if(!empty($_REQUEST['return'])) {
-  $_REQUEST['return'] = clean_input_string($_REQUEST['return']);
+  if ($_REQUEST['return'][0] == '/') $_REQUEST['return'] = substr($_REQUEST['return'], 1);
+  $_REQUEST['return'] = clean_input_string($_REQUEST['return']);  
 }
 
-if($_GET["op"] == 'logout') {
+if($_GET["op"] == 'logout') {  
   // check the user is really authenticated (to avoid bucles due to bad caching)
-  if ($current_user->user_id > 0) {
+  if ($current_user->user_id > 0) {    
     $current_user->Logout($_REQUEST['return']);
   } else {
+    echo "B";
+    exit;
+
     header ('HTTP/1.1 303 Load');
-    setcookie('return_site', '', $globals['now'] - 3600, $globals['base_url'], UserAuth::domain());
-    header("Location: http://".$_COOKIE['return_site'].$globals['base_url']);
+    setcookie('return_site', '', $globals['now'] - 3600, $globals['base_path'], UserAuth::domain());
+    header('Location: '.$globals['base_url']);
     exit();
   }
 }
