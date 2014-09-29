@@ -3,4 +3,9 @@ web/*-local.php
 .sass-cache
 *.lock
 web/local.php
-web/bower_components
+bower_components
+web/local
+node_modules
+sql
+domains.txt
+
