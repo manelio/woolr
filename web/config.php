@@ -342,8 +342,8 @@ $globals['captcha_first_login'] = false;
 // Twitter settings, with oauth
 // Ensure you have pecl/oauth installed
 // For authentication
-$globals['oauth']['twitter']['consumer_key'] = 's7FgmmjWQSiUTzO1D4Nqqd0sw';
-$globals['oauth']['twitter']['consumer_secret'] = 'OKenS6hGddF97s1mN0Zmf57XVCWN59uYyTV9MsNKMo5gbmsmYM';
+$globals['oauth']['twitter']['consumer_key'] = 'xxx';
+$globals['oauth']['twitter']['consumer_secret'] = 'xxx';
 
 // For posting
 //$globals['twitter_user'] = 'xxx';
@@ -356,8 +356,8 @@ $globals['oauth']['twitter']['consumer_secret'] = 'OKenS6hGddF97s1mN0Zmf57XVCWN5
 
 
 // For Facebook authentication
-$globals['facebook_key'] = '724745530913083';
-$globals['facebook_secret'] = '5a753b8a7f24b928a92897be13d89518';
+$globals['facebook_key'] = 'xxx';
+$globals['facebook_secret'] = 'xxx';
 // For Facebook page
 //$globals['facebook_token'] = '';
 // Show the link in the horizontal bar
